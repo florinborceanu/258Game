@@ -14,6 +14,10 @@
         font-family: Font_SC;
         src: url(imgs/font.ttf) format('truetype');
         }
+    @font-face{
+        font-family: Font_TA;
+        src: url(imgs/Tahu!.ttf) format('truetype');
+        }
         
     div.textBox{
        font-family:Font_SC;
@@ -27,6 +31,7 @@
         text-align:left;
         border-collapse: collapse   ; 
         width: 60%;
+        background-color: #D8D8D8;
       
         }
     #ranks td {
@@ -36,8 +41,11 @@
         border-bottom: 1px solid black;
         padding-left:3px;
         }
-    #ranks tr { background-color: #D8D8D8;
-                }
+    #ranks  tr > td:first-child  { font-family:Font_TA;
+                                  font-size:10 px;}
+    
+    #ranks  tr > td:first-child +td +td +td { font-family:Font_TA;
+                                  font-size:10 px;}
 </style>
 </head>
 <body >
@@ -50,38 +58,38 @@
    <td>#1</td>
     <td>Alfreds Futterkiste</td>
     <td>Marevel</td>
-    <td>Germany</td>
+    <td>123.444</td>
   </tr>
    <tr>
     <td>#2</td>
     <td>Alfreds Futterkiste</td>
     <td>Marvel</td>
-    <td>Germany</td>
+    <td>133.555</td>
   </tr>
    <tr>
     <td>#3</td>
     <td>Alfreds Futterkiste</td>
     <td>Marvel</td>
-    <td>Germany</td>
+    <td>132.444</td>
   </tr>
    <tr>
     <td>#4</td>
     <td>Alfreds Futterkiste</td>
     <td>Marvel</td>
-    <td>Germany</td>
+    <td>100.333</td>
   </tr>
   
   <tr>
      <td>#5</td>
     <td>Berglunds snabbköp</td>
     <td>Anime</td>
-    <td>Sweden</td>
+    <td>99.444</td>
   </tr>
   <tr>
    <td>#6</td>
     <td>Centro comercial Moctezuma</td>
     <td>Anime</td>
-    <td>Mexico</td>
+    <td>99.222</td>
   </tr>
   </table>
 
