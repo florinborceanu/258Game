@@ -4,6 +4,20 @@
     src: url(fonts/Muskaters.ttf);
 }
 
+@font-face {
+    font-family: playFont;
+    src: url(fonts/ERASBD.ttf);
+}
+
+::-moz-selection { 
+    background: transparent;
+}
+
+::selection {
+    background: transparent;
+}
+
+
 body {
 	background-image: url("imgs/BG.png");
 	background-color: #cccccc;
@@ -33,20 +47,78 @@ div.titleBox {
 	font-size: 150px;
 	color: white;
 	text-align: center;
+	cursor: default;
 }
 
-img.cropped {
+div.playBT {
+	background-image: url("imgs/mainBTglow.png");
+	background-color: #8bd1d0;
+	background-size: 210px 210px;
+	background-position: center; 
+	border-radius: 50%;
     position: absolute;
-    margin: auto;
-    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 250px;
+    top: 20;
     left: 0;
     right: 0;
     bottom: 0;
 	width: 200px;
     height: 200px;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
-@font-face {
-    font-family: titleFont;
-    src: url(fonts/Muskaters.ttf);
+div.playBT:hover {
+	background-color: befbfa;
+	background-size: 210px 210px;
+	background-position: center; 
+	border-radius: 50%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 250px;
+    top: 20;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 200px;
+    height: 200px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+div.registerBox {
+	background-color: #8bd1d0;
+	background-position: center; 
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 250px;
+    top: -70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 400px;
+    height: 60px;
+	cursor: pointer;
+}
+
+div.registerText {
+	font-family: titleFont;
+	font-size: 52px;
+	color: white;
+	text-align: center;
+	
+}
+
+
+
+div.playBox {
+	font-family: playFont;
+	font-size: 64px;
+	padding-top: 65px;
+	color: white;
+	text-align: center;
 }
