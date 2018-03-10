@@ -1,3 +1,9 @@
+
+@font-face {
+    font-family: titleFont;
+    src: url(fonts/Muskaters.ttf);
+}
+
 body {
 	background-image: url("imgs/BG.png");
 	background-color: #cccccc;
@@ -7,4 +13,40 @@ body {
 	background-size: cover;
 	margin: 0;
     padding: 0;	
+}
+
+div.mb-container {
+	background-image: url("imgs/main.png");
+	background-repeat: no-repeat;
+	background-position: center top; 
+    background-size: 370px 600px;
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;	
+
+}
+
+div.titleBox {
+	font-family: titleFont;
+	font-size: 150px;
+	color: white;
+	text-align: center;
+}
+
+img.cropped {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 200px;
+    height: 200px;
+}
+
+@font-face {
+    font-family: titleFont;
+    src: url(fonts/Muskaters.ttf);
 }
