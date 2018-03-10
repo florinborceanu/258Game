@@ -1,0 +1,41 @@
+1.Descriere:
+
+Problema consta intr-o aplicatie pentru un automat de cafea detinut e o firma specializata. Cu ajutorul unui soft, automatul de cafea este capabil sa livreze, la cerinta clientului, 
+bautura dorita de acesta in limita stocului. Automatul este format din partea mecanica(Se ocupa cei de la etti) si softul pp-zis care gestioneaza stocul si in functie de acesta 
+indeplineste sau nu cerinta clientului.
+
+2.Actori:
+Client: Face o cerere catre aparat prin introducerea unei sume in acesta si selectarea bauturii dorite. 
+
+Responsabil cu aprovizionarea: Cu ajutorul unei chei, actorul poate deschide aparatul, actiune care va face softul sa intre in repaus. Acesta va extrage banii din interiorul aparatului 
+si va reface stocul in sloturile care necesita acest lucru(nu este obligatoriu sa refaca toate stocurile). Dupa ce va inchide usa si va scoate cheia, softul va actualiza automat 
+stocurile.
+
+Responsabil cu mentenanta: In cazul in care apar probleme la soft sau la aparat, actorul va veni la fata locului si le va rezolva.
+
+Server: Primeste mesaje de la aparat si le interpreteaza. Mesaje de eroare sau mesaje de "Out of Stock". In urma interpretarii trimite un raport catre firma responsabila.
+
+Firma: In urma raportului primit de la server, firma va lua o decizie corespunzatoare.
+
+3.Scenariile: 
+
+- Un client introduce o suma fixa, necesara pentru achizitionarea bauturii cu numarul 2. Dupa introducerea sumei, apasa pe butonul "2". Aparatul de cafea verifica suma de bani si 
+stocurile disponibile. Acestea fiind in regula, incepe prepararea bauturii selectate, livrand pe rand ingredientele necesare: Pahar, zahar, cafea solubila, apa fierbinte, bat de 
+plastic. In urma finalizarii comenzii aparatul emite un sunet si aprinde un bec albastru in dreptul paharului. 
+
+- Un client introduce o suma mai mare decat cea necesara pentru achizitionarea bauturii dorite, iar aparatul a ramas fara monezi pentru a returna restul. Aparatul ii returneaza banii
+clientului si trimite semnal de "out-of-stock" serverului. Serverul interpreteaza semnalul si trimite un raport firmei responsabila cu reaprovizionarea. Firma de reaprovizionare 
+trimite un angajat responsabil cu reaprovizionarea aparatului. Acesta introduce cheia, deschide aparatul si introduce necesarul de monezi pentru rest. Cand acesta inchide aparatul 
+si scoate cheia, aparatul reseteaza stockul de monezi pentru rest si reintra in functiune. 
+
+- Un client introduce o suma mai mica decat cea necesara pentru achizitionarea bauturii dorite. Aparatul afiseaza pe ecran mesajul "Suma insuficienta". Clientul apasa butonul destinat
+returnarii banilor, iar aparatul returneaza banii sub forma de monezi. 
+
+- Serverul primeste mesaj de eroare din partea aparatului, iar in urma interpretarii acestuia si trimiterea raportului catre firma, un angajat responsabil cu mentenanta aparatului 
+este trimis la locul acestuia. Responsabilul cu mentenanta introduce cheia si deschide aparatul, timp in care softul intra in rapaus. In urma constatarii facute de angajat, rezulta
+ca unul din senzorii compartimentelor este nefunctional. Angajatul il inlocuieste, inchide aparatul si scoate cheia. Aparatul reintra in functionare normala.
+
+- Un client introduce o suma de bani oarecare in aparat. In urma analizarii sumei de bani, softul constata ca compartimentul destinat bancnotelor este plin si trimite semnal serverului. 
+In urma trimiterii semnalului aparatul returneaza banii clientului afisand mesaj de eroare. In urma primirii semnalului serverul il interpreteaza si trimite un raport firmei. Firma 
+trimite un responsabil cu aprovizionarea si acesta va introduce cheia si va deschide aparatul. In urma scoaterii bancnotelor, angajatul inchide aparatul, scoate cheia, iar aparatul 
+reintra in functionare. 

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+	<html lang="en" <if test="fbcenabled:|:IPSLib::fbc_enabled() === TRUE || $this->settings['fbc_appid']"> xmlns:fb="http://www.facebook.com/2008/fbml"</if>>
+	<head>
+		<meta charset="{$this->settings['gb_char_set']}" />
+		<title>Just2Play - Romanian Gaming Community</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="shortcut icon" href='<if test="$this->registry->output->isHTTPS">{$this->settings['board_url_https']}<else />{$this->settings['board_url']}</if>/favicon.ico' />
+		<link rel="image_src" href='{$this->settings['meta_imagesrc']}' />
+		<script type='text/javascript'>
+		//<![CDATA[
+			jsDebug			= {parse expression="intval($this->settings['_jsDebug'])"}; /* Must come before JS includes */
+			USE_RTE			= 1;
+			DISABLE_AJAX	= parseInt({$this->settings['disable_text_ajax']}); /* Disables ajax requests where text is sent to the DB; helpful for charset issues */
+			inACP			= false;
+			var isRTL		= false;
+			var rtlIe		= '';
+			var rtlFull		= '';
+		//]]>
+		</script>
+		{parse template="includeCSS" group="global" params="$css"}
+		<meta property="og:title" content="{$this->registry->output->encodeMetaTagContent( str_replace( ' - ' . $this->settings['board_name'], '', $header_items['title'] ) )}"/>
+		<meta property="og:site_name" content="{$this->registry->output->encodeMetaTagContent( $this->settings['board_name'] )}"/>
+		<meta property="og:image" content="{$this->settings['meta_imagesrc']}"/>
+		<meta property="og:type" content="article" />
+		<if test="isLargeTouch:|:$this->registry->output->isLargeTouchDevice()">
+		<!--<meta name="viewport" content="width=device-width;">-->
+		</if>
+		<if test="isSmallTouch:|:$this->registry->output->isSmallTouchDevice()">
+		<meta name="viewport" content="width=1024px">
+		</if>
+		{parse template="_ipbfsConfig" group="global" params=""}
+		<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type='text/javascript'>!window.jQuery && document.write('<script src="{style_images_url}/js/jquery.min.js"><\/script>')</script>
+		<script type='text/javascript' src="{style_images_url}/js/cookie.js"></script>
+		<script type='text/javascript' src="{style_images_url}/js/ipbforumskins.js"></script>
+		{parse template="includeJS" group="global" params="$jsModules"}
+		{parse template="includeFeeds" group="global" params="$documentHeadItems"}
+		{parse template="includeRTL" group="global" params=""}		
+		{parse template="includeVars" group="global" params="$header_items"}
+	</head>
+	<body id='ipboard_body'>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104217866-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<?php include_once("analyticstracking.php") ?>
+		<p id='content_jump' class='hide'><a href='#j_content' title='{$this->lang->words['jump_to_content']}' accesskey='m'>{$this->lang->words['jump_to_content']}</a></p>
+		<div id='ipbwrapper'>
+					
+                    <div id='user_bar'><div class='wrapper clearfix'>
+                    <if test="canSearch:|:$this->memberData['g_use_search']">{parse template="quickSearch" group="global" params=""}</if>
+					<if test="memberbox:|:$this->memberData['member_id']">
+						<div id='user_navigation' class='logged_in'>
+							<ul class='ipsList_inline'>
+								<li><a href="{parse url="showuser={$this->memberData['member_id']}" seotitle="{$this->memberData['members_seo_name']}" template="showuser" base="public"}" title='{$this->lang->words['your_profile']}'>
+                                    <img src='{$this->memberData['pp_small_photo']}' alt="{$this->memberData['members_display_name']}{$this->lang->words['users_photo']}" class='user_photo' />
+                                </a></li>
+                                <li><a id='user_link' href="{parse url="showuser={$this->memberData['member_id']}" seotitle="{$this->memberData['members_seo_name']}" template="showuser" base="public"}"  title='{$this->lang->words['your_profile']}'>{$this->memberData['members_display_name']} &nbsp;<span id='user_link_dd'></span></a></li>							
+								<if test="showInboxNotify:|:! ( ! $this->memberData['member_id'] && $this->settings['force_login'] ) && !($this->settings['board_offline'] && !$this->memberData['g_access_offline'])">
+									<if test="messengerlink:|:$this->memberData['g_use_pm'] AND $this->memberData['members_disable_pm'] == 0">
+										<li><a data-clicklaunch="getInboxList" id='inbox_link' href='{parse url="app=members&amp;module=messaging" base="public"}' title='{$this->lang->words['your_messenger']}'><img src="{style_images_url}/clear.gif" alt="" /><if test="notifications:|:$this->memberData['msg_count_new']"><span class='ipsHasNotifications'>{$this->memberData['msg_count_new']}</span></if>&nbsp;</a></li>
+									</if>
+									<li><a data-clicklaunch="getNotificationsList" id='notify_link' href="{parse url="app=core&amp;module=usercp&amp;area=notificationlog" base="public"}" title="{$this->lang->words['notifications_at_the_top']}"><img src="{style_images_url}/clear.gif" alt="" /><if test="notifications:|:$this->memberData['notification_cnt']"><span class='ipsHasNotifications'>{$this->memberData['notification_cnt']}</span></if>&nbsp;</a></li>
+								</if>
+    							<li><a href="{parse url="app=core&amp;module=global&amp;section=login&amp;do=logout&amp;k={$this->member->form_hash}" base="public"}"><img src="https://s2.postimg.org/whsg9gqnd/sign_out.png"></a></li>								
+								<if test="authenticating:|:$this->memberData['member_group_id'] == $this->settings['auth_group']">
+									<li><a href="{parse url="app=core&amp;module=global&amp;section=register&amp;do=reval" base="public"}" title='{$this->lang->words['resend_val']}'>{$this->lang->words['resend_val']}</a></li>
+								</if>
+							</ul>
+						</div>
+						<!-- ::: USER DROP DOWN MENU ::: -->
+						<div id='user_link_menucontent' class='ipsHeaderMenu clearfix boxShadow' style='display: none'>
+							<a href="{parse url="showuser={$this->memberData['member_id']}" seotitle="{$this->memberData['members_seo_name']}" template="showuser" base="public"}" title='{$this->lang->words['your_profile']}' class='ipsUserPhotoLink left'>
+								<img src='{$this->memberData['pp_small_photo']}' alt="{parse expression="sprintf($this->lang->words['users_photo'],$this->memberData['members_display_name'])"}" class='ipsUserPhoto ipsUserPhoto_medium photo' />
+							</a>
+							
+							<div class='left'>
+								<if test="canUpdateStatus:|:$this->registry->getClass('memberStatus')->canCreate( $this->memberData ) && !($this->settings['board_offline'] && !$this->memberData['g_access_offline'])">
+									<form id='statusForm' action='{$this->settings['base_url']}app=members&amp;module=profile&amp;section=status&amp;do=new&amp;k={$this->member->form_hash}&amp;id={$this->memberData['member_id']}' method='post'>
+										<input type='text' id='statusUpdateGlobal' name='content' class='input_text' style='width: 97%' /><br />
+										<input type='submit' id='statusSubmitGlobal' class='ipsButton_secondary' value='{$this->lang->words['global_update_status']}' />
+										<if test="update:|:(IPSLib::twitter_enabled() OR IPSLib::fbc_enabled() ) AND ( $this->memberData['fb_uid'] OR $this->memberData['twitter_id'] )">
+											&nbsp;&nbsp;
+											<if test="updateTwitter:|:IPSLib::twitter_enabled() AND ( $this->memberData['twitter_id'] )"><input type='checkbox' id='su_TwitterGlobal' value='1' name='su_Twitter' /> <label for='su_TwitterGlobal' class='desc ipsType_smaller'>Twitter</label></if> &nbsp; 
+											<if test="updateFacebook:|:IPSLib::fbc_enabled() AND ( $this->memberData['fb_uid'] )">&nbsp;<input type='checkbox' id='su_FacebookGlobal' value='1' name='su_Facebook' /> <label for='su_FacebookGlobal' class='desc ipsType_smaller'>Facebook</label></if>
+										</if>
+										<br />
+										<hr />
+									</form>
+								</if>
+									<ul id='links'>
+										<li id='user_profile'><a href='{parse url="showuser={$this->memberData['member_id']}" seotitle="{$this->memberData['members_seo_name']}" template="showuser" base="public"}' title='{$this->lang->words['your_profile']}'>{$this->lang->words['my_profile']}</a></li>
+										<li id='user_ucp'><a href="{parse url="app=core&amp;module=usercp" base="public"}" title="{$this->lang->words['cp_tool_tip']}">{$this->lang->words['your_cp']}</a></li>
+										<li id='user_content'><a href="{parse url="app=core&amp;module=search&amp;do=user_activity&amp;mid={$this->memberData['member_id']}" base="public"}" title="{$this->lang->words['my_content_link']}">{$this->lang->words['my_content_link']}</a></li>
+										<if test="userLikeLink:|:count( IPSLib::getEnabledApplications('like') )">
+											<li id='user_likes'><a href='{parse url="app=core&amp;module=search&amp;do=followed" base="public"}' title='{$this->lang->words['your_likes']}'>{$this->lang->words['your_likes']}</a></li>
+										</if>
+										<if test="nobbyNoMates:|:$this->settings['friends_enabled'] && $this->memberData['g_can_add_friends']">
+											<li id='user_friends'><a href='{parse url="app=members&amp;module=profile&amp;section=friends&amp;do=list" base="public"}' title="{$this->lang->words['manage_friends']}" class='manage_friends'>{$this->lang->words['manage_friends']}</a></li>
+										</if>
+										<li id='user_enemies'><a href='{parse url="app=core&amp;module=usercp&amp;tab=core&amp;area=ignoredusers" base="public"}' title="{$this->lang->words['manage_ignored_users']}" class='manage_enemies'>{$this->lang->words['manage_ignored_users']}</a></li>
+										<if test="bloglink:|:$this->memberData['has_blog'] AND IPSLib::appIsInstalled('blog')">
+											<li id='user_blog'><a href="{parse url="app=blog&amp;module=manage" base="public" template="manageblog" seotitle="false"}">{$this->lang->words['manage_blogs']}</a></li>
+										</if>
+										<if test="pmLink:|:$this->memberData['members_disable_pm'] != 2">
+											<li id='user_pm'><a href="{parse url="app=members&module=messaging" base="public"}">{$this->lang->words['user_dd_go_pm']}</a></li>
+										</if>
+										<if test="gallerylink:|:$this->memberData['has_gallery'] AND IPSLib::appIsInstalled('gallery')">
+											<li id='user_gallery'><a href='{parse url="app=gallery&amp;user={$this->memberData['member_id']}" base="public" seotitle="{$this->memberData['members_seo_name']}" template="useralbum"}' title="{$this->lang->words['go_to_my_gallery']}">{$this->lang->words['my_gallery']}</a></li>
+										</if>		<br>																						<if test="accessreports:|:$this->memberData['is_mod'] OR !empty($this->memberData['access_report_center']) || ($this->memberData['g_access_cp'] AND !$this->settings['security_remove_acp_link'])">
+
+											
+									</ul>
+							</div>
+																			<if test="showacplink:|:$this->memberData['g_access_cp'] AND !$this->settings['security_remove_acp_link']">
+		
+
+														<li><a href="{$this->settings['_admin_link']}" title='{$this->lang->words['admin_cp']}' target="_blank">{$this->lang->words['login_to_acp']}</a>
+														</li>
+												</if>
+												<li><a href="{parse url="app=core&amp;module=modcp" base="public"}" title='{$this->lang->words['gbl_modcp_link']}'>{$this->lang->words['gbl_modcp_link']}</a></li>
+												</li>
+												<if test="rclink:|:$this->memberData['access_report_center'] && $this->memberData['_cache']['report_num'] > 0">
+	
+													<br>
+														<li><a href="{parse url="app=core&amp;module=reports&amp;do=index" base="public"}" title='{$this->lang->words['view_reports']}'>{$this->memberData['_cache']['report_num']} {$this->lang->words['report_member_bar']}</a>
+														</li>
+												</if>
+
+										</if>
+						</div>
+					<else />
+						<div id='user_navigation' class='not_logged_in'>
+							
+							<ul class='ipsList_inline'>
+								<li>
+									<span class='services'>
+										<if test="limFacebook:|:IPSLib::loginMethod_enabled('facebook')">
+											<a href='{parse url="app=core&amp;module=global&amp;section=login&amp;serviceClick=facebook" base="public"}'>{parse replacement="lim_facebook"}</a>
+										</if>
+										<if test="limTwitter:|:IPSLib::loginMethod_enabled('twitter')">
+											<a href='{parse url="app=core&amp;module=global&amp;section=login&amp;serviceClick=twitter" base="public"}'>{parse replacement="lim_twitter"}</a>
+										</if>
+										<if test="limWindows:|:IPSLib::loginMethod_enabled('live')">
+											<a href='{parse url="app=core&amp;module=global&amp;section=login&amp;do=process&amp;use_live=1&amp;auth_key={$this->member->form_hash}" base="public"}'>{parse replacement="lim_windows"}</a>
+										</if>
+									</span>
+									<a href='{parse url="app=core&amp;module=global&amp;section=login" base="public"}' title='{$this->lang->words['sign_in']}' id='sign_in'><img src="{style_images_url}/user_login.png" alt="" /> {$this->lang->words['sign_in']}</a>
+								</li>
+								<li>
+									<a href="{parse url="app=core&amp;module=global&amp;section=register" base="public"}" title='{$this->lang->words['register']}' id='register_link'><img src="{style_images_url}/user_register.png" alt="" /> {$this->lang->words['register']}</a>
+								</li>
+							</ul>
+						</div>
+					</if>
+                    </div></div>
+                    <div class='wrapper'>
+			<!-- ::: BRANDING STRIP: Logo and search box ::: -->
+<div class="logo-bg">
+<div align="center">
+
+<div class="logo-top">
+<a href="http://just2play.ro/forum/index.php?/index"><img src="https://s33.postimg.org/hs6se6l4v/logo_j2p3.png" height="250px" width="250px"></a>
+</div>
+<div class="logo-menubar">
+<img src="https://s1.postimg.org/sajvzg12n/test5.png">
+<a href="http://just2play.ro/"><img src="https://s2.postimg.org/epu1km6cp/test4.png"></a><a href="http://just2play.ro/forum/index.php?/index/members/"><img src="https://s2.postimg.org/tk2difiih/test2.png"></a><img src="https://s2.postimg.org/4qn1421k9/Untitled-5.png" width="110px"><a href="http://http://just2play.ro/ucp/"><img src="https://s1.postimg.org/mw3xqmlbz/TEST_3.png"></a><img src="https://s2.postimg.org/5y72iqm3d/test1.png">
+<img src="https://s1.postimg.org/51k9sxl67/test6.png">
+</div>
+</div>
+</div>
+			<div id='branding'>
+
+
+                <!-- ::: APPLICATION TABS ::: -->
+		<div id='primary_nav' class='clearfix'>
+              
+
+			</div>
+            <div class='content'>
+	
+                <div id='secondary_navigation' class='clearfix'>
+                                
+                    <ol class='breadcrumb top ipsList_inline left' id='breadcrumb'>
+                        <php>$this->did_first = 0;</php>
+                        <if test="switchnavigation:|:!$this->settings['remove_forums_nav'] OR ipsRegistry::$current_application == 'forums'">
+                            <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" <if test="!$this->did_first">class='first'</if>>
+                                <a href='http://just2play.ro/forum/index.php?/index' itemprop="url">
+                                    <span itemprop="title">{$this->settings['board_name']}</span>
+                                </a>
+                            </li>
+                            <if test="didfirstnav:|:$this->did_first=1"></if>
+                        </if>
+                        <foreach loop="navigation:$items['navigation'] as $idx => $data">
+                            <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" <if test="!$this->did_first">class='first'</if>>
+                                 <if test="navigationlink:|:$data[1]"><a href='{parse url="{$data[1]}" base="$data[4]" seotitle="$data[2]" template="$data[3]"}' title='{$this->lang->words['nav_return_to']} {$data[0]}' itemprop="url"></if><span itemprop="title">{$data[0]}</span><if test="closenavigationlink:|:$data[1]"></a></if>
+                            </li>
+                            <if test="forsuredidfirstnav:|:$this->did_first=1"></if>
+                        </foreach>
+                    </ol>
+                    
+                    <ul id='secondary_links' class='ipsList_inline right'>
+                        <if test="siteruleslink:|:$this->settings['gl_show'] and $this->settings['gl_title']"><li><a href='<if test="ruleslink:|:$this->settings['gl_link']">{$this->settings['gl_link']}<else />{parse url="app=forums&amp;module=extras&amp;section=boardrules" base="public"}</if>'><if test="siterulestitle:|:$this->settings['gl_title']">{$this->settings['gl_title']}<else />{$this->lang->words['board_rules']}</if></a></li></if>
+                        <li><a href='{parse url="app=core&amp;module=search&amp;do=viewNewContent&amp;search_app=<if test="viewnewcontentapp:|:$this->registry->getCurrentApplication() != 'core' AND IPSLib::appIsSearchable( $this->registry->getCurrentApplication() )">{$this->registry->getCurrentApplication()}<else />forums</if>" base="public"}' accesskey='2'>{$this->lang->words['view_new_posts']}</a></li>
+                        <if test="showQuickNav:|:! ( ! $this->memberData['member_id'] && $this->settings['force_login'] ) && !($this->settings['board_offline'] && !$this->memberData['g_access_offline']) && $this->memberData['g_view_board']">
+                        <li><a href="{parse url="app=core&amp;module=global&amp;section=navigation&amp;inapp={parse expression="IPS_APP_COMPONENT"}" base="public"}" rel="quickNavigation" accesskey='9' id='quickNavLaunch' title="{$this->lang->words['launch_quicknav']}"><img src="{style_images_url}/icon_quicknav.png" alt="" /></a></li>
+                        </if>
+                        <if test="$this->settings['showFacebook']=='yes'">
+                        <li><a href="http://www.facebook.com/{$this->settings['facebookName']}" title="Visit us on Facebook"><img src="{style_images_url}/social_facebook.png" alt="" /></a></li>
+                        </if>
+                        <if test="$this->settings['showTwitter']=='yes'">
+                        <li><a href="http://twitter.com/#!/{$this->settings['twitterName']}" title="Follow us on Twitter"><img src="{style_images_url}/social_twitter.png" alt="" /></a></li>
+                        </if>
+                        <if test="$this->settings['showYoutube']=='yes'">
+                        <li><a href="http://www.youtube.com/user/{$this->settings['youtubeName']}" title="Watch us on YouTube"><img src="{style_images_url}/social_youtube.png" alt="" /></a></li>
+                        </if>
+                    </ul>
+                
+                </div>
+    		
+			<!-- ::: MAIN CONTENT AREA ::: -->
+			<div id='content' class='clearfix'>
+
+
+                <if test="($this->settings['guestMessage']=='yes') AND !($this->memberData['member_id'])">
+                <div class='guestMessage'>
+                	<strong>Welcome to {$this->settings['board_name']}</strong><br />
+                    Register now to gain access to all of our features. Once registered and logged in, you will be able to create topics, post replies to existing threads, give reputation to your fellow members, get your own private messenger, post status updates, manage your profile and so much more. If you already have an account, <a href='{parse url="app=core&amp;module=global&amp;section=login" base="public"}'>login here</a> - otherwise <a href='{parse url="app=core&amp;module=global&amp;section=register" base="public"}'>create an account</a> for free today!
+                </div>
+                </if>
+
+                <noscript>
+                    <div class='message error'>
+                        <strong>{$this->lang->words['gbl_no_js_title']}</strong>
+                        <p>{$this->lang->words['gbl_no_js']}</p>
+                    </div>
+                    <br />
+                </noscript>
+				<!-- ::: CONTENT ::: -->
+<if test="hasHeaderAd:|:$items['adHeaderCode']">
+                    <div class='ipsAd'>{$items['adHeaderCode']}</div>
+                </if>
+				<if test="mainpageContent:|:$html">{$html}</if>
+<if test="hasFooterAd:|:$items['adFooterCode']">
+                    <div class='ipsAd'>{$items['adFooterCode']}</div>
+                </if>
+				<ol class='breadcrumb bottom ipsList_inline left clearfix clear'>
+					<if test="count( $items['navigation'] )">
+						<php>$this->did_first_bottom = 0;</php>
+						<if test="switchnavigation:|:!$this->settings['remove_forums_nav'] OR ipsRegistry::$current_application == 'forums'">
+							<li><a href='{parse url="act=idx" seotitle="false" base="public"}'>{$this->settings['board_name']}</a></li>
+							<if test="didfirstnav:|:$this->did_first_bottom=1"></if>
+						</if>
+						<foreach loop="navigation:$items['navigation'] as $idx => $data">
+							<li><if test="didfirstappnow:|:$this->did_first_bottom"><span class='nav_sep'>{parse replacement="f_nav_sep"}</span></if> <if test="navigationlink:|:$data[1]"><a href='{parse url="{$data[1]}" base="$data[4]" seotitle="$data[2]" template="$data[3]"}' title='{$this->lang->words['nav_return_to']} {$data[0]}'></if>{$data[0]}<if test="closenavigationlink:|:$data[1]"></a></if></li>
+							<if test="forsuredidfirstnav:|:$this->did_first_bottom=1"></if>
+						</foreach>
+					<else />
+						<li>&nbsp;</li>
+					</if>
+				</ol>
+			</div>
+			<!-- ::: FOOTER (Change skin, language, mark as read, etc) ::: -->
+</div>
+<center>
+<img src="https://s1.postimg.org/4j9keui5b/f2tr.png">
+<img src="https://s2.postimg.org/hh0m7cfvt/ftr1.png">
+					<if test="markRead:|: ! $this->member->is_not_human">
+							<a rel="nofollow" id='mark_all_read' href="{parse url="app=forums&amp;module=forums&amp;section=markasread&amp;marktype=all&amp;k={$this->member->form_hash}" base="public"}" title='{$this->lang->words['mark_all_as_read']}'><img src="https://s1.postimg.org/tt2r481fz/ftr6.png"></a>
+							<ul id='mark_all_read_menucontent' class='ipbmenu_content' style='display: none'>
+								<foreach loop="$footer_items['mark_read_apps'] as $app => $appData">
+									<li>
+										<if test="hideRcForPerms:|:$this->memberData['showReportCenter'] OR $app != 'core'">
+											<a href="{parse url="app=forums&amp;module=forums&amp;section=markasread&amp;marktype=app&amp;markApp={$app}&amp;k={$this->member->form_hash}" base="public"}"><if test="isCoreRC:|:$app=='core'">{$this->lang->words['markread_rc_link']}<else />{IPSLib::getAppTitle($app)}</if></a>
+										</if>
+									</li>
+								</foreach>
+								<li>
+									<a href="{parse url="app=forums&amp;module=forums&amp;section=markasread&amp;marktype=all&amp;k={$this->member->form_hash}" base="public"}"><strong>{$this->lang->words['mark_all_as_read']}</strong></a>
+								</li>
+							</ul>
+					</if>
+<a href='#top' title='{$this->lang->words['go_to_top']}'><img src="https://s2.postimg.org/dyakq22sp/ftr3.png"></a>
+<a href="https://www.facebook.com/Just2PlayOficial/"><img src="https://s2.postimg.org/66h366bg9/ftr7.png"></a>
+<img src="https://s2.postimg.org/kfwahghqh/ftr2.png">
+<img src="https://s1.postimg.org/4j9keui5b/f2tr.png">
+</center>
+<!-- T5 Badge -->
+<span id="t5_zone_standard_b"></span>
+<!-- T5 Badge -->
+
+	<div id="eXTReMe"><a href="http://extremetracking.com/open?login=j2pforum">
+<img src="http://t1.extreme-dm.com/i.gif" style="border: 0;"
+height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
+<script type="text/javascript"><!--
+EXref="";top.document.referrer?EXref=top.document.referrer:EXref=document.referrer;//-->
+</script><script type="text/javascript"><!--
+var EXlogin='j2pforum' // Login
+var EXvsrv='s10' // VServer
+EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+EXb=EXs.colorDepth:EXb=EXs.pixelDepth;EXsrc="src";
+navigator.javaEnabled()==1?EXjv="y":EXjv="n";
+EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+EXref?EXref=EXref:EXref=EXd.referrer;
+EXd.write("<img "+EXsrc+"=http://e1.extreme-dm.com",
+"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
+"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
+"l="+escape(EXref)+" height=1 width=1>");//-->
+</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
+src="http://e1.extreme-dm.com/s10.g?login=j2pforum&amp;j=n&amp;jv=n" />
+</div></noscript></div>
+
+</div></div>
+
+
+
+		<if test="!$this->memberData['member_id']">
+			{parse template="inlineLogin" group="global" params=""}
+		</if>
+	</body>
+</html>

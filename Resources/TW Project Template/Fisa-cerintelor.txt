@@ -1,0 +1,16 @@
+1.Descriere:
+
+Problema consta intr-o aplicatie pentru un automat de cafea detinut e o firma specializata. Cu ajutorul unui soft, automatul de cafea este capabil sa livreze, la cerinta clientului, bautura dorita de acesta in limita stocului. Automatul este format din partea mecanica(Se ocupa cei de la etti) si softul pp-zis care gestioneaza stocul si in functie de acesta indeplineste sau nu cerinta clientului.
+
+2.Actori:
+Client: Face o cerere catre aparat prin introducerea unei sume in acesta si selectarea bauturii dorite. 
+
+Baiatu' cu aprovizionarea: Cu ajutorul unei chei, actorul poate deschide aparatul, actiune care va face softul sa intre in repaus. Acesta va extrage banii din interiorul aparatului si va reface stocul in sloturile care necesita acest lucru(nu este obligatoriu sa refaca toate stocurile). Dupa ce va inchide usa si va scoate cheia, softul va actualiza automat stocurile.
+
+Baiatu' cu mentenanta: In cazul in care apar probleme la soft sau la aparat, actorul va veni la fata locului si le va rezolva.
+
+Server: Primeste mesaje de la aparat si le interpreteaza. Mesaje de eroare sau mesaje de "Out of Stock". In urma interpretarii trimite un raport catre firma responsabila.
+
+Firma: In urma raportului primit de la server, firma va lua o decizie corespunzatoare.
+
+3.Scenariile: 
