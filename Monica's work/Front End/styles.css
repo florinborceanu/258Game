@@ -1,0 +1,45 @@
+
+    body {
+        background-image: url("imgs/BG.png");
+        background-color: #cccccc;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center top; 
+        background-size: cover;
+    }
+    @font-face{
+        font-family: Font_SC;
+        src: url(imgs/font.ttf) format('truetype');
+        }
+    @font-face{
+        font-family: Font_TA;
+        src: url(imgs/Tahu!.ttf) format('truetype');
+        }
+        
+    div.textBox{
+       font-family:Font_SC;
+       color : white;
+       text-align: center;
+       font-size:100px;
+    }
+   #ranks {
+        margin-top: 35px;
+        font-family:Font_SC;
+        text-align:left;
+        border-collapse: collapse   ; 
+        width: 60%;
+        background-color: #D8D8D8;
+      
+        }
+    #ranks td {
+        font-family:Font_SC;
+        color:black;
+        font-size:40px;
+        border-bottom: 1px solid black;
+        padding-left:3px;
+        }
+    #ranks  tr > td:first-child  { font-family:Font_TA;
+                                  font-size:10 px;}
+    
+    #ranks  tr > td:first-child +td +td +td { font-family:Font_TA;
+                                  font-size:10 px;}
