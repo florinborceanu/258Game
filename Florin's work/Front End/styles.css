@@ -42,7 +42,7 @@ div.mb-container {
 
 }
 
-div.titleBox {
+div.titleText {
 	font-family: titleFont;
 	font-size: 150px;
 	color: white;
@@ -89,7 +89,36 @@ div.playBT:hover {
 	transition: 0.3s;
 }
 
-div.registerBox {
+div.playBT:active {
+	background-image: url("");
+	background-color: white;
+	background-size: 210px 210px;
+	background-position: center; 
+	border-radius: 0%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 150px;
+    top: 10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 99%;
+    height: 500px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+
+div.playText {
+	font-family: playFont;
+	font-size: 64px;
+	padding-top: 65px;
+	color: white;
+	text-align: center;
+}
+
+.registerBox {
 	background-color: #8bd1d0;
 	background-position: center; 
     position: absolute;
@@ -103,7 +132,46 @@ div.registerBox {
 	width: 400px;
     height: 60px;
 	cursor: pointer;
+	transition: 0.3s;
+	transition-timing-function: ease-in-out;
 }
+
+.registerBox:active {
+	background-color: #8bd1d0;
+	background-position: center; 
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 250px;
+    top: -170px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 400px;
+    height: 350px;
+	cursor: pointer;
+	transition: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+.registerBox .registerBox-content:before, .registerBox .registerBox-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #669796 transparent transparent transparent;
+ bottom: -0.49em;
+}
+
+.registerBox .registerBox-content:before {
+ left: 0;
+ border-width: 0.5em 0 0 0.53em;
+}
+.registerBox .registerBox-content:after {
+ right: 0;
+ border-width: 0.5em 0.55em 0 0;
+}
+
 
 div.registerText {
 	font-family: titleFont;
@@ -114,11 +182,3 @@ div.registerText {
 }
 
 
-
-div.playBox {
-	font-family: playFont;
-	font-size: 64px;
-	padding-top: 65px;
-	color: white;
-	text-align: center;
-}
