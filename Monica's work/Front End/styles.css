@@ -40,61 +40,43 @@
    width:80px; 
    height:80px;
    background-image:url('imgs/av1.png');
-  
-   margin-left:5px;
-   margin-bottom:3px;
-   margin-top:3px;
-   padding:13px; 
+   padding:4.5%;
+   margin-top:1%;
 }
     div.avatar2{
    width:80px; 
    height:80px;
    background-image:url('imgs/av2.png');
-   
-   margin-left:5px;
-   margin-bottom:3px;
-   margin-top:3px;
-   padding:13px; 
+   padding:4.5%;
+   margin-top:1%; 
 }
     div.avatar3{
    width:80px; 
    height:80px;
    background-image:url('imgs/av3.png');
-   
-   margin-left:5px;
-   margin-bottom:3px;
-   margin-top:3px;
-   padding:13px; 
+   padding:4.5%;
+   margin-top:1%;
 }
     div.avatar4{
    width:80px; 
    height:80px;
    background-image:url('imgs/av4.png');
-   
-   margin-left:5px;
-   margin-bottom:3px;
-   margin-top:3px;
-   padding:13px; 
+   padding:4.5%;
+   margin-top:1%; 
 }
     div.avatar5{
    width:80px; 
    height:80px;
    background-image:url('imgs/av5.png');
-   
-   margin-left:5px;
-   margin-bottom:3px;
-   margin-top:3px;
-   padding:13px; 
+   padding:4.5%;
+   margin-top:1%;; 
 }
     div.avatar6{
    width:80px; 
    height:80px;
    background-image:url('imgs/av6.png');
-  
-   margin-left:5px;
-   margin-bottom:3px;
-   margin-top:3px;
-   padding:13px; 
+   padding:4.5%;
+   margin-top:1%;
 }
     
     #HoverCell {
@@ -107,16 +89,21 @@
     
     #InfoBox{
          background-color:#8bd1d0;
-         margin-left:-78px;
+         
+         margin-top:-7%;
+         margin-right:40%;
+         margin-left:30%;
+         margin-bottom:auto;
          text-align: center;
          font-size:20px;
          color:white;
-         height:110px;
-         width:99.8%;
+         height:-80%;
+         width:40%;
          position:absolute;
          z-index:9;
          display:none;
-         opacity:0.99;
+         opacity:0.97;
+         float:left;
     }
     #HoverCell:hover {opacity:0.5;}
    
@@ -190,7 +177,7 @@
   margin-right:auto;
   margin-left:auto;
   z-index:10;
-  height:110px;
+  height:5%;
          width:100%;
 }
 .gradient-border-mini:after {
