@@ -8,7 +8,7 @@ body {
 	background-image: url("imgs/BG.png");
 	background-color: #cccccc;
 	background-repeat: no-repeat;
-    	background-attachment: fixed;
+	background-attachment: fixed;
 	background-position: center top; 
 	background-size: cover;
 	margin: 0;
@@ -17,6 +17,7 @@ body {
    /* Slideshow container */
   .slideshow-container {
     max-width: 1000px;
+    padding-top: 75px;
     position: relative;
     margin: auto;
     font-size: 150px;
@@ -43,16 +44,21 @@ body {
   
   /* Modify position the "next button" to the right */
   .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
+    right: -1em;
+   }
+   .prev {
+    left: -1em;
+   }
+
   /* Add a #CLR background on hover */
   .prev:hover, .next:hover {
     background-color: rgba(185, 47, 13, 0.7);
   }
   
-  /* Styles of captions text */
+  /* Styles of texts */
+  .section {
+    
+  }
   .text {
     color: #6e0a0a;
     font-size: 50%;
@@ -63,16 +69,17 @@ body {
     width: 100%;
     text-align: center;
   }
-  
-  /* Number text (1/4 etc) */
-  .numbertext {
-    color: #851515;
-    font-size: 0.2em;
+  .header {
+    color: #fffefece;
+    font-size: 2.4vw;
+    font-family: Muskaters;
     padding: 8px 12px;
     position: absolute;
-    top: 0;
+    top: 8px;
+    width: 100%;
+    text-align: center;
   }
-  
+    
   /* The dots/bullets */
   .dot {
     cursor:pointer;

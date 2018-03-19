@@ -21,15 +21,115 @@
        color : white;
        text-align: center;
        font-size:100px;
+       position:relative;
+       margin-left:auto;
+       margin-right:auto;
     }
+    
+    div.SubTextBox{
+        color : #8bd1d0;
+        text-align: center;
+        font-size:40px;
+      
+        font-family:Font_SC;
+        top:-107px;
+        position:relative;
+    }
+    
+    div.avatar1{
+   width:80px; 
+   height:80px;
+   background-image:url('imgs/av1.png');
+   padding:4.5%;
+   margin-top:1%;
+}
+    div.avatar2{
+   width:80px; 
+   height:80px;
+   background-image:url('imgs/av2.png');
+   padding:4.5%;
+   margin-top:1%; 
+}
+    div.avatar3{
+   width:80px; 
+   height:80px;
+   background-image:url('imgs/av3.png');
+   padding:4.5%;
+   margin-top:1%;
+}
+    div.avatar4{
+   width:80px; 
+   height:80px;
+   background-image:url('imgs/av4.png');
+   padding:4.5%;
+   margin-top:1%; 
+}
+    div.avatar5{
+   width:80px; 
+   height:80px;
+   background-image:url('imgs/av5.png');
+   padding:4.5%;
+   margin-top:1%;; 
+}
+    div.avatar6{
+   width:80px; 
+   height:80px;
+   background-image:url('imgs/av6.png');
+   padding:4.5%;
+   margin-top:1%;
+}
+    
+    #HoverCell {
+         height:100%;
+         width:100%; 
+         position:relative;
+         
+         
+    }
+    
+    #InfoBox{
+         background-color:#8bd1d0;
+         
+         margin-top:-7%;
+         margin-right:40%;
+         margin-left:30%;
+         margin-bottom:auto;
+         text-align: center;
+         font-size:20px;
+         color:white;
+         height:-80%;
+         width:40%;
+         position:absolute;
+         z-index:9;
+         display:none;
+         opacity:0.97;
+         float:left;
+    }
+    #HoverCell:hover {opacity:0.5;}
+   
+    #HoverCell:hover + #InfoBox {
+    
+    transition: bottom 0.5s;
+    
+    display:block;
+         
+         
+        
+        
+}        
+        
+
    #ranks {
         margin-top: 35px;
         font-family:Font_SC;
         text-align:left;
         border-collapse: collapse   ; 
-        width: 60%;
+        width: 100%;
         background-color: #D8D8D8;
-      
+        position:relative;
+        cursor:default;
+        
+    
         }
     #ranks td {
         font-family:Font_SC;
@@ -37,9 +137,93 @@
         font-size:40px;
         border-bottom: 1px solid black;
         padding-left:3px;
+        z-index:-1;
         }
+    
+    
+    
     #ranks  tr > td:first-child  { font-family:Font_TA;
-                                  font-size:10 px;}
+                                  font-size:10 px;
+                                  z-index:-1;}
     
     #ranks  tr > td:first-child +td +td +td { font-family:Font_TA;
                                   font-size:10 px;}
+ 
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+
+.gradient-border {
+  --borderWidth: 3px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+  width:60%;
+  margin-top: 35px;
+  margin-right:auto;
+  margin-left:auto;
+  
+}
+
+.gradient-border-mini {
+  --borderWidth: 3px;
+  
+  
+  border-radius: var(--borderWidth);
+  background-color: #1D1F20;
+  position: relative;
+  margin-right:auto;
+  margin-left:auto;
+  z-index:10;
+  height:5%;
+         width:100%;
+}
+.gradient-border-mini:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #212121, #4C7372,#476B6A, #436665, #3D5C5B, #324D4C, #283D3C, #212121);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 20s ease alternate infinite;
+  background-size: 300% 300%;
+  
+}
+
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+  
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+ 
+ 
+ 

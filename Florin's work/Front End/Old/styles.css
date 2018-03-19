@@ -1,0 +1,262 @@
+
+@font-face {
+    font-family: titleFont;
+    src: url(fonts/Muskaters.ttf);
+}
+
+@font-face {
+    font-family: playFont;
+    src: url(fonts/ERASBD.ttf);
+}
+
+::-moz-selection { 
+    background: transparent;
+}
+
+::selection {
+    background: transparent;
+}
+
+
+body {
+	background-image: url("imgs/BG.png");
+	background-color: #cccccc;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-position: center top; 
+	background-size: cover;
+	margin: 0;
+    padding: 0;	
+}
+
+div.mb-container {
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url("imgs/main.png");
+	background-repeat: no-repeat;
+	background-position: center top; 
+	background-size: contain;
+	position: absolute;
+	max-width: 350px;
+	max-height: 750px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;	
+
+}
+
+div.titleText {
+	font-family: titleFont;
+	font-size: 18vh;
+	font-weight: 500px;
+	text-align: center;
+	color: white;
+	cursor: default;
+	position: relative;
+}
+
+div.playBT {
+	background-image: url("imgs/mainBTglow.png");
+	background-color: #8bd1d0;
+	background-size: 210px 210px;
+	background-position: center; 
+	border-radius: 50%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 250px;
+    top: 20;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 200px;
+    height: 200px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+div.playBT:hover {
+	background-color: befbfa;
+	background-size: 210px 210px;
+	background-position: center; 
+	border-radius: 50%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 250px;
+    top: 20;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 200px;
+    height: 200px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+div.playBT:active {
+	background-image: url("");
+	background-color: white;
+	background-size: 210px 210px;
+	background-position: center; 
+	border-radius: 0%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 150px;
+    top: 10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 99%;
+    height: 500px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+
+div.playText {
+	font-family: playFont;
+	font-size: 64px;
+	padding-top: 65px;
+	color: white;
+	text-align: center;
+}
+
+.registerBox {
+	background-color: #8bd1d0;
+	background-position: center; 
+    position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 400px;
+    height: 60px;
+	cursor: pointer;
+	transition: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+.registerBox:active {
+	background-color: #8bd1d0;
+	background-position: center; 
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 250px;
+    top: -170px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 400px;
+    height: 350px;
+	cursor: default;
+	transition: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+.registerBox .registerBox-content:before, .registerBox .registerBox-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #669796 transparent transparent transparent;
+ bottom: -0.49em;
+}
+
+.registerBox .registerBox-content:before {
+ left: 0;
+ border-width: 0.5em 0 0 0.53em;
+}
+.registerBox .registerBox-content:after {
+ right: 0;
+ border-width: 0.5em 0.55em 0 0;
+}
+
+
+.registerText {
+	font-family: titleFont;
+	font-size: 52px;
+	color: white;
+	text-align: center;
+	
+}
+
+#buttonSpace {
+	font-family: titleFont;
+	color: white;
+	font-size: 36px;
+	margin-top: 20%;
+	position: relative;
+}
+
+
+#buttonLeftOne {
+	background-image: url("imgs/butonLeft.png");
+	background-color: transparent;
+	background-position: center top; 
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-left: 29.3%;
+	padding-left: 4%;
+	padding-top: 0.3%;
+	width: 12%;
+	height: 7%;
+	position: absolute;
+	z-index: -1;
+}
+
+#buttonLeftTwo {
+	background-image: url("imgs/butonLeft.png");
+	background-color: transparent;
+	background-position: center top; 
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-left: 34.5%;
+	padding-left: 5%;
+	padding-top: 0.4%;
+	margin-top: 4%;
+	width: 12%;
+	height: 7%;
+	position: absolute;
+	z-index: -1;
+}
+
+#buttonRightOne {
+	background-image: url("imgs/butonRight.png");
+	background-color: transparent;
+	background-position: center top; 
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-left: 47%;
+	padding-left: 8%;
+	padding-top: 0.4%;
+	margin-top: 4%;
+	width: 12%;
+	height: 7%;
+	position: absolute;
+	z-index: -1;
+}
+
+#buttonRightTwo {
+	background-image: url("imgs/butonRight.png");
+	background-color: transparent;
+	background-position: center top; 
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-left: 51.25%;
+	padding-left: 11%;
+	padding-top: 0.3%;
+	width: 12%;
+	height: 7%;
+	position: absolute;
+	z-index: -1;
+}
