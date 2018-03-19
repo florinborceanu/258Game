@@ -14,20 +14,30 @@
                 modal.style.display = "none";
             }
         }
+    </script>
+    <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 </script>
+    <script src="navbar.js"></script>
+    
 </head>
     
 <body>
 
-<div id="nav">
-    <ul>
-        <li class="left"><a href="#pag1">Story</a></li>
-        <li class="left"><a href="#pag1">Team</a></li>
-        <li class="left"><a href="#pag1">Rankings</a></li>
-        <li class="right"><a href="#pag1">Register</a></li>
-        <li class="right"><a href="#pag1" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
-    </ul>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
 </div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
