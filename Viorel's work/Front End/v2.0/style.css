@@ -193,20 +193,23 @@ span.psw {
 .containerBoxLeft {
     position: absolute;
     width: 400px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.6);
     padding: 20px;
     margin: 100px;
     border-radius: 2%;
 }
 
 .containerBoxRight {
-    position: absolute;
     width: 400px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.6);
     padding: 20px;
-    margin: 100px;
-    margin-left: 65%;
+    margin-right: 10%;
+    margin-top: 10%;
     border-radius: 2%;
+    position: absolute;
+    margin-top: -517px;
+    margin-left: 55%;
+    z-index: 8;
 }
 
 .titleBox {
@@ -214,7 +217,7 @@ span.psw {
     font-size: 80px;
     text-align: center;
     position: absolute;
-    color: white;
+    color:black;
     margin-top: -90px;
 }
 
@@ -298,3 +301,15 @@ div.playText {
     .containerBoxLeft {margin: 1%; width: 85%; margin-top: 10%;}
     .containerBoxRight {margin: 1%; width: 85%; margin-top: 10%;}
   }
+
+.pic {
+    opacity: 1;
+    position: absolute;
+    z-index: 8;
+    margin-left: 10%;
+    margin-top: -517px;
+}
+.caption {
+    display: inline;
+    height: 100%;
+}
