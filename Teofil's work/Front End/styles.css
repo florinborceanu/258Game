@@ -1,8 +1,4 @@
 
-@font-face {
-    font-family: Muskaters;
-    src: url(fonts/Muskaters.ttf);
-}
   /* background set */
 body {
 	background-image: url("imgs/BG.png");
@@ -12,7 +8,7 @@ body {
 	background-position: center top; 
 	background-size: cover;
 	margin: 0;
-    	padding: 0;	
+  padding: 0;	
 }
    /* Slideshow container */
   .slideshow-container {
@@ -56,30 +52,24 @@ body {
   }
   
   /* Styles of texts */
-  .section {
-    
-  }
-  .text {
-    color: #6e0a0a;
-    font-size: 50%;
-    font-family: Muskaters;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
+  .textBox{
+    font-family:Muskaters;
+    color : white;
     text-align: center;
-  }
-  .header {
-    color: #fffefece;
-    font-size: 2.4vw;
-    font-family: Muskaters;
-    padding: 8px 12px;
-    position: absolute;
-    top: 8px;
-    width: 100%;
-    text-align: center;
-  }
-    
+    font-size:100px;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+ }
+ 
+ .subTextBox{
+      font-family:Muskaters;   
+      color : #8bd1d0;
+      text-align: center;
+      font-size:40px;
+      position:relative;
+      top:-107px;
+ }
   /* The dots/bullets */
   .dot {
     cursor:pointer;
@@ -104,7 +94,52 @@ body {
     animation-name: fade;
     animation-duration: 1.5s;
   }
+  /* Team style CSS */
+
+ .avatar1{
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-left:1.5%;
+    padding-right:1.5%;
+    border-radius: 75%;
+   
+  }
+  .avatar2{
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-left:1.5%;
+    padding-right:1.5%;
+    border-radius: 75%;
+   
+  }
+  .avatar3{
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-left:1.5%;
+    padding-right:1.5%;
+    border-radius: 75%;
   
+  }
+  .avatar4{
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-left:1.5%;
+    padding-right:1.5%;
+    border-radius: 75%;
+   
+  }
+ .avatar1:hover{
+  background-color: rgba(69, 199, 199, 0.5);
+}
+.avatar2:hover{
+  background-color: rgba(69, 199, 199, 0.5);
+}
+.avatar3:hover{
+  background-color: rgba(69, 199, 199, 0.5);
+}
+.avatar4:hover{
+  background-color: rgba(69, 199, 199, 0.5);
+}
   @-webkit-keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
@@ -114,3 +149,9 @@ body {
     from {opacity: .4} 
     to {opacity: 1}
   }
+
+  @font-face {
+    font-family: Muskaters;
+    src: url(fonts/Muskaters.ttf);
+  }
+}
