@@ -38,52 +38,58 @@
         }
     
     div.avatar1{
-        width:80px; 
-        height:80px;
+        width:90px; 
+        height:90px;
         background-image:url('imgs/av1.png');
         padding:4.5%;
-        margin-top:1%;
+        margin-left: -15%;
         border-radius: 50%;
+        position: relative;
         }
     div.avatar2{
         width:80px; 
         height:80px;
         background-image:url('imgs/av2.png');
         padding:4.5%;
-        margin-top:1%; 
+        margin-left: -15%;
         border-radius: 50%;
+        position: relative;
         }
     div.avatar3{
         width:80px; 
         height:80px;
         background-image:url('imgs/av3.png');
         padding:4.5%;
-        margin-top:1%;
+        margin-left: -15%;
         border-radius: 50%;
+        position: relative;
         }
     div.avatar4{
         width:80px; 
         height:80px;
         background-image:url('imgs/av4.png');
         padding:4.5%;
-        margin-top:1%; 
+        margin-left: -15%;
         border-radius: 50%;
+        position: relative;
         }
     div.avatar5{
         width:80px; 
         height:80px;
         background-image:url('imgs/av5.png');
         padding:4.5%;
-        margin-top:1%;
+        margin-left: -15%;
         border-radius: 50%;
+        position: relative;
         }
     div.avatar6{
         width:80px; 
         height:80px;
         background-image:url('imgs/av6.png');
         padding:4.5%;
-        margin-top:1%;
+        margin-left: -15%;
         border-radius: 50%;
+        position: relative;
     }
     
     #HoverCell {
@@ -196,7 +202,8 @@
         left: calc(-1 * var(--borderWidth));
         height: calc(100% + var(--borderWidth) * 2);
         width: calc(100% + var(--borderWidth) * 2);
-        background: linear-gradient(60deg,#E09E84,#7C7C72, #675251,#535753,#535753,#675251,#7C7C72,#E09E84);
+        background: linear-gradient(60deg,rgb(165, 110, 92),rgb(77, 77, 66), #382a2a,#313631,#2f332f,#3f3130,
+        rgb(75, 75, 66),rgb(134, 99, 85));
         border-radius: calc(2 * var(--borderWidth));
         z-index: -1;
         animation: animatedgradient 20s ease alternate infinite;
@@ -211,7 +218,8 @@
         left: calc(-1 * var(--borderWidth));
         height: calc(100% + var(--borderWidth) * 2);
         width: calc(100% + var(--borderWidth) * 2);
-        background: linear-gradient(60deg,#E09E84,#7C7C72, #675251,#535753,#535753,#675251,#7C7C72,#E09E84);
+        background: linear-gradient(60deg,rgba(224, 158, 132, 0.85),rgba(124, 124, 114, 0.85),
+         #675251cb,#535753be,#535753a8,#675251af,rgba(124, 124, 114, 0.815),rgba(224, 158, 132, 0.821));
         border-radius: calc(2 * var(--borderWidth));
         z-index: -1;
         animation: animatedgradient 35s ease alternate infinite;
