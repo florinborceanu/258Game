@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="style.css">
     <script>
         var modal = document.getElementById('id01');
+        var logged = localStorage.getItem("logged");
+
+        window.onload = function() {
+            if(logged == 1)
+            {
+                document.getElementById('register').style.display='none';
+                document.getElementById('login').style.display='none';
+                document.getElementById('userPhoto').style.display='block';
+                document.getElementById('userName').style.display='block';
+            }
+        };
 
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
-    </script>
-    <script>
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }
@@ -22,19 +32,22 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
-    </script>
-    <script>
-        var logged=0;
-        function setLogged(){
-            logged=1;
-        }
+
         function logIn() {
-            if(logged==1){
-            document.getElementById('register').style.display='none';
-            document.getElementById('login').style.display='none';
-            document.getElementById('id01').style.display='none';
-            document.getElementById('loggedIn').style.display='block';
-            }
+                document.getElementById('register').style.display='none';
+                document.getElementById('login').style.display='none';
+                document.getElementById('id01').style.display='none';
+                document.getElementById('userPhoto').style.display='block';
+                document.getElementById('userName').style.display='block';
+                localStorage.setItem("logged", 1);
+        }
+
+        function logOut() {
+                document.getElementById('register').style.display='block';
+                document.getElementById('login').style.display='block';            
+                document.getElementById('userPhoto').style.display='none';           
+                document.getElementById('userName').style.display='none';
+                localStorage.setItem("logged", 0);
         }
     </script>
     
@@ -60,14 +73,14 @@
     <span id="register">
         <a href="#" class="log-reg" onclick="document.getElementById('id02').style.display='block'">REGISTER</a>
     </span>
+    </span>
+    <span id="userPhoto">
+        <a href="#" class="log-reg" >AVATAR</a>
+    </span>
+    <span id="userName">
+        <a href="#" class="log-reg" onclick="logOut()">Dummy</a>
+    </span>
     
-    <span id="loggedIn">
-        <img id = "avatar"src="imgs/avatar.png" style="max-width: 60px;">
-        <a id="name" href="#">Dummy</a>
-    </span>
-    <span id="loggedIn">
-        <img class="log-reg" src="imgs/settings.png" style="max-width: 40px;">
-    </span>
     
     
     <div id="title">
@@ -97,7 +110,7 @@
                 </label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
 
-                <button type="button" onclick="setLogged();logIn();" class="">Login</button>
+                <button type="button" onclick="logIn();" class="">Login</button>
 
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
