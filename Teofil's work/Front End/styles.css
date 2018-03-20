@@ -1,7 +1,7 @@
 
   /* background set */
 body {
-	background-image: url("imgs/BG.png");
+	background-image: url("imgs/bg1.jpg");
 	background-color: #cccccc;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -100,10 +100,13 @@ body {
     margin-left: 4%;
     margin-right: 4%;
     margin-top: 4%;
-    padding: 1.5%;
+    padding-left:1.5%;
+    padding-right:1.5%;
     border-radius: 50%;
     height:12.5vw;
     width: 12.5vw;
+    opacity: 1;
+    transition: 0.3s;
   }
   .avatar2{
     margin-left: 4%;
@@ -114,7 +117,7 @@ body {
     border-radius: 50%;
     height:12.5vw;
     width: 12.5vw;
-   
+    transition: 0.3s;
   }
   .avatar3{
     margin-left: 4%;
@@ -124,7 +127,7 @@ body {
     border-radius: 50%;
     height:12.5vw;
     width: 12.5vw;
-  
+    transition: 0.3s;
   }
   .avatar4{
     margin-left: 4%;
@@ -134,20 +137,55 @@ body {
     border-radius: 50%;
     height:12.5vw;
     width: 12.5vw;
-   
+    transition: 0.3s;
   }
  .avatar1:hover{
-  background-color: rgba(69, 199, 199, 0.5);
-  
+  background-color: rgba(61, 87, 92, 0.675);
+  opacity: 0.85;
+  transition: 0.3s;
 }
 .avatar2:hover{
-  background-color: rgba(69, 199, 199, 0.5);
+  background-color: rgba(61, 87, 92, 0.675);
+  opacity: 0.85;
+  transition: 0.3s;
 }
 .avatar3:hover{
-  background-color: rgba(69, 199, 199, 0.5);
+  background-color: rgba(61, 87, 92, 0.675);
+  opacity: 0.85;
+  transition: 0.3s;
 }
 .avatar4:hover{
-  background-color: rgba(69, 199, 199, 0.5);
+  background-color: rgba(61, 87, 92, 0.675);
+  opacity: 0.85;
+  transition: 0.3s;
+}
+.closure{
+  position: absolute;
+  
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+}
+.popUpArt{
+  display: none;
+  background-color: red;
+}
+.user1{
+  display: none;
+
+}
+.user2{
+  display: none;
+
+}
+.user3{
+  display: none;
+
+}
+.user4{
+  display: none;
+
 }
   @-webkit-keyframes fade {
     from {opacity: .4} 
