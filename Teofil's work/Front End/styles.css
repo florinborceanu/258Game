@@ -181,6 +181,11 @@ body {
 .popUpArt{
   display: none;
   font-size: 125%;
+  width: 65vw;
+  height: 15vw;
+  background-color: rgba(255, 255, 255, 0.435);
+  border-radius: 5%;
+  margin-left:17vw;
 }
 .user1T{
   font-family: Muskaters;
@@ -189,7 +194,7 @@ body {
   position: relative;
   color: white;
   display: none;
-  top:-10vh;
+  top:-1.5vh;
 }
 .user2T{
   font-family: Muskaters;
@@ -220,19 +225,26 @@ body {
 }
 .user1{
   display: none;
-
+  text-align: justify;
+  margin-top: -15vh;
 }
 .user2{
   display: none;
-
+  text-align: justify;
+  margin-top: -35px;
+  margin-top: -15vh;
 }
 .user3{
   display: none;
-
+  text-align: justify;
+  margin-top: -35px;
+  margin-top: -15vh;
 }
 .user4{
   display: none;
-
+  text-align: justify;
+  margin-top: -35px;
+  margin-top: -15vh;
 }
 @media  (min-width: 481px) and (max-width: 768px){
   .avatar1{
