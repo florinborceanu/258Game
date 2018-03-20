@@ -43,6 +43,7 @@
         background-image:url('imgs/av1.png');
         padding:4.5%;
         margin-top:1%;
+        border-radius: 50%;
         }
     div.avatar2{
         width:80px; 
@@ -50,6 +51,7 @@
         background-image:url('imgs/av2.png');
         padding:4.5%;
         margin-top:1%; 
+        border-radius: 50%;
         }
     div.avatar3{
         width:80px; 
@@ -57,6 +59,7 @@
         background-image:url('imgs/av3.png');
         padding:4.5%;
         margin-top:1%;
+        border-radius: 50%;
         }
     div.avatar4{
         width:80px; 
@@ -64,13 +67,15 @@
         background-image:url('imgs/av4.png');
         padding:4.5%;
         margin-top:1%; 
+        border-radius: 50%;
         }
     div.avatar5{
         width:80px; 
         height:80px;
         background-image:url('imgs/av5.png');
         padding:4.5%;
-        margin-top:1%;; 
+        margin-top:1%;
+        border-radius: 50%;
         }
     div.avatar6{
         width:80px; 
@@ -78,6 +83,7 @@
         background-image:url('imgs/av6.png');
         padding:4.5%;
         margin-top:1%;
+        border-radius: 50%;
     }
     
     #HoverCell {
@@ -190,7 +196,7 @@
         left: calc(-1 * var(--borderWidth));
         height: calc(100% + var(--borderWidth) * 2);
         width: calc(100% + var(--borderWidth) * 2);
-        background: linear-gradient(60deg, #212121, #4C7372,#476B6A, #436665, #3D5C5B, #324D4C, #283D3C, #212121);
+        background: linear-gradient(60deg,#E09E84,#7C7C72, #675251,#535753,#535753,#675251,#7C7C72,#E09E84);
         border-radius: calc(2 * var(--borderWidth));
         z-index: -1;
         animation: animatedgradient 20s ease alternate infinite;
@@ -205,10 +211,10 @@
         left: calc(-1 * var(--borderWidth));
         height: calc(100% + var(--borderWidth) * 2);
         width: calc(100% + var(--borderWidth) * 2);
-        background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+        background: linear-gradient(60deg,#E09E84,#7C7C72, #675251,#535753,#535753,#675251,#7C7C72,#E09E84);
         border-radius: calc(2 * var(--borderWidth));
         z-index: -1;
-        animation: animatedgradient 50s ease alternate infinite;
+        animation: animatedgradient 35s ease alternate infinite;
         background-size: 300% 300%;
     }
 

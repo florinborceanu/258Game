@@ -99,17 +99,21 @@ body {
  .avatar1{
     margin-left: 4%;
     margin-right: 4%;
-    padding-left:1.5%;
-    padding-right:1.5%;
-    border-radius: 75%;
-   
+    margin-top: 4%;
+    padding: 1.5%;
+    border-radius: 50%;
+    height:12.5vw;
+    width: 12.5vw;
   }
   .avatar2{
     margin-left: 4%;
     margin-right: 4%;
+    margin-top: 4%;
     padding-left:1.5%;
     padding-right:1.5%;
-    border-radius: 75%;
+    border-radius: 50%;
+    height:12.5vw;
+    width: 12.5vw;
    
   }
   .avatar3{
@@ -117,7 +121,9 @@ body {
     margin-right: 4%;
     padding-left:1.5%;
     padding-right:1.5%;
-    border-radius: 75%;
+    border-radius: 50%;
+    height:12.5vw;
+    width: 12.5vw;
   
   }
   .avatar4{
@@ -125,11 +131,14 @@ body {
     margin-right: 4%;
     padding-left:1.5%;
     padding-right:1.5%;
-    border-radius: 75%;
+    border-radius: 50%;
+    height:12.5vw;
+    width: 12.5vw;
    
   }
  .avatar1:hover{
   background-color: rgba(69, 199, 199, 0.5);
+  
 }
 .avatar2:hover{
   background-color: rgba(69, 199, 199, 0.5);
