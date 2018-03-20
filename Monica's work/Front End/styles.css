@@ -6,117 +6,111 @@
         background-attachment: fixed;
         background-position: center top; 
         background-size: cover;
-    }
+        }
+    
     @font-face{
         font-family: Font_SC;
         src: url(imgs/font.ttf) format('truetype');
         }
+        
     @font-face{
         font-family: Font_TA;
         src: url(imgs/Tahu!.ttf) format('truetype');
         }
         
     div.textBox{
-       font-family:Font_SC;
-       color : white;
-       text-align: center;
-       font-size:100px;
-       position:relative;
-       margin-left:auto;
-       margin-right:auto;
-    }
+        font-family:Font_SC;
+        color : white;
+        text-align: center;
+        font-size:100px;
+        position:relative;
+        margin-left:auto;
+        margin-right:auto;
+        }
     
     div.SubTextBox{
         color : #8bd1d0;
         text-align: center;
         font-size:40px;
-      
         font-family:Font_SC;
         top:-107px;
         position:relative;
-    }
+        }
     
     div.avatar1{
-   width:80px; 
-   height:80px;
-   background-image:url('imgs/av1.png');
-   padding:4.5%;
-   margin-top:1%;
-}
+        width:80px; 
+        height:80px;
+        background-image:url('imgs/av1.png');
+        padding:4.5%;
+        margin-top:1%;
+        }
     div.avatar2{
-   width:80px; 
-   height:80px;
-   background-image:url('imgs/av2.png');
-   padding:4.5%;
-   margin-top:1%; 
-}
+        width:80px; 
+        height:80px;
+        background-image:url('imgs/av2.png');
+        padding:4.5%;
+        margin-top:1%; 
+        }
     div.avatar3{
-   width:80px; 
-   height:80px;
-   background-image:url('imgs/av3.png');
-   padding:4.5%;
-   margin-top:1%;
-}
+        width:80px; 
+        height:80px;
+        background-image:url('imgs/av3.png');
+        padding:4.5%;
+        margin-top:1%;
+        }
     div.avatar4{
-   width:80px; 
-   height:80px;
-   background-image:url('imgs/av4.png');
-   padding:4.5%;
-   margin-top:1%; 
-}
+        width:80px; 
+        height:80px;
+        background-image:url('imgs/av4.png');
+        padding:4.5%;
+        margin-top:1%; 
+        }
     div.avatar5{
-   width:80px; 
-   height:80px;
-   background-image:url('imgs/av5.png');
-   padding:4.5%;
-   margin-top:1%;; 
-}
+        width:80px; 
+        height:80px;
+        background-image:url('imgs/av5.png');
+        padding:4.5%;
+        margin-top:1%;; 
+        }
     div.avatar6{
-   width:80px; 
-   height:80px;
-   background-image:url('imgs/av6.png');
-   padding:4.5%;
-   margin-top:1%;
-}
+        width:80px; 
+        height:80px;
+        background-image:url('imgs/av6.png');
+        padding:4.5%;
+        margin-top:1%;
+    }
     
     #HoverCell {
-         height:100%;
-         width:100%; 
-         position:relative;
-         
-         
-    }
+        height:100%;
+        width:100%; 
+        position:relative;      
+        }
     
     #InfoBox{
-         background-color:#8bd1d0;
-         
-         margin-top:-7%;
-         margin-right:40%;
-         margin-left:30%;
-         margin-bottom:auto;
-         text-align: center;
-         font-size:20px;
-         color:white;
-         height:-80%;
-         width:40%;
-         position:absolute;
-         z-index:9;
-         display:none;
-         opacity:0.97;
-         float:left;
-    }
-    #HoverCell:hover {opacity:0.5;}
+        background-color:#8bd1d0;
+        margin-top:-8%;
+        margin-right:70%;
+        margin-left:46%;
+        margin-bottom:auto;
+        text-align: center;
+        font-size:20px;
+        color:white;
+        height:-80%;
+        width:40%;
+        position:absolute;
+        z-index:9;
+        display:none;
+        opacity:0.97;
+        float:left;
+        }   
+    #HoverCell:hover {
+        opacity:0.5;
+        }
    
     #HoverCell:hover + #InfoBox {
-    
-    transition: bottom 0.5s;
-    
-    display:block;
-         
-         
-        
-        
-}        
+        transition: bottom 0.5s;
+        display:block;
+        }        
         
 
    #ranks {
@@ -128,9 +122,8 @@
         background-color: #D8D8D8;
         position:relative;
         cursor:default;
-        
-    
         }
+        
     #ranks td {
         font-family:Font_SC;
         color:black;
@@ -139,76 +132,84 @@
         padding-left:3px;
         z-index:-1;
         }
+   
     
     
+    #ranks  tr > td:first-child  {
+        font-family:Font_TA;
+        font-size:10 px;
+        z-index:-1;
+        }
     
-    #ranks  tr > td:first-child  { font-family:Font_TA;
-                                  font-size:10 px;
-                                  z-index:-1;}
-    
-    #ranks  tr > td:first-child +td +td +td { font-family:Font_TA;
-                                  font-size:10 px;}
+    #ranks  tr > td:first-child +td +td +td {
+        font-family:Font_TA;
+        font-size:10 px;
+        }
  
-
-
-
+     .SmartPhone { 
+            display:visible;
+        }
+        
+     .SmartPhone1 { 
+            display:visible;
+        }
+        
 @import url('https://fonts.googleapis.com/css?family=Raleway:200');
 
 
 .gradient-border {
-  --borderWidth: 3px;
-  background: #1D1F20;
-  position: relative;
-  border-radius: var(--borderWidth);
-  width:60%;
-  margin-top: 35px;
-  margin-right:auto;
-  margin-left:auto;
+        --borderWidth: 3px;
+        background: #1D1F20;
+        position: relative;
+        border-radius: var(--borderWidth);
+        width:60%;
+        margin-top: 35px;
+        margin-right:auto;
+        margin-left:auto;
   
-}
+    }
 
 .gradient-border-mini {
-  --borderWidth: 3px;
-  
-  
-  border-radius: var(--borderWidth);
-  background-color: #1D1F20;
-  position: relative;
-  margin-right:auto;
-  margin-left:auto;
-  z-index:10;
-  height:5%;
-         width:100%;
-}
+        --borderWidth: 3px;
+        border-radius: var(--borderWidth);
+        background-color: #1D1F20;
+        position: relative;
+        margin-right:auto;
+        margin-left:auto;
+        z-index:10;
+        height:-4%;
+        top:-4px;
+        width:100%;
+    }
+    
 .gradient-border-mini:after {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: linear-gradient(60deg, #212121, #4C7372,#476B6A, #436665, #3D5C5B, #324D4C, #283D3C, #212121);
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  animation: animatedgradient 20s ease alternate infinite;
-  background-size: 300% 300%;
+        content: '';
+        position: absolute;
+        top: calc(-1 * var(--borderWidth));
+        left: calc(-1 * var(--borderWidth));
+        height: calc(100% + var(--borderWidth) * 2);
+        width: calc(100% + var(--borderWidth) * 2);
+        background: linear-gradient(60deg, #212121, #4C7372,#476B6A, #436665, #3D5C5B, #324D4C, #283D3C, #212121);
+        border-radius: calc(2 * var(--borderWidth));
+        z-index: -1;
+        animation: animatedgradient 20s ease alternate infinite;
+        background-size: 300% 300%;
   
-}
+    }
 
 .gradient-border:after {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  animation: animatedgradient 3s ease alternate infinite;
-  background-size: 300% 300%;
-  
-}
+        content: '';
+        position: absolute;
+        top: calc(-1 * var(--borderWidth));
+        left: calc(-1 * var(--borderWidth));
+        height: calc(100% + var(--borderWidth) * 2);
+        width: calc(100% + var(--borderWidth) * 2);
+        background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+        border-radius: calc(2 * var(--borderWidth));
+        z-index: -1;
+        animation: animatedgradient 3s ease alternate infinite;
+        background-size: 300% 300%;
+    }
 
 
 @keyframes animatedgradient {
@@ -224,6 +225,28 @@
 }
 
 
- 
- 
+
+@media (min-width: 481px) and (max-width: 768px) {
+  
+     .SmartPhone{
+     display:none;}
+    
+  #ranks td { font-size:30px;} 
+     
+}
+  
+
+
+@media  (max-width: 480px) {
+  
+  .SmartPhone{
+      display:none;
+  
+}
+.SmartPhone1{
+      display:none;
+  
+}
+#ranks td { font-size:20px;} }
+     
  
