@@ -25,53 +25,78 @@ body, html {
 
 }
 .bgimg-1 {
-  background-image: url("pic1.jpg");
+  background-image: url("imgs/pic1.jpg");
   min-height: 100%;
 }
 
 .bgimg-2 {
-  background-image: url("pic2.jpg");
+  background-image: url("imgs/pic2.jpg");
   min-height: 100%;
 }
 
 .bgimg-3 {
-  background-image: url("pic3.jpg");
+  background-image: url("imgs/pic3.jpg");
   min-height: 100%;
 }
-#nav{
-    text-decoration: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: absolute;
-    left:0;
-    right: 0;
-    z-index: 3;
-    background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-    
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
-#nav li {
-    display: block;
-    float: left;
-    
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
-#nav li a{
-    display: block;
-    color:#E0E0E0;
-    font-family: Helvetica,Arial,Verdana,sans-serif;
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
     text-align: center;
-    font-size: 30px;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
     padding: 16px;
-    text-decoration: none;
 }
-#nav li a:hover {
-    color:darkgray;
+
+span.psw {
+    float: right;
+    padding-top: 16px;
 }
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -80,29 +105,26 @@ body, html {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
-    z-index: 3;
 }
 
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 5px auto; /* 15% from the top and centered */
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
+/* The Close Button (x) */
 .close {
-    /* Position it in the top right corner outside of the modal */
     position: absolute;
     right: 25px;
-    top: 0; 
+    top: 0;
     color: #000;
     font-size: 35px;
     font-weight: bold;
 }
 
-/* Close button on hover */
 .close:hover,
 .close:focus {
     color: red;
@@ -119,21 +141,27 @@ body, html {
     from {-webkit-transform: scale(0)} 
     to {-webkit-transform: scale(1)}
 }
-
+    
 @keyframes animatezoom {
     from {transform: scale(0)} 
     to {transform: scale(1)}
 }
 
-body {
-    font-family: "Lato", sans-serif;
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
 }
-
 .sidenav {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 6;
     top: 0;
     left: 0;
     background-color: #111;
@@ -167,6 +195,31 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+#nav {
+    background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    
+}
+#menu {
+    margin-left:30px;
+    color: white;
+    width:10%;
+    font-family: playFont;
+    font-size: 30px;
+    position: relative;
+    margin-top: 1vw;
+}
 
-
-
+.log-reg {
+    color: white;
+    position: relative;
+    z-index: 5;
+    font-size:30px;
+    font-family: playFont;
+    float:right;
+    margin-right:30px;
+    margin-top: 1vw;
+    text-decoration: none;
+}
