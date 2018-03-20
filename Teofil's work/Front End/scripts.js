@@ -32,6 +32,14 @@
   //Team - - images buttons and close pop-up on closure (another click anywhere)
   
   var index = 0;
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
   function popup(n){
     var popUp = document.getElementsByClassName("popUpArt")[0];
     var closure = document.getElementsByClassName("closure")[0];

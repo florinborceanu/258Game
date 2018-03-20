@@ -3,16 +3,25 @@
 
     <head>
         <title>Team - ScharaK Online</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">   
+        <link rel="stylesheet" type="text/css" href="styles.css"> 
+        <link rel="stylesheet" type="text/css" href="styleNavBar.css">     
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
     </head>
 
     <body>
             <div class="closure" onclick="closureFct()"></div>    
+            
+            <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">Team</a>
+                    <a href="#">Rankings</a>
+                    <a href="#">Forum</a>
+                    <a href="#">Media</a>
+                  </div> 
+            <span id="nav"><p style ="cursor:pointer" onclick="openNav()" id="menu">&#9776;</p></span>
             <div class="textBox">ScharaK</div>
-            <div class="subTextBox">  Team  </div>
-           
+            <div class="subTextBox">  Team  </div> 
             <img class="avatar1" src='imgs/florin.jpg' onclick="popup(1)"> 
             <img class="avatar2" src='imgs/vio.jpg'    onclick="popup(2)"> 
             <img class="avatar3" src='imgs/mtk.jpg'    onclick="popup(3)"> 

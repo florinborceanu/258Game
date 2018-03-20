@@ -83,23 +83,29 @@ body {
     animation-name: fade;
     animation-duration: 1.5s;
   }   
-  /* Styles of texts */
+  /* Styles of texts  ###########################################*/
   .textBox{
     font-family:Muskaters;
     color : white;
     text-align: center;
-    font-size:100px;
+    font-size:16vh;
     position:relative;
     margin-left:auto;
     margin-right:auto;
+   
  }
  .subTextBox{
       font-family:Muskaters;   
       color : #8bd1d0;
       text-align: center;
-      font-size:40px;
+      font-size:8vh;
       position:relative;
-      top:-107px;
+      position:relative;
+      margin-left:auto;
+      margin-right:auto;
+      top:-17.5vh;
+      
+     
  } 
   /* Team style CSS */
  .avatar1{
@@ -175,7 +181,7 @@ body {
   background-color:rgba(192, 154, 121, 0.199);
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 7;
   display: none;
 }
 .popUpArt{
@@ -246,18 +252,20 @@ body {
   margin-top: -35px;
   margin-top: -15vh;
 }
+
+/* from them boys */
 @media  (min-width: 481px) and (max-width: 768px){
   .avatar1{
     margin-left: 22%;
     margin-right: 0%;
-    margin-top: -45px;
+    margin-top: 0vh;
     height:22vw;
     width: 22vw;
   }
   .avatar2{
     margin-left: 0%;
     margin-right: 0%;
-    margin-top: -45px;
+    margin-top: 0vh;
     height:22vw;
     width: 22vw;
   }
@@ -275,13 +283,59 @@ body {
     height:22vw;
     width: 22vw;
   }
+  .textBox{
+    font-size:12vh;
+    top: -0.5vh ;
+  }
+  .subTextBox{
+    font-size:6vh;
+    top: -14vh ;
+  }
   
 }
-@media  (max-width: 480px) {
+@media  (min-width: 321px) and (max-width: 480px) {
   .avatar1{
     margin-left: 36%;
     margin-right: 36%;
-    margin-top: -45px;
+    margin-top: -4vh;
+    height:20vw;
+    width: 20vw;
+  }
+  .avatar2{
+    margin-left: 36%;
+    margin-right: 36%;
+    margin-top: 0px;
+    height:20vw;
+    width: 20vw;
+  }
+  .avatar3{
+    margin-left: 36%;
+    margin-right: 36%;
+    margin-top: 0px;
+    height:20vw;
+    width: 20vw;
+  }
+  .avatar4{
+    margin-left: 36%;
+    margin-right: 36%;
+    margin-top: 0px;
+    height:20vw;
+    width: 20vw;
+  }
+  .textBox{
+    font-size:14vh;
+    top: 0vh ;
+  }
+  .subTextBox{
+    font-size:8vh;
+    top: vh ;
+  }
+}
+@media  (max-width: 320px) {
+  .avatar1{
+    margin-left: 36%;
+    margin-right: 36%;
+    margin-top: -4vh;
     height:25vw;
     width: 25vw;
   }
@@ -305,25 +359,16 @@ body {
     margin-top: 0px;
     height:25vw;
     width: 25vw;
+  }
+  .textBox{
+    font-size:14vh;
+    top: 0vh ;
+  }
+  .subTextBox{
+    font-size:8vh;
+    top: vh ;
   }
 }
 @media  screen and (orientation: lanscape) {
-  .avatar1{
-    margin-top: -45px;
-    height:12.5vw;
-    width: 12.5vw;
-  }
-  .avatar2{
-    height:12.5vw;
-    width: 12.5vw;
-  }
-  .avatar3{
-    
-    height:12.5vw;
-    width: 12.5vw;
-  }
-  .avatar4{
-    height:12.5vw;
-    width: 12.5vw;
-  }
+  
 }
