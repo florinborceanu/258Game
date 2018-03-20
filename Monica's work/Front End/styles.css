@@ -1,11 +1,13 @@
 
     body {
-        background-image: url("imgs/pic1.jpg");
-        background-color: #cccccc;
+        background-image: url("imgs/pic1.png");
+        background-color: white;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center top; 
         background-size: cover;
+        width:100%;
+        margin:0px;
         }
     
     @font-face{
@@ -26,6 +28,8 @@
         position:relative;
         margin-left:auto;
         margin-right:auto;
+        top:40px;
+        Z-INDEX:4;
         }
     
     div.SubTextBox{
@@ -33,18 +37,20 @@
         text-align: center;
         font-size:40px;
         font-family:Font_SC;
-        top:-107px;
+        top:-67px;
         position:relative;
+        Z-INDEX:4;
         }
     
     div.avatar1{
-        width:90px; 
-        height:90px;
+        width:80px; 
+        height:80px;
         background-image:url('imgs/av1.png');
         padding:4.5%;
         margin-left: -15%;
         border-radius: 50%;
         position: relative;
+       
         }
     div.avatar2{
         width:80px; 
@@ -92,6 +98,12 @@
         position: relative;
     }
     
+   
+    
+    
+    
+    
+    
     #HoverCell {
         height:100%;
         width:100%; 
@@ -114,7 +126,23 @@
         display:none;
         opacity:0.97;
         float:left;
-        }   
+        }  
+
+    #InfoText {
+        font-family:Font_SC;
+        font-size:30px;
+        position:absolute;
+        width:70%;
+        margin-left:30%;}
+    
+    #InfoText1 {
+        font-family:Font_SC;
+        font-size:24px;
+        
+        position:absolute;
+        width:70%;
+        }
+        
     #HoverCell:hover {
         opacity:0.5;
         }
@@ -131,7 +159,7 @@
         text-align:left;
         border-collapse: collapse   ; 
         width: 100%;
-        opacity:0.98;
+        opacity:1;
         position:relative;
         cursor:default;
         }
@@ -143,6 +171,7 @@
         border-bottom: 1px solid black;
         padding-left:3px;
         z-index:-1;
+        
         
         }
    
@@ -169,7 +198,10 @@
         
 @import url('https://fonts.googleapis.com/css?family=Raleway:200');
 
-
+    #center{
+           width:100%;
+           text-align:center;
+    }
 .gradient-border {
         --borderWidth: 3px;
         
@@ -179,6 +211,8 @@
         margin-top: 35px;
         margin-right:auto;
         margin-left:auto;
+        z-index:8;
+        
         
     }
 
@@ -189,10 +223,12 @@
         position: relative;
         margin-right:auto;
         margin-left:auto;
-        z-index:10;
+        z-index:8;
         height:-4%;
         top:-4px;
         width:100%;
+        text-align:left;
+        
     }
     
 .gradient-border-mini:after {
@@ -206,7 +242,7 @@
         rgb(75, 75, 66),rgb(134, 99, 85));
         border-radius: calc(2 * var(--borderWidth));
         z-index: -1;
-        animation: animatedgradient 20s ease alternate infinite;
+        animation: animatedgradient 30s ease alternate infinite;
         background-size: 300% 300%;
   
     }
@@ -247,7 +283,7 @@
      display:none;}
     
   #ranks td { font-size:30px;} 
-     
+      
 }
   
 
@@ -262,6 +298,8 @@
       display:none;
   
 }
+ 
+     
 #ranks td { font-size:20px;} }
      
  
