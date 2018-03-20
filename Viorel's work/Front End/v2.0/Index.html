@@ -9,13 +9,12 @@
         var modal = document.getElementById('id01');
         var logged = localStorage.getItem("logged");
 
-        window.onload = function() {
-            if(logged == 1)
-            {
-                document.getElementById('register').style.display='none';
-                document.getElementById('login').style.display='none';
-                document.getElementById('userPhoto').style.display='block';
-                document.getElementById('userName').style.display='block';
+        window.onload = function () {
+            if (logged == 1) {
+                document.getElementById('register').style.display = 'none';
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('userPhoto').style.display = 'block';
+                document.getElementById('userName').style.display = 'block';
             }
         };
 
@@ -34,23 +33,23 @@
         }
 
         function logIn() {
-                document.getElementById('register').style.display='none';
-                document.getElementById('login').style.display='none';
-                document.getElementById('id01').style.display='none';
-                document.getElementById('userPhoto').style.display='block';
-                document.getElementById('userName').style.display='block';
-                localStorage.setItem("logged", 1);
+            document.getElementById('register').style.display = 'none';
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('id01').style.display = 'none';
+            document.getElementById('userPhoto').style.display = 'block';
+            document.getElementById('userName').style.display = 'block';
+            localStorage.setItem("logged", 1);
         }
 
         function logOut() {
-                document.getElementById('register').style.display='block';
-                document.getElementById('login').style.display='block';            
-                document.getElementById('userPhoto').style.display='none';           
-                document.getElementById('userName').style.display='none';
-                localStorage.setItem("logged", 0);
+            document.getElementById('register').style.display = 'block';
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('userPhoto').style.display = 'none';
+            document.getElementById('userName').style.display = 'none';
+            localStorage.setItem("logged", 0);
         }
     </script>
-    
+
 
 </head>
 
@@ -73,31 +72,33 @@
     <span id="register">
         <a href="#" class="log-reg" onclick="document.getElementById('id02').style.display='block'">REGISTER</a>
     </span>
+    <span id="userName">
+        <a href="#" class="log-reg" onclick="logOut()">Log-Out</a>
     </span>
     <span id="userPhoto">
-        <a href="#" class="log-reg" >AVATAR</a>
+        <a href="#" class="log-reg">
+            <img src="imgs/avatar.png/" style="width: 40px;height:40px;">
+        </a>
     </span>
-    <span id="userName">
-        <a href="#" class="log-reg" onclick="logOut()">Dummy</a>
-    </span>
     
-    
-    
+
+
+
     <div id="title">
         ScharaK
     </div>
-        <span class="playBT">
-            <span class="playText">
-                PLAY
-            </span>
+    <span class="playBT">
+        <span class="playText">
+            PLAY
         </span>
+    </span>
 
 
 
     <div id="id01" class="modal">
 
         <!-- Modal Content -->
-        <form class="modal-content animate" >
+        <form class="modal-content animate">
 
             <div class="container">
                 <label for="uname">
