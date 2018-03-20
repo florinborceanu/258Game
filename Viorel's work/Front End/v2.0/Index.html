@@ -48,13 +48,28 @@
             document.getElementById('userName').style.display = 'none';
             localStorage.setItem("logged", 0);
         }
+
+        function play(n) {
+            if(n == 0){
+                document.getElementById('playBT').style.display = 'none';
+                document.getElementById('playText').style.display = 'none';
+                document.getElementById('playBTactive').style.display = 'block';
+                document.getElementById('closure').style.display = 'block';
+            }
+            if(n==1){
+                document.getElementById('playBT').style.display = 'block';
+                document.getElementById('playText').style.display = 'block';
+                document.getElementById('playBTactive').style.display = 'none';
+                document.getElementById('closure').style.display = 'none';
+            }
+        }
     </script>
 
 
 </head>
 
 <body>
-
+    <div id="closure" onclick="play(1)"></div>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">Team</a>
@@ -87,12 +102,13 @@
     <div id="title">
         ScharaK
     </div>
-    <span class="playBT">
-        <span class="playText">
+    <span id="playBT" onclick="play(0)">
+        <span id="playText">
             PLAY
         </span>
     </span>
 
+    <div id="playBTactive"></div>
 
 
     <div id="id01" class="modal">
