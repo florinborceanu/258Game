@@ -316,7 +316,7 @@ span.psw {
 /* footer */
 #logo {
     font-family: titleFont;
-    font-size: 3vw;
+    font-size: 4.5vw;
     color: #d4764d;
     opacity: 0.7;
     text-decoration: none;
@@ -340,7 +340,7 @@ padding-bottom: 2vw;
 .icons{
 max-height:3.5vw;
 max-width:3.5vw;
-top:125px;
+margin-top:2vw;
 opacity: 0.4;
 z-index:12;
 }
@@ -370,7 +370,9 @@ z-index:12;
 .divTable{ display: table; }
 .divTableRow { display: table-row; }
 .divTableCell { display: table-cell;}
-.divTableBody { display: table-row-group;}
+.divTableBody { display: table-row-group;
+margin-left:4vw;
+margin-top:4vw;}
 /* end table */
 
 
