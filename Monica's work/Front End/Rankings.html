@@ -2,13 +2,44 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="styles.css">
+        
         <meta name="viewport" content="width=device-width,initial-scale=1">
-    </head>
-    
-    <body >
+         <script>
+        var modal = document.getElementById('id01');
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+            <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
 
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+    
+</head>
+    
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Team</a>
+  <a href="#">Rankings</a>
+  <a href="#">Forum</a>
+  <a href="#">Media</a>
+</div>
+    <span id="nav"><p style ="cursor:pointer" onclick="openNav()" id="menu">&#9776;</p></span>
+    <body >
+      
         <div class="textBox">ScharaK</div>
-        <div class="SubTextBox">Rankings</div>
+        <div class="SubTextBox"><center>Rankings</center></div>
+        <div id="center">
         <div class="gradient-border">
             <table id="ranks">
                 <tr>
@@ -17,10 +48,18 @@
                         <div id="HoverCell"> Aioane Andrei</div>
                             <div id="InfoBox">      
                                 <div class="gradient-border-mini SmartPhone">
-                                    <div>
-                                        <div class="avatar1">
-                                        </div>
+                                    <div id="InfoText"> id: thebest                 
+                                        <div id="InfoText1"> level:?? 
+                                            <div id="InfoText1"> stats:??
+                                            </div>  
+                                        </div>   
                                     </div>
+                                     
+                                        <div>
+                                            <div class="avatar1">
+                                         
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                     </td>
@@ -37,6 +76,13 @@
                         <div id="HoverCell"> Stefan Damian</div>
                             <div id="InfoBox">      
                                 <div class="gradient-border-mini SmartPhone">
+                                    <div id="InfoText"> id: thebest                 
+                                        <div id="InfoText1"> level:?? 
+                                            <div id="InfoText1"> stats:??
+                                            </div>  
+                                        </div>   
+                                    </div>
+
                                     <div>
                                         <div class="avatar2">
                                         </div>
@@ -56,6 +102,12 @@
                         <div id="HoverCell"> Faker Romania</div>
                             <div id="InfoBox">      
                                 <div class="gradient-border-mini SmartPhone">
+                                    <div id="InfoText"> id: thebest                 
+                                        <div id="InfoText1"> level:?? 
+                                            <div id="InfoText1"> stats:??
+                                            </div>  
+                                        </div>   
+                                    </div>
                                     <div>
                                         <div class="avatar3">
                                         </div>
@@ -74,6 +126,13 @@
                         <div id="HoverCell"> Petru Ioan</div>
                             <div id="InfoBox">      
                                 <div class="gradient-border-mini SmartPhone">
+                                    <div id="InfoText"> id: thebest                 
+                                        <div id="InfoText1"> level:?? 
+                                            <div id="InfoText1"> stats:??
+                                            </div>  
+                                        </div>   
+                                    </div>
+                                    
                                     <div>
                                         <div class="avatar4">
                                         </div>
@@ -92,6 +151,13 @@
                         <div id="HoverCell"> Damian Catalina</div>
                             <div id="InfoBox">      
                                 <div class="gradient-border-mini SmartPhone">
+                                    <div id="InfoText"> id: thebest                 
+                                        <div id="InfoText1"> level:?? 
+                                            <div id="InfoText1"> stats:??
+                                            </div>  
+                                        </div>   
+                                    </div>
+                                    
                                     <div class="avatar5">
                                     </div>
                                 </div>
@@ -102,12 +168,19 @@
                 </tr>
             
             
-                <tr>
+                <tr style="border:none;">
                     <td>#6</td>
                     <td>
                         <div id="HoverCell">Onofrei Paula</div>
                             <div id="InfoBox">      
                                 <div class="gradient-border-mini SmartPhone">
+                                    <div id="InfoText"> id: thebest                 
+                                        <div id="InfoText1"> level:?? 
+                                            <div id="InfoText1"> stats:??
+                                            </div>  
+                                        </div>   
+                                    </div>
+                                    
                                     <div class="avatar6">
                                     </div>
                                 </div>
@@ -118,6 +191,7 @@
                 </tr>
      
             </table>
+            </div>
         </div>
     </body>
 </html>
