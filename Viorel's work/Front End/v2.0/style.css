@@ -316,7 +316,7 @@ span.psw {
 /* footer */
 #logo {
     font-family: titleFont;
-    font-size: 15vw;
+    font-size: 3vw;
     color: #d4764d;
     opacity: 0.7;
     text-decoration: none;
@@ -325,32 +325,46 @@ span.psw {
     z-index: 7;
     cursor: default;
     margin-top: 0vw;
-    margin-right: 2vw;
+    margin-left: 15vw;
 }
 div.divTable {
 width: 55%;
 max-height: 1vw;
 text-align: left;
 font-size: 2vh;
-color: #111;
+color: rgb(121, 86, 66);
 margin-top: 0vh;
-
+z-index:12;
+padding-bottom: 2vw;
 }
 .icons{
-max-height:5vw;
-max-width:5vw;
+max-height:3.5vw;
+max-width:3.5vw;
 top:125px;
+opacity: 0.4;
+z-index:12;
 }
 
 .links{
     display: inline-block;
     text-align: center;
-    color: rgba(255, 255, 255, 0.835);
-    padding: 1vw;
+    color: rgba(121, 86, 66,0.675);
+    text-decoration: none;
     border-radius: 5%;
+    z-index:12;
+    padding-bottom:0.2vw;
     }
+.linksText{
+    font-family: Arial, Helvetica, sans-serif;
+    align-content: center;
+    z-index:12;
+    padding-bottom:0.2vw;
+}
 .links:hover{
     background: rgba(28, 148, 164, 0.438);
+}
+.icons:hover{
+    opacity: 1;
 }
    
 .divTable{ display: table; }
