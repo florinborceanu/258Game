@@ -290,7 +290,7 @@ span.psw {
     padding-left: 10px;
 }
 
-.pic {
+.pic1 {
     background-image: url("imgs/render.jpg");
     position: absolute;
     background-repeat: no-repeat;
@@ -299,6 +299,18 @@ span.psw {
     width: 550px;
     z-index: 3;
     margin-top: -650px;
+}
+
+.pic2 {
+    background-image: url("imgs/render2.png");
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 650px;
+    width: 550px;
+    z-index: 3;
+    margin-top: -630px;
+    margin-left: 50%;
 }
 
 /* footer */
@@ -364,7 +376,8 @@ top:125px;
     .containerBoxRight {margin: 2.5%; width: 85%; margin-top: -500px;}
     .playBT{width: 100px; height: 100px;background-size: 110px 110px;}
     .playText{font-size: 30px; margin-top: 21px;}
-    .pic{display:none;}
+    .pic1{display:none;}
+    .pic2{display:none;}
   }
 
   @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -381,7 +394,8 @@ top:125px;
     .containerBoxRight {margin-left:29.5%;width: 100%;max-width:300px; margin-top: -620px;}
     .playBT{width: 130px; height: 130px;background-size: 135px 135px;}
     .playText{font-size: 40px; margin-top: 28px;}
-    .pic{height: 300px; width: 300px; margin-top:-300px;}
+    .pic1{height: 300px; width: 300px; margin-top:-300px;}
+    .pic2{height: 300px; width: 300px; margin-top:-300px;}
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -398,7 +412,8 @@ top:125px;
     .containerBoxRight {margin-right:10%;margin-left:42%;; width: 85%;max-width:400px; margin-top: -400px;}
     .playBT{width: 130px; height: 130px;background-size: 135px 135px;}
     .playText{font-size: 40px; margin-top: 28px;}
-    .pic{ height: 450px; width: 450px; margin-top:-450px;}
+    .pic1{ height: 450px; width: 450px; margin-top:-450px;}
+    .pic2{ height: 450px; width: 450px; margin-top:-450px;}
   }
 
 #login {
