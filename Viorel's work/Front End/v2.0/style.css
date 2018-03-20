@@ -305,40 +305,45 @@ span.psw {
 #logo {
     font-family: titleFont;
     font-size: 15vw;
-    color: white;
+    color: #d4764d;
     opacity: 0.7;
     text-decoration: none;
     position: absolute;
     text-align: right;
     z-index: 7;
     cursor: default;
-    margin-top: -7vw;
+    margin-top: 0vw;
     margin-right: 2vw;
 }
-div.blueTable {
+div.divTable {
 width: 55%;
+max-height: 1vw;
 text-align: left;
+font-size: 2vh;
+color: #111;
 margin-top: 0vh;
+
 }
-.blueTable  {
-font-size: 5vh;
+.icons{
+max-height:5vw;
+max-width:5vw;
+top:125px;
 }
-.blueTable  .links {
-   text-align: right;
+
+.links{
+    display: inline-block;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.835);
+    padding: 1vw;
+    border-radius: 5%;
+    }
+.links:hover{
+    background: rgba(28, 148, 164, 0.438);
 }
-.blueTable  .links a{
-display: inline-block;
-background: #1C6EA4;
-color: #FFFFFF;
-padding: 2px 8px;
-border-radius: 5px;
-}
+   
 .divTable{ display: table; }
 .divTableRow { display: table-row; }
-.divTableHeading { display: table-header-group;}
-.divTableCell, .divTableHead { display: table-cell;}
-.divTableHeading { display: table-header-group;}
-.divTableFoot { display: table-footer-group;}
+.divTableCell { display: table-cell;}
 .divTableBody { display: table-row-group;}
 /* end table */
 
