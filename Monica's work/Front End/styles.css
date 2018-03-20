@@ -116,13 +116,13 @@
     }
 
     
-    #HoverCell {
+    .HoverCell {
         height:100%;
         position:relative;
         width:100%; 
         }
     
-    #InfoBox{
+    .InfoBox{
         color:white;
         display:none;
         font-size:20px;
@@ -139,7 +139,7 @@
         z-index:9;
     }  
 
-    #InfoText {
+    .InfoText {
         font-family:Font_SC;
         font-size:30px;
         margin-left:30%;
@@ -147,18 +147,18 @@
         width:70%;
     }    
     
-    #InfoText1 {
+    .InfoText1 {
         font-family:Font_SC;
         font-size:24px;
         position:absolute;
         width:70%;
     }
         
-    #HoverCell:hover {
+    .HoverCell:hover {
         opacity:0.5;
     }
    
-    #HoverCell:hover + #InfoBox {
+    .HoverCell:hover + #InfoBox {
         display:block;
         transition: bottom 0.5s;
     }        
