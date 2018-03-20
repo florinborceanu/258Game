@@ -34,11 +34,11 @@
   var index = 0;
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-}
+  }
 
-function closeNav() {
+  function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-}
+  }
 
   function popup(n){
     var popUp = document.getElementsByClassName("popUpArt")[0];
