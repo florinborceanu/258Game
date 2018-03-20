@@ -4,6 +4,7 @@
 <head>
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <script>
         var modal = document.getElementById('id01');
@@ -14,7 +15,6 @@
                 document.getElementById('register').style.display = 'none';
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('userPhoto').style.display = 'block';
-                document.getElementById('userName').style.display = 'block';
             }
         };
 
@@ -37,7 +37,6 @@
             document.getElementById('login').style.display = 'none';
             document.getElementById('id01').style.display = 'none';
             document.getElementById('userPhoto').style.display = 'block';
-            document.getElementById('userName').style.display = 'block';
             localStorage.setItem("logged", 1);
         }
 
@@ -45,7 +44,6 @@
             document.getElementById('register').style.display = 'block';
             document.getElementById('login').style.display = 'block';
             document.getElementById('userPhoto').style.display = 'none';
-            document.getElementById('userName').style.display = 'none';
             localStorage.setItem("logged", 0);
         }
 
@@ -79,23 +77,27 @@
         <a href="#">Media</a>
     </div>
 
-    <span id="nav">
+    <div id="nav">
         <p style="cursor:pointer" onclick="openNav()" id="menu">&#9776;</p>
-    </span>
+    </div>
     <span id="login">
         <a href="#" class="log-reg" onclick="document.getElementById('id01').style.display='block'">LOGIN</a>
     </span>
     <span id="register">
         <a href="#" class="log-reg" onclick="document.getElementById('id02').style.display='block'">REGISTER</a>
     </span>
-    <span id="userName">
-        <a href="#" class="log-reg" onclick="logOut()">Log-Out</a>
-    </span>
-    <span id="userPhoto">
+    
+    <div id="userPhoto">
+        <div class="dropdown-content">
+            <a href="#">Change Email</a>
+            <a href="#">Change Username</a>
+            <a href="#">Change Password</a>
+            <a href="#" onclick="logOut()">Log-Out</a>
+        </div>
         <a href="#" class="log-reg">
-            <img src="imgs/avatar.png/" style="width: 40px;height:40px;">
+            <img alt="Avatar" src="imgs/avatar.png" style="width: 60px;height:60px;">
         </a>
-    </span>
+    </div>
     
 
 
@@ -118,12 +120,12 @@
         <form class="modal-content animate">
 
             <div class="container">
-                <label for="uname">
+                <label>
                     <b>Username</b>
                 </label>
                 <input type="text" placeholder="Enter Username" name="uname" required>
 
-                <label for="psw">
+                <label>
                     <b>Password</b>
                 </label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
@@ -149,20 +151,20 @@
         <form class="modal-content animate" action="/action_page.php">
 
             <div class="container">
-                <label for="email">
+                <label>
                     <b>Email</b>
                 </label>
                 <input type="text" placeholder="Enter Email" name="email" required>
-                <label for="uname">
+                <label>
                     <b>Username</b>
                 </label>
                 <input type="text" placeholder="Enter Username" name="uname" required>
 
-                <label for="psw">
+                <label>
                     <b>Password</b>
                 </label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
-                <label for="rpsw">
+                <label>
                     <b>Repeat Password</b>
                 </label>
                 <input type="password" placeholder="Repeat Password" name="rpsw" required>
@@ -199,7 +201,7 @@
     </div>
 
     <div style="position:relative;">
-        <span class="containerBoxRight">
+        <div class="containerBoxRight">
             <div class="titleBox">
                 Titlu
             </div>
@@ -210,7 +212,7 @@
                 how esteem end hunted nearer and before. By an truth after heard going early given he. Charmed to it excited
                 females whether at examine. Him abilities suffering may are yet dependent.
             </p>
-        </span>
+        </div>
         <div style="background-color:#282E34;padding:50px">
         </div>
     </div>
@@ -219,7 +221,7 @@
     </div>
 
     <div style="position:relative;">
-        <span class="containerBoxLeft">
+        <div class="containerBoxLeft">
             <div class="titleBox">
                 Titlu
             </div>
@@ -230,7 +232,7 @@
                 how esteem end hunted nearer and before. By an truth after heard going early given he. Charmed to it excited
                 females whether at examine. Him abilities suffering may are yet dependent.
             </p>
-        </span>
+        </div>
         <div style="background-color:#282E34;padding-bottom:7vh;">
                 
                 <div style="background-color:#282E34">
@@ -241,7 +243,6 @@
                                         <div class="divTableCell">External links:</div>
                                         
                                         <div><a id="logo" href="#top"> Scharak</a></div>
-                                        </a>
                                     </div>
                                     <div class="divTableRow" >
                                             <div class="divTableCell" >
