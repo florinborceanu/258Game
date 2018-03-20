@@ -185,9 +185,11 @@ span.psw {
     position: absolute;
     text-align: center;
     z-index: 7;
-    width: 100%;
-    margin-top: 60px;
     cursor: default;
+    margin-top: -50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .containerBoxLeft {
@@ -195,8 +197,10 @@ span.psw {
     width: 400px;
     background-color: rgba(255,255,255,0.6);
     padding: 20px;
-    margin: 100px;
+    margin-top: -40%;
+    margin-left: 10%;
     border-radius: 2%;
+    z-index: 8;
 }
 
 .containerBoxRight {
@@ -226,90 +230,118 @@ span.psw {
     color: rgb(39, 39, 39);
 }
 
-div.playBT {
-	background-image: url("imgs/mainBTglow.png");
-	background-color: #fdb292;
-	background-size: 185px 185px;
-	background-position: center; 
-	border-radius: 50%;
+.playContainer {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    bottom: 100px;
-	width: 170px;
-    height: 170px;
-	cursor: pointer;
-    transition: 0.3s;
+    width: 100%;
+    height: 185px;
+    margin-top: 500px;
     z-index: 9;
 }
 
-div.playBT:hover {
-	background-color: #fa956a;
+.playBT {
+	background-image: url("imgs/mainBTglow.png");
+	background-color: #fdb292;
 	background-size: 185px 185px;
-	background-position: center; 
-	border-radius: 50%;
+    background-position: center;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    bottom: 100px;
+    border-radius: 50%;
 	width: 170px;
     height: 170px;
-	cursor: pointer;
-	transition: 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 8;
+    margin-top: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-div.playBT:active {
-	background-image: url("");
+.playBT:hover {
+	background-color: #d4764d;
+}
+
+.playBT:active {
+	background-image: none;
 	background-color: white;
-	background-size: 210px 210px;
-	background-position: center; 
-	border-radius: 0%;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    bottom: 100px;
+    border-radius: 0%;
+    margin-top: 5%;
+    margin-left: 0px;
 	width: 100%;
     height: 500px;
 	cursor: pointer;
 	transition: 0.3s;
 }
 
-div.playText {
+.playText {
 	font-family: playFont;
     font-size: 55px;
-    padding-top: 40px;
-	color: white;
-	text-align: center;
+    color: white;
+    position: absolute;
+    margin-top: 35px;
+    padding-left: 10px;
 }
 
-@media screen and (max-width: 450px) {
+.pic {
+    background-image: url("imgs/render.jpg");
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 650px;
+    width: 550px;
+    z-index: 3;
+    margin-top: -650px;
+}
+
+
+
+@media screen and (max-width: 480px) {
     .log-reg {font-size: 20px;}
     .menu {font-size: 20px;}
     #menu {font-size: 20px;}
     .modal-content {width: 80%;margin-top: 20%;}
-    #title {font-size: 100px; margin-top: 60px;}
+    #title {font-size: 100px; margin-top: 0;}
     span.psw {display: block;float: none;}
     .cancelbtn {width: 100%;}
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-    .containerBoxLeft {margin: 1%; width: 85%; margin-top: 10%;}
-    .containerBoxRight {margin: 1%; width: 85%; margin-top: 10%;}
+    .containerBoxLeft {margin: 2.5%; width: 85%; margin-top: -500px;}
+    .containerBoxRight {margin: 2.5%; width: 85%; margin-top: -500px;}
+    .playBT{width: 100px; height: 100px;background-size: 110px 110px;}
+    .playText{font-size: 30px; margin-top: 21px;}
+    .pic{display:none;}
   }
 
-.pic {
-    opacity: 1;
-    position: absolute;
-    z-index: 8;
-    margin-left: 10%;
-    margin-top: -517px;
-}
-.caption {
-    display: inline;
-    height: 100%;
-}
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .log-reg {font-size: 20px;}
+    .menu {font-size: 20px;}
+    #menu {font-size: 20px;}
+    .modal-content {width: 80%;margin-top: 20%;}
+    #title {font-size: 100px;}
+    span.psw {display: block;float: none;}
+    .cancelbtn {width: 100%; margin-top: 90px;}
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .containerBoxLeft {margin-left:1.5%;width: 100%;max-width:300px; margin-top: -620px;}
+    .containerBoxRight {margin-left:29.5%;width: 100%;max-width:300px; margin-top: -620px;}
+    .playBT{width: 130px; height: 130px;background-size: 135px 135px;}
+    .playText{font-size: 40px; margin-top: 28px;}
+    .pic{height: 300px; width: 300px; margin-top:-300px;}
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    .log-reg {font-size: 20px;}
+    .menu {font-size: 20px;}
+    #menu {font-size: 20px;}
+    .modal-content {width: 80%;margin-top: 20%;}
+    #title {font-size: 150px;}
+    span.psw {display: block;float: none;}
+    .cancelbtn {width: 100%; margin-top: 90px;}
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .containerBoxLeft {margin-left: 5.5%; width: 85%;max-width: 400px; margin-top: -400px;}
+    .containerBoxRight {margin-right:10%;margin-left:42%;; width: 85%;max-width:400px; margin-top: -400px;}
+    .playBT{width: 130px; height: 130px;background-size: 135px 135px;}
+    .playText{font-size: 40px; margin-top: 28px;}
+    .pic{ height: 450px; width: 450px; margin-top:-450px;}
+  }
+
