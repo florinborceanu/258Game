@@ -88,9 +88,9 @@
     
     <div id="userPhoto">
         <div class="dropdown-content">
-            <a href="#">Change Email</a>
-            <a href="#">Change Username</a>
-            <a href="#">Change Password</a>
+            <a href="#" onclick="document.getElementById('id03').style.display='block'">Change Email</a>
+            <a href="#" onclick="document.getElementById('id04').style.display='block'">Change Username</a>
+            <a href="#" onclick="document.getElementById('id05').style.display='block'">Change Password</a>
             <a href="#" onclick="logOut()">Log-Out</a>
         </div>
         <a href="#" class="log-reg">
@@ -122,7 +122,7 @@
                 <label>
                     <b>Username</b>
                 </label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname" required autocomplete="off">
 
                 <label>
                     <b>Password</b>
@@ -153,11 +153,11 @@
                 <label>
                     <b>Email</b>
                 </label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <input type="text" placeholder="Enter Email" name="email" required autocomplete="off">
                 <label>
                     <b>Username</b>
                 </label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname" required autocomplete="off">
 
                 <label>
                     <b>Password</b>
@@ -168,7 +168,7 @@
                 </label>
                 <input type="password" placeholder="Repeat Password" name="rpsw" required>
 
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
@@ -183,6 +183,97 @@
         </form>
     </div>
 
+    <div id="id03" class="modal">
+
+        <!-- Modal Content -->
+        <form class="modal-content animate">
+
+            <div class="container">
+                <label>
+                    <b>Old Email</b>
+                </label>
+                <input type="text" placeholder="Enter Old Email" name="oemail" required autocomplete="off">
+                <label>
+                    <b>New Email</b>
+                </label>
+                <input type="text" placeholder="Enter New Email" name="nemail" required autocomplete="off">
+
+                <label>
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="button" class="">Submit</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    
+    <div id="id04" class="modal">
+
+        <!-- Modal Content -->
+        <form class="modal-content animate">
+
+            <div class="container">
+                <label>
+                    <b>Old Username</b>
+                </label>
+                <input type="text" placeholder="Enter Old Username" name="ouname" required autocomplete="off">
+                <label>
+                    <b>New Username</b>
+                </label>
+                <input type="text" placeholder="Enter New Username" name="nuname" required autocomplete="off">
+
+                <label>
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="button" class="">Submit</button>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    
+    <div id="id05" class="modal">
+
+        <!-- Modal Content -->
+        <form class="modal-content animate">
+
+            <div class="container">
+                
+
+                <label>
+                    <b>Old Password</b>
+                </label>
+                <input type="password" placeholder="Enter Old Password" name="opsw" required>
+                <label>
+                    <b>New Password</b>
+                </label>
+                <input type="password" placeholder="Enter New Password" name="npsw" required>
+                <label>
+                    <b>Repeat New Password</b>
+                </label>
+                <input type="password" placeholder="Repeat New Password" name="rnpsw" required>
+
+                <button type="button" class="">Submit</button>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    
+    
     <div class="bgimg-1">
     </div>
 
