@@ -163,24 +163,14 @@ span.psw {
     z-index: 8;
 }
 
-.log-reg {
-    color: white;
-    position: relative;
-    z-index: 8;
-    font-size:30px;
-    font-family: playFont;
-    float:right;
-    margin-right:30px;
-    margin-top: 1vw;
-    text-decoration: none;
-}
+
 
 
 #title {
 	font-family: titleFont;
 	font-size: 250px;
 	color: white;
-    opacity: 0.7;
+    opacity: 0.9;
     text-decoration: none;
     position: absolute;
     text-align: center;
@@ -190,6 +180,7 @@ span.psw {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
 }
 
 .containerBoxLeft {
@@ -201,6 +192,7 @@ span.psw {
     margin-left: 10%;
     border-radius: 2%;
     z-index: 8;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
 }
 
 .containerBoxRight {
@@ -214,6 +206,7 @@ span.psw {
     margin-top: -517px;
     margin-left: 55%;
     z-index: 8;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
 }
 
 .titleBox {
@@ -236,6 +229,7 @@ span.psw {
     height: 185px;
     margin-top: 500px;
     z-index: 9;
+    
 }
 
 #playBT {
@@ -254,6 +248,7 @@ span.psw {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.9);
 }
 
 #playBT:hover {
@@ -325,12 +320,16 @@ margin-top: 0vh;
 z-index:12;
 padding-bottom: 2vw;
 }
+
 .icons{
 max-height:3.5vw;
 max-width:3.5vw;
 margin-top:2vw;
-opacity: 0.4;
+opacity: 0.6;
 z-index:12;
+text-decoration: none;
+box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+border-radius: 200px;
 }
 
 .links{
@@ -374,7 +373,6 @@ z-index:12;
 #Logo {
     display: inline;
     width: 60%;
-    
 }
 #logo {
     font-family: titleFont;
@@ -383,7 +381,11 @@ z-index:12;
     opacity: 0.7;
     text-decoration: none;
     z-index: 7;
-    cursor: default;
+    cursor: pointer;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+#logo:hover{
+    opacity: 1;
 }
 
 .CellLeft {
@@ -397,7 +399,7 @@ z-index:12;
 @media screen and (max-width: 480px) {
     .log-reg {font-size: 20px;}
     .menu {font-size: 20px;}
-    #menu {font-size: 20px;}
+    #menu {font-size: 35px;}
     .modal-content {width: 80%;margin-top: 20%;}
     #title {font-size: 100px; margin-top: 0;}
     span.psw {display: block;float: none;}
@@ -414,13 +416,15 @@ z-index:12;
     .links {font-size: 14px;}
     .CellLeft {display:block}
     #logo { font-size: 50px;}
+    #register {margin: 10px; padding: 7px 10px;}
+    #login {margin: 10px; padding: 7px 10px;}
     
   }
 
   @media screen and (min-width: 481px) and (max-width: 768px) {
     .log-reg {font-size: 20px;}
     .menu {font-size: 20px;}
-    #menu {font-size: 20px;}
+    #menu {font-size: 35px;}
     .modal-content {width: 80%;margin-top: 20%;}
     #title {font-size: 100px;}
     span.psw {display: block;float: none;}
@@ -433,12 +437,18 @@ z-index:12;
     .playText{font-size: 40px; margin-top: 28px;}
     .pic1{height: 300px; width: 300px; margin-top:-300px;}
     .pic2{height: 300px; width: 300px; margin-top:-300px;}
+    .icons {max-height: 25px; max-width:25px;}
+    .links {font-size: 14px;}
+    .CellLeft {display:block}
+    #logo { font-size: 50px;}
+    #register {margin: 10px; padding: 7px 10px;}
+    #login {margin: 10px; padding: 7px 10px;}
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     .log-reg {font-size: 20px;}
     .menu {font-size: 20px;}
-    #menu {font-size: 20px;}
+    #menu {font-size: 35px;}
     .modal-content {width: 80%;margin-top: 20%;}
     #title {font-size: 150px;}
     span.psw {display: block;float: none;}
@@ -451,6 +461,12 @@ z-index:12;
     .playText{font-size: 40px; margin-top: 28px;}
     .pic1{ height: 450px; width: 450px; margin-top:-450px;}
     .pic2{ height: 450px; width: 450px; margin-top:-450px;}
+    .icons {max-height: 25px; max-width:25px;}
+    .links {font-size: 14px;}
+    .CellLeft {display:block}
+    #logo { font-size: 50px;}
+    #register {margin: 10px; padding: 7px 10px;}
+    #login {margin: 10px; padding: 7px 10px;}
   }
 
 #login {
@@ -468,13 +484,14 @@ z-index:12;
     position: relative;
     display: inline-block;
     display: none;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
 }
 
 .dropdown-content {
     display: none;
     background-color:#909eb5;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
     color: white;
     position: relative;
     z-index: 8;
@@ -503,4 +520,29 @@ z-index:12;
 
 #userPhoto:hover .dropdown-content {
     display: block;
+}
+#register{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    margin: 20px;
+    display: inline;
+}
+#login {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    margin:20px;
+    display: inline;
+    
+}
+#buttons {
+    position: relative;
+    float:right;
+    display: inline;
+    z-index: 8;
 }
