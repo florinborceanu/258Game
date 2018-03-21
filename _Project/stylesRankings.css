@@ -30,7 +30,7 @@
         background-size: cover;
         margin:0px;
         width:100%;
-        
+
     }
 
     
@@ -302,8 +302,10 @@
     .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
+        font: 400 15px/1.8 "Lato", sans-serif;
         font-size: 25px;
-        color: #818181;
+        color: #777;
+        font-size: 25px;
         display: block;
         transition: 0.3s;
     }
@@ -321,7 +323,7 @@
     }
 
     #nav {
-        background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+        background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
         position: absolute;
         z-index: 5;
         width: 100%;
