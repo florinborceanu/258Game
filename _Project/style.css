@@ -12,6 +12,7 @@ body, html {
   margin: 0;
   font: 400 15px/1.8 "Lato", sans-serif;
   color: #777;
+    user-select: none;
 }
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -170,7 +171,7 @@ span.psw {
 	font-family: titleFont;
 	font-size: 250px;
 	color: white;
-    opacity: 0.9;
+    opacity: 0.7;
     text-decoration: none;
     position: absolute;
     text-align: center;
@@ -180,7 +181,7 @@ span.psw {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    text-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
 }
 
 .containerBoxLeft {
@@ -335,7 +336,8 @@ border-radius: 200px;
 .links{
     display: inline-block;
     text-align: center;
-    color: rgba(121, 86, 66,0.675);
+    color:whitesmoke;
+    opacity: 0.6;
     text-decoration: none;
     border-radius: 5%;
     z-index:12;
@@ -346,6 +348,9 @@ border-radius: 200px;
     z-index:12;
 }
 .icons:hover{
+    opacity: 1;
+}
+.links:hover{
     opacity: 1;
 }
    
@@ -540,7 +545,8 @@ border-radius: 200px;
     width: 100px;
     margin: 20px;
     display: inline;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 200px;
 }
 #login {
     background-color:darkslategrey;
@@ -550,7 +556,8 @@ border-radius: 200px;
     width: 100px;
     margin:20px;
     display: inline;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 200px;
     
 }
 #buttons {
@@ -558,4 +565,7 @@ border-radius: 200px;
     float:right;
     display: inline;
     z-index: 8;
+}
+button:focus{
+    outline: none;
 }
