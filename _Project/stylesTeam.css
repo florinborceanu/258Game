@@ -1,11 +1,4 @@
 
-
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-
   @font-face {
     font-family: Muskaters;
     src: url(fonts/Muskaters.ttf);
@@ -21,57 +14,6 @@ body {
 	margin: 0;
   padding: 0;	
 }
-
-   /* Slideshow container */
-  .slideshow-container {
-    max-width: 1000px;
-    padding-top: 75px;
-    position: relative;
-    margin: auto;
-    font-size: 150px;
-  }
-  .mySlides {
-      display: none;
-  }
-  /* Next & previous buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 36px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-  }
-  /* Modify position the "next button" to the right */
-  .next {
-    right: -1em;
-   }
-   .prev {
-    left: -1em;
-   }
-  /* Add a #CLR background on hover */
-  .prev:hover, .next:hover {
-    background-color: rgba(185, 47, 13, 0.7);
-  }
-  /* The dots/bullets */
-  .dot {
-    cursor:pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: rgb(128, 114, 114);
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  .active, .dot:hover {
-    background-color: #524e4e;
-  }
   
   /* navigation bar - proper style for Team-page*/
   .cancelbtn {
@@ -92,6 +34,7 @@ body {
       background-color: #111;
       overflow-x: hidden;
       padding-top: 60px;
+      transition: 0.3s;
   }
   .sidenav a {
       padding: 8px 8px 8px 32px;
@@ -100,7 +43,6 @@ body {
       font-size: 25px;
       color: #777;
       display: block;
-      transition: 0.3s;
   }
   .sidenav a:hover {
       color: #f1f1f1;
@@ -237,7 +179,7 @@ body {
   background-color: rgba(255, 255, 255, 0.535);
   border-radius: 5%;
   margin-left:17vw;
-  
+
   top: 0vh;
 }
 .user1T{
