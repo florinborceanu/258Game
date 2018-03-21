@@ -1,0 +1,399 @@
+
+    @font-face {
+        font-family: titleFont;
+        src: url(fonts/Muskaters.ttf);
+    }
+
+    @font-face {
+        font-family: playFont;
+        src: url(fonts/ERASBD.ttf);
+    }
+
+    @font-face{
+        font-family: Font_SC;
+        src: url(imgs/font.ttf) format('truetype');
+    }
+        
+    @font-face{
+        font-family: Font_TA;
+        src: url(imgs/Tahu!.ttf) format('truetype');
+    }
+
+    
+    
+    body {
+        background-attachment: fixed;
+        background-color: white;
+        background-image: url("imgs/pic1.png");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin:0px;
+        width:100%;
+        
+    }
+
+    
+    .textBox{
+        color : white;
+        font-family:Font_SC;
+        font-size:100px;
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+        text-align: center;
+        top:40px;
+        Z-INDEX:4;
+    }
+    
+    .SubTextBox{
+        color : #8bd1d0;
+        font-family:Font_SC;
+        font-size:40px;
+        position:relative;
+        text-align: center;
+        top:-67px;
+        Z-INDEX:4;
+    }
+    
+    .avatar1{
+        background-image:url('imgs/av1.png'); 
+        border-radius: 50%;
+        height:80px;
+        margin-left: -15%;
+        padding:4.5%;
+        position: relative;
+        width:80px;
+   }
+
+    .avatar2{
+        background-image:url('imgs/av2.png'); 
+        border-radius: 50%;
+        height:80px;
+        margin-left: -15%;
+        padding:4.5%;
+        position: relative;
+        width:80px;
+    }
+    
+    .avatar3{
+        background-image:url('imgs/av3.png'); 
+        border-radius: 50%;
+        height:80px;
+        margin-left: -15%;
+        padding:4.5%;
+        position: relative;
+        width:80px;
+    }
+        
+    .avatar4{
+        background-image:url('imgs/av4.png'); 
+        border-radius: 50%;
+        height:80px;
+        margin-left: -15%;
+        padding:4.5%;
+        position: relative;
+        width:80px;
+    }
+        
+    .avatar5{
+        background-image:url('imgs/av5.png'); 
+        border-radius: 50%;
+        height:80px;
+        margin-left: -15%;
+        padding:4.5%;
+        position: relative;
+        width:80px;
+    }
+        
+    .avatar6{
+        background-image:url('imgs/av6.png'); 
+        border-radius: 50%;
+        height:80px;
+        margin-left: -15%;
+        padding:4.5%;
+        position: relative;
+        width:80px;
+    }
+
+    
+    .HoverCell {
+        height:100%;
+        position:relative;
+        width:100%; 
+        }
+    
+    .InfoBox{
+        color:white;
+        display:none;
+        font-size:20px;
+        float:left;
+        margin-bottom:auto;
+        margin-left:46%;
+        margin-right:70%;
+        margin-top:-8%;
+        opacity:0.97;
+        position:absolute;
+        text-align: center;
+        width:40%;
+        z-index:9;
+    }  
+
+    .InfoText {
+        font-family:Font_SC;
+        font-size:30px;
+        margin-left:30%;
+        position:absolute;
+        width:70%;
+    }    
+    
+    .InfoText1 {
+        font-family:Font_SC;
+        font-size:24px;
+        position:absolute;
+        width:70%;
+    }
+        
+    .HoverCell:hover {
+        opacity:0.5;
+    }
+   
+    .HoverCell:hover + .InfoBox {
+        display:block;
+        transition: bottom 0.5s;
+    }        
+        
+
+   .ranks {
+        border-collapse: collapse   ;
+        cursor:default;
+        font-family:Font_SC;
+        margin-top: 35px;
+        opacity:1;
+        position:relative;
+        text-align:left;
+        width: 100%;
+    }
+        
+    .ranks td {
+        border-bottom: 1px solid black;
+        color:black;
+        font-family:Font_SC;       
+        font-size:40px;
+        padding-left:3px;
+        z-index:-1;                
+    }
+   
+    
+    
+    .ranks  tr > td:first-child  {
+        font-family:Font_TA;
+        z-index:-1;
+    }
+    
+    .ranks  tr > td:first-child +td +td +td {
+        font-family:Font_TA;
+    }
+ 
+    .SmartPhone { 
+        display:contents;
+    }
+        
+    .SmartPhone1 { 
+        display:contents;
+    }
+            
+    
+    #center{
+        width:100%;
+        text-align:center;
+    }
+    .gradient-border {
+        position: relative;
+        border-radius: 3px;
+        width:60%;
+        margin-top: 35px;
+        margin-right:auto;
+        margin-left:auto;
+        z-index:8;
+        
+        
+    }
+
+    .gradient-border-mini {
+        border-radius: 3px;
+        background-color: #1D1F20;
+        position: relative;
+        margin-right:auto;
+        margin-left:auto;
+        z-index:8;
+        top:-4px;
+        width:100%;
+        text-align:left;
+        
+    }
+    
+    .gradient-border-mini:after {
+        content: '';
+        position: absolute;
+        top: calc(-1 * 3px);
+        left: calc(-1 * 3px);
+        height: calc(100% + 3px * 2);
+        width: calc(100% + 3px * 2);
+        background: linear-gradient(60deg,rgb(165, 110, 92),rgb(77, 77, 66), #382a2a,#313631,#2f332f,#3f3130,
+        rgb(75, 75, 66),rgb(134, 99, 85));
+        border-radius: calc(2 * 3px);
+        z-index: -1;
+        animation: animatedgradient 30s ease alternate infinite;
+        background-size: 300% 300%;
+  
+    }
+
+    .gradient-border:after {
+        content: '';
+        position: absolute;
+        top: calc(-1 * 3px);
+        left: calc(-1 * 3px);
+        height: calc(100% + 3px * 2);
+        width: calc(100% + 3px * 2);
+        background: linear-gradient(60deg,rgba(224, 158, 132, 0.85),rgba(124, 124, 114, 0.85),rgba(124, 124, 114, 0.815),rgba(224, 158, 132, 0.821));
+        border-radius: calc(2 * 3px);
+        z-index: -1;
+        animation: animatedgradient 35s ease alternate infinite;
+        background-size: 300% 300%;
+    }
+
+        
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    #nav {
+        background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+        position: absolute;
+        z-index: 5;
+        width: 100%;
+    }
+    #menu {
+        margin-left:30px;
+        color: white;
+        width:10%;
+        font-family: playFont;
+        font-size: 30px;
+        position: relative;
+        margin-top: 1vw;
+        z-index: 10;
+    }
+
+
+
+
+    .containerBoxLeft {
+        position: absolute;
+        width: 400px;
+        background-color: rgba(255,255,255,0.3);
+        padding: 20px;
+        margin: 100px;
+        border-radius: 2%;
+    }
+
+        
+    @keyframes animatedgradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      
+         .SmartPhone{
+         display:none;}
+        
+      #ranks td { font-size:30px;} 
+          
+    }
+      
+
+
+    
+    @media  (max-width: 480px) {
+          
+        .SmartPhone{
+              display:none;
+          
+        }
+        .SmartPhone1{
+              display:none;
+          
+        }
+        .menu {font-size: 20px;}
+        #menu {font-size: 20px;} 
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+        .containerBoxLeft {margin: 1%; width: 85%; margin-top: 10%;}   
+        #ranks td { font-size:20px;} 
+        .gradient-border{width: 90%;}
+        
+    }
+         
+     

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var modal = document.getElementById('id01');
+        var logged = localStorage.getItem("logged");
+
+        window.onload = function () {
+            if (logged == 1) {
+                document.getElementById('register').style.display = 'none';
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('userPhoto').style.display = 'block';
+            }
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function logIn() {
+            document.getElementById('register').style.display = 'none';
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('id01').style.display = 'none';
+            document.getElementById('userPhoto').style.display = 'block';
+            localStorage.setItem("logged", 1);
+        }
+
+        function logOut() {
+            document.getElementById('register').style.display = 'block';
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('userPhoto').style.display = 'none';
+            localStorage.setItem("logged", 0);
+        }
+
+        function play(n) {
+            if(n == 0){
+                document.getElementById('playBT').style.display = 'none';
+                document.getElementById('playText').style.display = 'none';
+                document.getElementById('playBTactive').style.display = 'block';
+                document.getElementById('closure').style.display = 'block';
+            }
+            if(n==1){
+                document.getElementById('playBT').style.display = 'block';
+                document.getElementById('playText').style.display = 'block';
+                document.getElementById('playBTactive').style.display = 'none';
+                document.getElementById('closure').style.display = 'none';
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div id="top"></div>
+    <div id="closure" onclick="play(1)"></div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="Index.html">Home</a>
+        <a href="Team.html">Team</a>
+        <a href="Rankings.html">Rankings</a>
+    </div>
+
+    <div id="nav">
+        <p style="cursor:pointer" onclick="openNav()" id="menu">&#9776;</p>
+    </div>
+    <span id="login">
+        <a href="#" class="log-reg" onclick="document.getElementById('id01').style.display='block'">LOGIN</a>
+    </span>
+    <span id="register">
+        <a href="#" class="log-reg" onclick="document.getElementById('id02').style.display='block'">REGISTER</a>
+    </span>
+    
+    <div id="userPhoto">
+        <div class="dropdown-content">
+            <a href="#">Change Email</a>
+            <a href="#">Change Username</a>
+            <a href="#">Change Password</a>
+            <a href="#" onclick="logOut()">Log-Out</a>
+        </div>
+        <a href="#" class="log-reg">
+            <img alt="Avatar" src="imgs/avatar.png" style="width: 60px;height:60px;">
+        </a>
+    </div>
+    
+
+
+
+    <div id="title">
+        ScharaK
+    </div>
+    <span id="playBT" onclick="play(0)">
+        <span id="playText">
+            PLAY
+        </span>
+    </span>
+
+    <div id="playBTactive"></div>
+
+
+    <div id="id01" class="modal">
+
+        <!-- Modal Content -->
+        <form class="modal-content animate">
+
+            <div class="container">
+                <label>
+                    <b>Username</b>
+                </label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label>
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="button" onclick="logIn();" class="">Login</button>
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot
+                    <a href="#">password?</a>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div id="id02" class="modal">
+
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="/action_page.php">
+
+            <div class="container">
+                <label>
+                    <b>Email</b>
+                </label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <label>
+                    <b>Username</b>
+                </label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label>
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <label>
+                    <b>Repeat Password</b>
+                </label>
+                <input type="password" placeholder="Repeat Password" name="rpsw" required>
+
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot
+                    <a href="#">password?</a>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div class="bgimg-1">
+    </div>
+
+    <div style="position:relative;">
+        <div style="background-color:#282E34;padding:50px;">
+        </div>
+    </div>
+
+
+    <div class="bgimg-2">
+    </div>
+
+
+    <div class="pic1">
+    </div>
+
+    <div style="position:relative;">
+        <div class="containerBoxRight">
+            <div class="titleBox">
+                Titlu
+            </div>
+            <p class="storyBox">
+                Knowledge nay estimable questions repulsive daughters boy. Solicitude gay way unaffected expression for. His mistress ladyship
+                required off horrible disposed rejoiced. Unpleasing pianoforte unreserved as oh he unpleasant no inquietude
+                insipidity. Advantages can discretion possession add favourable cultivated admiration far. Why rather assure
+                how esteem end hunted nearer and before. By an truth after heard going early given he. Charmed to it excited
+                females whether at examine. Him abilities suffering may are yet dependent.
+            </p>
+        </div>
+        <div style="background-color:#282E34;padding:50px">
+        </div>
+    </div>
+    
+    
+
+    <div class="bgimg-3">
+    </div>
+    
+    <div class="pic2">
+    </div>
+
+    <div style="position:relative;">
+        <div class="containerBoxLeft">
+            <div class="titleBox">
+                Titlu
+            </div>
+            <p class="storyBox">
+                Knowledge nay estimable questions repulsive daughters boy. Solicitude gay way unaffected expression for. His mistress ladyship
+                required off horrible disposed rejoiced. Unpleasing pianoforte unreserved as oh he unpleasant no inquietude
+                insipidity. Advantages can discretion possession add favourable cultivated admiration far. Why rather assure
+                how esteem end hunted nearer and before. By an truth after heard going early given he. Charmed to it excited
+                females whether at examine. Him abilities suffering may are yet dependent.
+            </p>
+        </div>
+        <div style="background-color:#282E34;">
+                
+            <div style="background-color:#282E34">
+                    <div class="divTable divTable" >
+                        <div class="divTableBody">
+                                <div class="divTableRow">
+                                    <div class="divTableCell">Social pages:</div>
+                                    <div class="divTableCell" >
+                                        <a href="https://www.facebook.com/">
+                                            <img class="icons" src="imgs/facebook.png" alt="Fb">
+                                        </a>
+                                    </div> 
+                                    <div class="divTableCell" >
+                                        <a href="https://twitter.com/">
+                                            <img class="icons" src="imgs/twitter.png"  alt="Tweet">
+                                        </a>
+                                    </div>
+                                    <div class="divTableCell" >
+                                        <a href="https://youtube.com/"> 
+                                            <img class="icons" src="imgs/youtube.png" alt="Yt">
+                                        </a>
+                                    </div>
+                                    <div class="divTableCell" style="font-size:1vw;">External links:</div>
+                                        <div class="divTableCell" >
+                                            <a class="links" href="https://en.wikipedia.org/wiki/Role-playing_video_game">RPG wiki</a>
+                                        </div>
+                                        <div class="divTableCell">
+                                            <a class="links" href="https://developer.marvel.com/" >Marvel API</a>
+                                        </div>
+                                        <div class="divTableCell" >
+                                            <a class="links" href="https://myanimelist.net/modules.php?go=api">Anime API</a>
+                                        </div>
+                                    <div><a id="logo" href="#top"> Scharak</a></div>
+                                </div>
+                                    
+                                    
+                                    
+                                
+                                
+                                </div>
+                        </div>
+                </div> 
+    </div>
+    </div>
+
+
+</body>
+
+</html>
