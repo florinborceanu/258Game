@@ -394,6 +394,17 @@ border-radius: 200px;
 }
 
 
+.log-reg {
+    color: white;
+    position: relative;
+    z-index: 8;
+    font-size:30px;
+    font-family: playFont;
+    float:right;
+    margin-right:30px;
+    margin-top: 1vw;
+    text-decoration: none;
+}
 
 
 @media screen and (max-width: 480px) {
@@ -484,14 +495,13 @@ border-radius: 200px;
     position: relative;
     display: inline-block;
     display: none;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
 }
 
 .dropdown-content {
     display: none;
     background-color:#909eb5;
     min-width: 160px;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     color: white;
     position: relative;
     z-index: 8;
@@ -521,6 +531,7 @@ border-radius: 200px;
 #userPhoto:hover .dropdown-content {
     display: block;
 }
+
 #register{
     background-color:darkslategray;
     color: white;
