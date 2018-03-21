@@ -182,7 +182,10 @@ body {
 
   top: 0vh;
 }
-.user1T{
+.authorName{
+  top:-5vh;
+}
+.author1Name{
   font-family: Muskaters;
   font-size: 7vw;
   text-align: center;
@@ -191,7 +194,7 @@ body {
   display: none;
   top:-5vh;
 }
-.user2T{
+.author2Name{
   font-family: Muskaters;
   font-size: 7vw;
   text-align: center;
@@ -200,7 +203,7 @@ body {
   display: none;
   top:-5vh;
 }
-.user3T{
+.author3Name{
   font-family: Muskaters;
   font-size: 7vw;
   text-align: center;
@@ -209,7 +212,7 @@ body {
   display: none;
   top:-5vh;
 }
-.user4T{
+.author4Name{
   font-family: Muskaters;
   font-size: 7vw;
   text-align: center;
@@ -218,28 +221,28 @@ body {
   display: none;
   top:-5vh;
 }
-.user1{
+.author1Description{
   display: none;
   font-size: 3vw;
   text-align: center;
   margin-top: 0vh;
   font-family: 'Times New Roman', Times, serif;
 }
-.user2{
+.author2Description{
   display: none;
   font-size: 3vw;
   text-align: center;
   margin-top: 0vh;
   font-family: 'Times New Roman', Times, serif;
 }
-.user3{
+.author3Description{
   display: none;
   font-size: 3vw;
   text-align: center;
   margin-top: 0vh;
   font-family: 'Times New Roman', Times, serif;
 }
-.user4{
+.author4Description{
   display: none;
   font-size: 3vw;
   text-align: center;
@@ -247,7 +250,7 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
-/* from them boys */
+/* different proportions for different devices' screens */
 @media  (min-width: 481px) and (max-width: 768px){
   .avatar1{
     margin-left: 25%;
@@ -285,7 +288,6 @@ body {
     font-size:6vh;
     top: -14vh ;
   }
-  
 }
 
 @media  (min-width: 321px) and (max-width: 375px) {
@@ -325,6 +327,9 @@ body {
     font-size:8vh;
     margin-top: 0vh ;
   }
+  .authorName{
+    top:-2.3vh;
+  }
 }
 @media  (min-width: 376px) and (max-width: 480px) {
   .avatar1{
@@ -363,21 +368,9 @@ body {
     font-size:8vh;
     top: -15vh ;
   }
-  
-  .user1T{
+  .authorName{
     top:-2.3vh;
   }
-  .user2T{
-    top:-2.3vh;
-  }
-  .user3T{
-    top:-2.3vh;
-  }
-  .user4T{
-    top:-2.3vh;
-  }
- 
-
 }
 @media  (max-width: 320px) {
   .avatar1{
@@ -408,16 +401,7 @@ body {
     height:25vw;
     width: 25vw;
   }
-  .user1T{
-    top:-1.8vh;
-  }
-  .user2T{
-    top:-1.8vh;
-  }
-  .user3T{
-    top:-1.8vh;
-  }
-  .user4T{
+  .authorName{
     top:-1.8vh;
   }
   .textBox{
