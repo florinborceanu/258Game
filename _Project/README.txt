@@ -1,4 +1,0 @@
-Task:
-- Rankings page
-
-Log:
