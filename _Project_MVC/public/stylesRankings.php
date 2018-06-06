@@ -3,22 +3,22 @@
 }
     @font-face {
         font-family: titleFont;
-        src: url(fonts/Muskaters.ttf);
+        src: url(/fonts/Muskaters.ttf);
     }
 
     @font-face {
         font-family: playFont;
-        src: url(fonts/ERASBD.ttf);
+        src: url(/fonts/ERASBD.ttf);
     }
 
     @font-face{
         font-family: Font_SC;
-        src: url(imgs/font.ttf) format('truetype');
+        src: url(/imgs/font.ttf) format('truetype');
     }
         
     @font-face{
         font-family: Font_TA;
-        src: url(imgs/Tahu!.ttf) format('truetype');
+        src: url(/imgs/Tahu!.ttf) format('truetype');
     }
 
     
@@ -26,7 +26,7 @@
     body {
         background-attachment: fixed;
         background-color: white;
-        background-image: url("imgs/pic1.png");
+        background-image: url("/imgs/pic1.png");
         background-position: center top;
         background-repeat: no-repeat;
         background-size: cover;
@@ -45,7 +45,6 @@
         position:relative;
         text-align: center;
         top:40px;
-        Z-INDEX:4;
     }
     
     .SubTextBox{
@@ -55,7 +54,6 @@
         position:relative;
         text-align: center;
         top:-67px;
-        Z-INDEX:4;
     }
     
     
@@ -119,21 +117,21 @@
     }
 
     #nav {
-        background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
-        position: absolute;
-        z-index: 5;
-        width: 100%;
-    }
-    #menu {
-        margin-left:30px;
-        color: white;
-        width:10%;
-        font-family: playFont;
-        font-size: 30px;
-        position: relative;
-        margin-top: 1vw;
-        z-index: 10;
-    }
+    background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+}
+#menu {
+    margin-left:30px;
+    color: white;
+    width:10%;
+    font-family: playFont;
+    font-size: 30px;
+    position: relative;
+    margin-top: 1vw;
+    z-index: 8;
+}
 #center {
     display: flex;
     flex-direction: row;

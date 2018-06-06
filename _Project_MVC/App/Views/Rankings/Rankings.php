@@ -3,13 +3,12 @@
     <head>
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
-        <link rel="stylesheet" type="text/css" href="stylesRankings.css">
-        <title>ScharaK - Rankings</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta charset="utf-8">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <script src="javascript.js"></script>
+        <style type="text/css">
+<?php include 'stylesRankings.php'; ?>
+</style>
+<script type="text/javascript">
+<?php include 'javascript.js'; ?>
+</script>
     
 </head>
     
@@ -21,8 +20,7 @@
   <a href="Team.html">Team</a>
   <a href="Rankings.html">Rankings</a>
 </div>
-    <div id="nav"><p style ="cursor:pointer" onclick="openNav()" id="menu">&#9776;</p></div>
-      
+    <div>
         <div class="textBox">ScharaK</div>
         <div class="SubTextBox">Rankings</div>
         <div id="center">
@@ -141,5 +139,6 @@
                 <div class="row">1234</div>
             </div>
         </div>
+    
     </body>
 </html>

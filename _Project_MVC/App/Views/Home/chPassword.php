@@ -1,0 +1,35 @@
+<style type="text/css">
+<?php include 'style.php'; ?>
+</style>
+<script type="text/javascript">
+<?php include 'javascript.js'; ?>
+</script>
+<div id="id05" class="modal">
+
+        <form class="modal-content animate">
+
+            <div class="container">
+                
+
+                <label>
+                    <b>Old Password</b>
+                </label>
+                <input type="password" placeholder="Enter Old Password" name="opsw" required>
+                <label>
+                    <b>New Password</b>
+                </label>
+                <input type="password" placeholder="Enter New Password" name="npsw" required>
+                <label>
+                    <b>Repeat New Password</b>
+                </label>
+                <input type="password" placeholder="Repeat New Password" name="rnpsw" required>
+
+                <button type="button" class="">Submit</button>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div>
