@@ -82,6 +82,64 @@ class Player {
     getPieces() {
         return this.pieces;
     }
+
+    upgradePoint(point) {
+        if (point <= 5) {
+            this.stsPoints--;
+            switch (point) {
+                case 1:
+                    {
+                        this.setStats(this.hp + 1, this.ad, this.ap, this.armor, this.mr);
+                    }
+                case 2:
+                    {
+                        this.setStats(this.hp, this.ad + 1, this.ap, this.armor, this.mr);
+                    }
+                case 3:
+                    {
+                        this.setStats(this.hp, this.ad, this.ap + 1, this.armor, this.mr);
+                    }
+                case 4:
+                    {
+                        this.setStats(this.hp, this.ad, this.ap, this.armor + 1, this.mr);
+                    }
+                case 5:
+                    {
+                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr + 1);
+                    }
+            }
+        }
+        else if (point > 5) {
+            this.pieces--;
+            switch (point) {
+                case 6:
+                    {
+                        this.setItems(this.helmet + 1, this.chest, this.pants, this.mainWeap, this.secWeap);
+                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
+                    }
+                case 7:
+                    {
+                        this.setItems(this.helmet, this.chest + 1, this.pants, this.mainWeap, this.secWeap);
+                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
+                    }
+                case 8:
+                    {
+                        this.setItems(this.helmet, this.chest, this.pants + 1, this.mainWeap, this.secWeap);
+                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
+                    }
+                case 9:
+                    {
+                        this.setItems(this.helmet, this.chest, this.pants, this.mainWeap + 1, this.secWeap);
+                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
+                    }
+                case 10:
+                    {
+                        this.setItems(this.helmet, this.chest, this.pants, this.mainWeap, this.secWeap + 1);
+                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
+                    }
+            }
+        }
+    }
 }
 
 class Stage {
@@ -119,7 +177,7 @@ function loadResources() {
     currentPlayer = new Player("Player Name");
     currentPlayer.setItems(1, 1, 1, 1, 1);
     currentPlayer.setStats(150000, 25, 25, 50, 20);
-    currentPlayer.setStage(1);
+    currentPlayer.setStage(5);
     currentPlayer.setExpNeeded(400);
     currentPlayer.setLevel(1);
     currentPlayer.setSts(0);
@@ -191,22 +249,22 @@ function launchGame(stage) {
     playedStage = stage;
     if (stage == 1) {
         currentVilain = firstVilain;
-        document.getElementById("gameScreen").style.backgroundImage = "url('../img/hawkeye.jpg)";
+        document.body.style.backgroundImage = "url(img/hawkeye.jpg)";
     } else if (stage == 2) {
         currentVilain = secondVilain;
-        document.getElementById("gameScreen").style.backgroundImage = "url('../img/captain.jpg)";
+        document.body.style.backgroundImage = "url(img/captain.jpg)";
 
     } else if (stage == 3) {
         currentVilain = thirdVilain;
-        document.getElementById("gameScreen").style.backgroundImage = "url('../img/hulk.jpg)";
+        document.body.style.backgroundImage = "url(img/hulk.jpg)";
 
     } else if (stage == 4) {
         currentVilain = fourthVilain;
-        document.getElementById("gameScreen").style.backgroundImage = "url('../img/ironman.jpg)";
+        document.body.style.backgroundImage = "url(img/ironman.jpg)";
 
     } else if (stage == 5) {
         currentVilain = fifthVilain;
-        document.getElementById("gameScreen").style.backgroundImage = "url('../img/thor.jpg)";
+        document.body.style.backgroundImage = "url(img/thor.jpg)";
 
     } else {
         console.log("err");
@@ -220,7 +278,7 @@ function launchGame(stage) {
     player.Rhealth = document.getElementById("playerRealHealth");
     player.exp = document.getElementById("playerRealExp");
     player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
-    
+
     vilain = document.getElementById("vilainDetails");
     vilain.textContent = currentVilain.name;
 
@@ -258,8 +316,7 @@ function finishGame(win) {
 
 function statsUpdate() {
     var points = currentPlayer.getSts();
-    if(points == 0)
-    {
+    if (points == 0) {
         var element = document.getElementById("healthUpgrade");
         element.classList.add("locked");
         element = document.getElementById("adUpgrade");
@@ -271,8 +328,7 @@ function statsUpdate() {
         element = document.getElementById("mrUpgrade");
         element.classList.add("locked");
     }
-    else
-    {
+    else {
         var element = document.getElementById("healthUpgrade");
         element.classList.remove("locked");
         element = document.getElementById("adUpgrade");
@@ -282,12 +338,11 @@ function statsUpdate() {
         element = document.getElementById("armorUpgrade");
         element.classList.remove("locked");
         element = document.getElementById("mrUpgrade");
-        element.classList.remove("locked");  
+        element.classList.remove("locked");
     }
 
     points = currentPlayer.getPieces();
-    if(points == 0)
-    {
+    if (points == 0) {
         var element = document.getElementById("helmetUpgrade");
         element.classList.add("locked");
         element = document.getElementById("chestUpgrade");
@@ -299,8 +354,7 @@ function statsUpdate() {
         element = document.getElementById("sweapUpgrade");
         element.classList.add("locked");
     }
-    else
-    {
+    else {
         var element = document.getElementById("helmetUpgrade");
         element.classList.remove("locked");
         element = document.getElementById("chestUpgrade");
@@ -323,6 +377,8 @@ function vilainAtk() {
     if (currentPlayer.hp <= 0) {
         currentPlayer.hp = 0;
         clearInterval(villainAttack);
+
+        document.body.removeAttribute("style");
         finishGame(0);
     }
     width = (100 * currentPlayer.hp) / initialPHealth;
@@ -339,6 +395,9 @@ button.onclick = function () {
     if (currentVilain.hp <= 0) {
         currentVilain.hp = 0;
         clearInterval(villainAttack);
+
+
+        document.body.removeAttribute("style");
         finishGame(1);
     }
 
@@ -369,10 +428,12 @@ button.onclick = function () {
         player = document.getElementById("playerDetails");
 
         player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
-    
+
         statsUpdate();
     }
     player.exp.style.width = width + '%';
+    console.log(currentPlayer.hp + " " +  currentPlayer.ad + " " + currentPlayer.ap + " " + currentPlayer.armor + " " + currentPlayer.mr);
+    console.log(currentPlayer.helmet + " " + currentPlayer.chest + " " + currentPlayer.pants + " " + currentPlayer.mainWeap + " " + currentPlayer.secWeap);
 };
 
 function loadStage(stage) {
@@ -393,4 +454,31 @@ var backToStage = document.getElementById("backToStage");
 backToStage.onclick = function () {
     document.getElementById("afterGame").classList.add("hidden");
     document.getElementById("stageScreen").classList.remove("hidden");
+}
+
+
+
+
+
+function upgrade(type) {
+    var sts = currentPlayer.getSts();
+    var pieces = currentPlayer.getPieces();
+    if (type <= 5) {
+        if (sts > 0) {
+            currentPlayer.upgradePoint(type);
+            sts--;
+            currentPlayer.setSts(sts);
+            statsUpdate();
+        }
+    }
+    else {
+        if (pieces > 0) {
+            currentPlayer.upgradePoint(type);
+            pieces--;
+            currentPlayer.setPieces(pieces);
+            statsUpdate();
+        }
+    }
+    player = document.getElementById("playerDetails");
+    player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
 }
