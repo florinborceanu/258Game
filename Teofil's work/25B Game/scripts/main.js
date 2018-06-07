@@ -73,4 +73,54 @@ button.onclick = function(){
     vilain.Rhealth.style.width = width + '%'; 
 };
 
+var PRIV_KEY = "5e77d4e14ede7a90f1b56fdf64d6ec33bf7dfe7a";
+var PUBLIC_KEY = "8b64a78b95f62f7e1495a58a64050468";
+
+
+var characterIdArray= ['1009338','1009220','1009351','1009368','1009664'];//hawk,cap'n,hulk,iron,thor
+var stage = 2; //hardcoded
+var character = null;
+
+function getMarvelResponse() {                                                                           
+  var ts = new Date().getTime();
+  var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
+  
+  // the api deals a lot in ids rather than just the strings you want to use
+
+  
+  var url = 'http://gateway.marvel.com:80/v1/public/characters/' + characterIdArray[stage];
+
+  console.log(url);
+  $.getJSON(url, {
+    ts: ts,
+    apikey: PUBLIC_KEY,
+    hash: hash,
+    characters: characterIdArray[0]
+    })
+    .done(function(data) {
+      console.log(data);
+      console.log(data.data.results[0].thumbnail.path+'.'+data.data.results[0].thumbnail.extension);
+      retrieve(data);
+    })
+    .fail(function(err){
+      console.log(err);
+      character = 'sth went wrong';
+    });
+    
+};
+getMarvelResponse();
+
+var img = document.createElement("img");
+
+function retrieve(data) {
+    character = data.data.results[0];
+    img.src = character.thumbnail.path + '/landscape_xlarge' +'.'+ character.thumbnail.extension;
+    console.log(character.name);
+}
+
+var src = document.getElementById("villainImg"+stage);
+src.appendChild(img);
+
+
+
 
