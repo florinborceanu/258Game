@@ -1,6 +1,7 @@
-* {
-    user-select: none;
-}
+    * {
+        user-select: none;
+        margin: 0;
+    }
     @font-face {
         font-family: titleFont;
         src: url(/fonts/Muskaters.ttf);
@@ -20,21 +21,6 @@
         font-family: Font_TA;
         src: url(/imgs/Tahu!.ttf) format('truetype');
     }
-
-    
-    
-    body {
-        background-attachment: fixed;
-        background-color: white;
-        background-image: url("/imgs/pic1.png");
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin:0px;
-        width:100%;
-
-    }
-
     
     .textBox{
         color : white;
@@ -45,6 +31,7 @@
         position:relative;
         text-align: center;
         top:40px;
+        Z-INDEX:4;
     }
     
     .SubTextBox{
@@ -54,85 +41,17 @@
         position:relative;
         text-align: center;
         top:-67px;
+        Z-INDEX:4;
     }
-    
-    
-        
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
+    .content {
+        background-image: url("/imgs/pic1.png");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
         width: 100%;
-    }
-
-    button:hover {
-        opacity: 0.8;
-    }
-
-    .cancelbtn {
-        width: auto;
-        padding: 10px 18px;
-        background-color: #f44336;
-    }
-
-
-
-    .sidenav {
         height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 9;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
     }
-
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font: 400 15px/1.8 "Lato", sans-serif;
-        font-size: 25px;
-        color: #777;
-        font-size: 25px;
-        display: block;
-        transition: 0.3s;
-    }
-
-    .sidenav a:hover {
-        color: #f1f1f1;
-    }
-
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-    #nav {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
-    position: absolute;
-    z-index: 3;
-    width: 100%;
-}
-#menu {
-    margin-left:30px;
-    color: white;
-    width:10%;
-    font-family: playFont;
-    font-size: 30px;
-    position: relative;
-    margin-top: 1vw;
-    z-index: 8;
-}
-#center {
+    #center {
     display: flex;
     flex-direction: row;
     width: 60%;
@@ -142,9 +61,6 @@
     border-radius: 20px;
     padding-left: 20px;
     padding-right: 20px;
-}
-.column {
-    
 }
 #rank{
     width: 10%;
@@ -215,18 +131,3 @@
 }
 
 
-@media screen and (max-width: 600px){
-    #center { width: 85%; }
-    #class{display: none;}
-    #rank{width: 15%;}
-    #name {width: 50%;}
-    #score {width: 35%;}
-    .row {font-size: 4vw;}
-    #colNames{font-size: 5vw;}
-    .name:hover + .infoBox{display: none;}
-    
-}
-
-
- 
-     

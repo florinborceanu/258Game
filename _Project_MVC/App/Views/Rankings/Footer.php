@@ -1,6 +1,18 @@
-
-<div id="Table">
-                <div id="Left">
+<html>
+    <head>
+        <style type="text/css">
+            <?php include 'css/Responsive.php'; ?>
+        </style>
+        <style type="text/css">
+            <?php include 'css/FooterRanks.php'; ?>
+        </style>
+        <script type="text/javascript">
+            <?php include 'javascript.js'; ?>
+        </script>
+    </head>
+    <body>
+        <div id="Table">
+            <div id="Left">
                 <div class="CellLeft">
                     <a href="https://www.facebook.com/" style="text-decoration: none;">
                         <img class="icons" src="/imgs/facebook.png" alt="Fb">
@@ -18,11 +30,11 @@
                         <img class="icons" src="/imgs/youtube.png" alt="Yt">
                     </a>
                 </div>
-                </div>
-                <div id="Logo">
+            </div>
+            <div id="Logo">
                     <a id="logo" href="#top"> ScharaK</a>
-                </div>
-                <div id="Right">
+            </div>
+            <div id="Right">
                 <div class="CellRight">
                     <a class="links" href="https://en.wikipedia.org/wiki/Role-playing_video_game">RPG wiki</a>
                 </div>
@@ -34,5 +46,7 @@
                 <div class="CellRight">
                     <a class="links" href="https://myanimelist.net/modules.php?go=api">Anime API</a>
                 </div>
-                </div>
             </div>
+        </div>
+    </body>
+</html>

@@ -41,7 +41,10 @@ class Rankings extends \Core\Controller
     public function indexAction()
     {
         //echo 'Hello from the index action in 
-        View::render('Rankings/header.php');
+        View::render('Rankings/Header.php');
         View::render('Rankings/Rankings.php');
+        View::render('Rankings/Footer.php');
+        View::render('Home/Menu.php');
+        
     }
 }

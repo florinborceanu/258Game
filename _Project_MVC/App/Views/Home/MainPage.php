@@ -1,11 +1,17 @@
-<style type="text/css">
-<?php include 'style.php'; ?>
-</style>
-<script type="text/javascript">
-<?php include 'javascript.js'; ?>
-</script>
-    
-<div id="title">
+<html>
+    <head>
+        <style type="text/css">
+            <?php include 'css/Responsive.php'; ?>
+        </style>
+        <style type="text/css">
+            <?php include 'css/MainPage.php'; ?>
+        </style>
+        <script type="text/javascript">
+            <?php include 'javascript.js'; ?>
+        </script>
+    </head>
+    <body>
+        <div id="title">
         ScharaK
     </div>
     <span id="playBT" onclick="play(0)">
@@ -70,5 +76,5 @@
             </p>
         </div>
 </div>
-            
-            
+    </body>
+</html>

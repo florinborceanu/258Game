@@ -1,20 +1,25 @@
+@font-face {
+    font-family: titleFont;
+    src: url(/fonts/Muskaters.ttf);
+}
 
+@font-face {
+    font-family: playFont;
+    src: url(/fonts/ERASBD.ttf);
+}
   @font-face {
     font-family: Muskaters;
     src: url(/fonts/Muskaters.ttf);
   }
   /* background set */
-body {
-	background-image: url("/imgs/bg1.png");
-	background-color: #cccccc;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center top; 
-	background-size: cover;
-	margin: 0;
-  padding: 0;	
-height:100%;
-}
+.content {
+        background-image: url("/imgs/pic1.png");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
   
   /* navigation bar - proper style for Team-page*/
   .cancelbtn {

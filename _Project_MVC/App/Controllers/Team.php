@@ -41,9 +41,9 @@ class Team extends \Core\Controller
     public function indexAction()
     {
         //echo 'Hello from the index action in the Home controller!';
-        View::render('Team/Header.php');
-        View::render('Team/Menu.php');
+        View::render('Rankings/Header.php');
+        View::render('Home/Menu.php');
         View::render('Team/Team.php');
-        View::render('Team/Footer.php');
+        View::render('Rankings/Footer.php');
     }
 }
