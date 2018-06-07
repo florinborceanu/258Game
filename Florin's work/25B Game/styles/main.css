@@ -24,10 +24,18 @@ html,body
 	width:100%;
     height:100%;
     overflow: hidden;
+    background-color: black;
+    margin: 0;
+}
+
+
+
+#gameScreen {
+    width:100%;
+    height:100%;
     background-image: url(../img/wrapper.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 0;
 }
 
 .stats {
@@ -181,3 +189,121 @@ html,body
     margin-left: 15px;
     border: 1px solid black;
 }
+
+.hidden {
+    display: none;
+    transition-duration: 0.5s;
+}
+
+.stage {
+    background-color: black;
+    display: inline-block;
+    margin: -2px;
+    width: 20%;
+    height: 100vh;
+}
+
+#firstStage {
+    background-image: url(../img/firstStage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+
+#firstStage:hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+#secondStage {
+    background-image: url(../img/secondStage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+
+#secondStage:hover{
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+#thirdStage {
+    background-image: url(../img/thirdStage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+
+#thirdStage:hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+#fourthStage {
+    background-image: url(../img/fourthStage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+
+#fourthStage:hover{
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+#fifthStage {
+    background-image: url(../img/fifthStage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+
+#fifthStage:hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.centered {
+    margin: 0 auto;
+    margin-top: 35vh;
+  }
+
+  .locked {
+    filter: grayscale(100%);
+  }
+
+  #afterGame {
+      background-color: black;
+  }
+
+  #stateText{
+      text-align: center;
+      color: white;
+      font-size: 120px;
+  }
+
+  #backToStage {
+      color: white;
+      cursor: pointer;
+      text-align: center;
+  }

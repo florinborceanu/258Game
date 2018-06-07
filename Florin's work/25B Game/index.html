@@ -7,84 +7,106 @@
 </head>
 
 <body>
-    <div class="items">
-        <div class="statsPoint">
-            ++ HP
+    <div id="loadingScreen">
+        <div class="loader centered"></div>
+    </div>
+    <div id="stageScreen" class="hidden">
+        <div id="firstStage" class="stage" onclick="loadStage(1)">
         </div>
-        <div class="statsPoint">
-            ++ Attack
+        <div id="secondStage" class="stage" onclick="loadStage(2)">
         </div>
-        <div class="statsPoint">
-            ++ Ability
+        <div id="thirdStage" class="stage" onclick="loadStage(3)">
         </div>
-        <div class="statsPoint">
-            ++ Armor
+        <div id="fourthStage" class="stage" onclick="loadStage(4)">
         </div>
-        <div class="statsPoint">
-            ++ Magic Resist
+        <div id="fifthStage" class="stage" onclick="loadStage(5)">
         </div>
-        <div class="itemUpgrade">
-            Helmet
+    </div>
+    <div id="gameScreen" class="hidden">
+        <div class="items">
+            <div class="statsPoint">
+                ++ HP
+            </div>
+            <div class="statsPoint">
+                ++ Attack
+            </div>
+            <div class="statsPoint">
+                ++ Ability
+            </div>
+            <div class="statsPoint">
+                ++ Armor
+            </div>
+            <div class="statsPoint">
+                ++ Magic Resist
+            </div>
+            <div class="itemUpgrade">
+                Helmet
+            </div>
+            <div class="itemUpgrade">
+                Chest
+            </div>
+            <div class="itemUpgrade">
+                Pants
+            </div>
+            <div class="itemUpgrade">
+                Main Weapon
+            </div>
+            <div class="itemUpgrade">
+                Secondary Weapon
+            </div>
+        </div><div class="game">
+            <div id="playerDetails">
+            </div>
+            <div id="playerHealth">
+                <div id="playerRealHealth"></div>
+            </div>
+            <div id="vilainDetails">
+            </div>
+            <div id="vilainHealth">
+                <div id="vilainRealHealth"></div>
+            </div>
+            <div id="mainView">
+            </div>
+            <div id="battleField">
+                <div id="attackButton"></div>
+            </div>
+        </div><div class="stats">
+            <div class="statsPoint">
+                ++ HP
+            </div>
+            <div class="statsPoint">
+                ++ Attack
+            </div>
+            <div class="statsPoint">
+                ++ Ability
+            </div>
+            <div class="statsPoint">
+                ++ Armor
+            </div>
+            <div class="statsPoint">
+                ++ Magic Resist
+            </div>
+            <div class="itemUpgrade">
+                Helmet
+            </div>
+            <div class="itemUpgrade">
+                Chest
+            </div>
+            <div class="itemUpgrade">
+                Pants
+            </div>
+            <div class="itemUpgrade">
+                Main Weapon
+            </div>
+            <div class="itemUpgrade">
+                Secondary Weapon
+            </div>
         </div>
-        <div class="itemUpgrade">
-            Chest
-        </div>
-        <div class="itemUpgrade">
-            Pants
-        </div>
-        <div class="itemUpgrade">
-            Main Weapon
-        </div>
-        <div class="itemUpgrade">
-            Secondary Weapon
-        </div>
-    </div><div class="game">
-        <div id="playerDetails">
-        </div>
-        <div id="playerHealth">
-            <div id="playerRealHealth"></div>
-        </div>
-        <div id="vilainDetails">
-        </div>
-        <div id="vilainHealth">
-            <div id="vilainRealHealth"></div>
-        </div>
-        <div id="mainView">
-        </div>
-        <div id="battleField">
-            <div id="attackButton"></div>
-        </div>
-    </div><div class="stats">
-        <div class="statsPoint">
-            ++ HP
-        </div>
-        <div class="statsPoint">
-            ++ Attack
-        </div>
-        <div class="statsPoint">
-            ++ Ability
-        </div>
-        <div class="statsPoint">
-            ++ Armor
-        </div>
-        <div class="statsPoint">
-            ++ Magic Resist
-        </div>
-        <div class="itemUpgrade">
-            Helmet
-        </div>
-        <div class="itemUpgrade">
-            Chest
-        </div>
-        <div class="itemUpgrade">
-            Pants
-        </div>
-        <div class="itemUpgrade">
-            Main Weapon
-        </div>
-        <div class="itemUpgrade">
-            Secondary Weapon
-        </div>
+    </div>
+    <div id="afterGame" class="hidden">
+        <div id="stateText"></div>
+        <div id="scoreBoard"></div>
+        <div id="backToStage">Back to stages</div>
     </div>
 </body>
 
