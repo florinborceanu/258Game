@@ -4,6 +4,7 @@
 <head>
     <title>Scharak Online</title>
     <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/fontStyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -24,46 +25,49 @@
     </div>
     <div id="gameScreen" class="hidden">
         <div class="items">
-            <div class="statsPoint">
-                ++ HP
+            <div id="healthUpgrade" class="statsPoint">
+                <span class="icon" data-icon="&#xe0cb;"></span> HP
             </div>
-            <div class="statsPoint">
-                ++ Attack
+            <div id="adUpgrade" class="statsPoint">
+                <span class="icon" data-icon="&#xe0e8;"></span> Attack Damage
             </div>
-            <div class="statsPoint">
-                ++ Ability
+            <div id="apUpgrade" class="statsPoint">
+                <span class="icon" data-icon="&#xe176;"></span> Ability Power
             </div>
-            <div class="statsPoint">
-                ++ Armor
+            <div id="armorUpgrade" class="statsPoint">
+                <span class="icon" data-icon="&#xe006;"></span> Armor
             </div>
-            <div class="statsPoint">
-                ++ Magic Resist
+            <div id="mrUpgrade" class="statsPoint">
+                <span class="icon" data-icon="&#xe04f;"></span> Magic Resist
             </div>
-            <div class="itemUpgrade">
-                Helmet
+            <div id="helmetUpgrade" class="itemUpgrade">
+                <span class="icon" data-icon="&#xe18f;"></span> Helmet
             </div>
-            <div class="itemUpgrade">
-                Chest
+            <div id="chestUpgrade" class="itemUpgrade">
+                <span class="icon" data-icon="&#xe1a9;"></span> Chest
             </div>
-            <div class="itemUpgrade">
-                Pants
+            <div id="pantsUpgrade" class="itemUpgrade">
+                <span class="icon" data-icon="&#xe2b1;"></span> Pants
             </div>
-            <div class="itemUpgrade">
-                Main Weapon
+            <div id="mweapUpgrade" class="itemUpgrade">
+                <span class="icon" data-icon="&#xe107;"></span> Main Weapon
             </div>
-            <div class="itemUpgrade">
-                Secondary Weapon
+            <div id="sweapUpgrade" class="itemUpgrade">
+                <span class="icon" data-icon=" &#xe179;"></span> Secondary Weapon
             </div>
         </div><div class="game">
+            <div id="vilainDetails">
+            </div>
+            <div id="vilainHealth">
+                <div id="vilainRealHealth"></div>
+            </div>
             <div id="playerDetails">
             </div>
             <div id="playerHealth">
                 <div id="playerRealHealth"></div>
             </div>
-            <div id="vilainDetails">
-            </div>
-            <div id="vilainHealth">
-                <div id="vilainRealHealth"></div>
+            <div id="playerExp">
+                <div id="playerRealExp"></div>
             </div>
             <div id="mainView">
             </div>
@@ -71,7 +75,7 @@
                 <div id="attackButton"></div>
             </div>
         </div><div class="stats">
-            <div class="statsPoint">
+            <!-- <div class="statsPoint">
                 ++ HP
             </div>
             <div class="statsPoint">
@@ -100,7 +104,7 @@
             </div>
             <div class="itemUpgrade">
                 Secondary Weapon
-            </div>
+            </div> -->
         </div>
     </div>
     <div id="afterGame" class="hidden">
@@ -112,5 +116,6 @@
 
 
 <script src="scripts/main.js"></script>
+<script src="scripts/fontStyle.js"></script>
 
 </html>

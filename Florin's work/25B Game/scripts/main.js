@@ -12,6 +12,11 @@ class Player {
         this.pants = 0;
         this.mainWeap = 0;
         this.secWeap = 0;
+        this.exp = 0;
+        this.expNeeded = 0;
+        this.level = 0;
+        this.stsPoints = 0;
+        this.pieces = 0;
     }
 
     setItems(helmet, chest, pants, mainWeap, secWeap) {
@@ -36,6 +41,46 @@ class Player {
 
     getStage() {
         return this.stage;
+    }
+
+    setExp(exp) {
+        this.exp = exp;
+    }
+
+    getExp() {
+        return this.exp;
+    }
+
+    setExpNeeded(exp) {
+        this.expNeeded = exp;
+    }
+
+    getExpNeeded() {
+        return this.expNeeded;
+    }
+
+    setLevel(level) {
+        this.level = level;
+    }
+
+    getLevel() {
+        return this.level;
+    }
+
+    setSts(stats) {
+        this.stsPoints = stats;
+    }
+
+    getSts() {
+        return this.stsPoints;
+    }
+
+    setPieces(stats) {
+        this.pieces = stats;
+    }
+
+    getPieces() {
+        return this.pieces;
     }
 }
 
@@ -73,8 +118,11 @@ function loadResources() {
     //Init player
     currentPlayer = new Player("Player Name");
     currentPlayer.setItems(1, 1, 1, 1, 1);
-    currentPlayer.setStats(150000, 2500, 25, 50, 20);
+    currentPlayer.setStats(150000, 25, 25, 50, 20);
     currentPlayer.setStage(1);
+    currentPlayer.setExpNeeded(400);
+    currentPlayer.setLevel(1);
+    currentPlayer.setSts(0);
 
     //Load stages
     stage = currentPlayer.getStage();
@@ -89,7 +137,7 @@ function loadResources() {
 
     //Load vilains
     firstVilain = new Vilain("Hawk Eye", 1500, 25, 15, 90, 65);
-    secondVilain = new Vilain("Captain America", 7000, 100, 50, 120, 90);
+    secondVilain = new Vilain("Captain America", 70000, 1, 50, 120, 90);
     thirdVilain = new Vilain("Hulk", 20000, 450, 300, 530, 240);
     fourthVilain = new Vilain("Iron Man", 100000, 300, 0, 1200, 1200);
     fifthVilain = new Vilain("Thor", 160000, 10000, 8500, 800, 800);
@@ -115,7 +163,6 @@ function updateStage(stage) {
                 document.getElementById("thirdStage").classList.add("locked");
                 document.getElementById("fourthStage").classList.add("locked");
                 document.getElementById("fifthStage").classList.add("locked");
-                console.log("test");
             }
         case 3:
             {
@@ -144,17 +191,22 @@ function launchGame(stage) {
     playedStage = stage;
     if (stage == 1) {
         currentVilain = firstVilain;
+        document.getElementById("gameScreen").style.backgroundImage = "url('../img/hawkeye.jpg)";
     } else if (stage == 2) {
         currentVilain = secondVilain;
+        document.getElementById("gameScreen").style.backgroundImage = "url('../img/captain.jpg)";
 
     } else if (stage == 3) {
         currentVilain = thirdVilain;
+        document.getElementById("gameScreen").style.backgroundImage = "url('../img/hulk.jpg)";
 
     } else if (stage == 4) {
         currentVilain = fourthVilain;
+        document.getElementById("gameScreen").style.backgroundImage = "url('../img/ironman.jpg)";
 
     } else if (stage == 5) {
         currentVilain = fifthVilain;
+        document.getElementById("gameScreen").style.backgroundImage = "url('../img/thor.jpg)";
 
     } else {
         console.log("err");
@@ -165,20 +217,21 @@ function launchGame(stage) {
     initialVHealth = currentVilain.hp;
 
     player = document.getElementById("playerDetails");
-    player.textContent = currentPlayer.name;
-
     player.Rhealth = document.getElementById("playerRealHealth");
-
+    player.exp = document.getElementById("playerRealExp");
+    player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
+    
     vilain = document.getElementById("vilainDetails");
     vilain.textContent = currentVilain.name;
 
     vilain.Rhealth = document.getElementById("vilainRealHealth");
 
     mainGame = document.getElementById("mainView");
-    mainGame.textContent = "MainGame";
 
     player.Rhealth.style.width = '100%';
     vilain.Rhealth.style.width = '100%';
+
+    statsUpdate();
 
     timedAttack();
 }
@@ -195,13 +248,70 @@ function finishGame(win) {
         }
         var text = document.getElementById("stateText");
         text.textContent = "Victory!";
-    }
-    else {
+    } else {
         var text = document.getElementById("stateText");
         text.textContent = "Defeat...";
     }
     currentVilain.hp = initialVHealth;
 
+}
+
+function statsUpdate() {
+    var points = currentPlayer.getSts();
+    if(points == 0)
+    {
+        var element = document.getElementById("healthUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("adUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("apUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("armorUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("mrUpgrade");
+        element.classList.add("locked");
+    }
+    else
+    {
+        var element = document.getElementById("healthUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("adUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("apUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("armorUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("mrUpgrade");
+        element.classList.remove("locked");  
+    }
+
+    points = currentPlayer.getPieces();
+    if(points == 0)
+    {
+        var element = document.getElementById("helmetUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("chestUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("pantsUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("mweapUpgrade");
+        element.classList.add("locked");
+        element = document.getElementById("sweapUpgrade");
+        element.classList.add("locked");
+    }
+    else
+    {
+        var element = document.getElementById("helmetUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("chestUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("pantsUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("mweapUpgrade");
+        element.classList.remove("locked");
+        element = document.getElementById("sweapUpgrade");
+        element.classList.remove("locked");
+    }
 }
 
 function timedAttack() {
@@ -225,6 +335,7 @@ function vilainAtk() {
 button = document.getElementById("attackButton");
 button.onclick = function () {
     currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
+    currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
     if (currentVilain.hp <= 0) {
         currentVilain.hp = 0;
         clearInterval(villainAttack);
@@ -236,6 +347,32 @@ button.onclick = function () {
         width = 100;
     }
     vilain.Rhealth.style.width = width + '%';
+
+    width = (100 * currentPlayer.exp) / currentPlayer.expNeeded;
+    if (currentPlayer.exp >= currentPlayer.expNeeded) {
+        width = 0;
+        currentPlayer.exp = 0;
+        currentPlayer.expNeeded = (currentPlayer.expNeeded * 1.65);
+
+        var level = currentPlayer.getLevel();
+        level += 1;
+        currentPlayer.setLevel(level);
+
+        var sts = currentPlayer.getSts();
+        sts += 10;
+        currentPlayer.setSts(sts);
+        player = document.getElementById("playerDetails");
+
+        var pcs = currentPlayer.getPieces();
+        pcs += 5;
+        currentPlayer.setPieces(pcs);
+        player = document.getElementById("playerDetails");
+
+        player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
+    
+        statsUpdate();
+    }
+    player.exp.style.width = width + '%';
 };
 
 function loadStage(stage) {
@@ -256,4 +393,4 @@ var backToStage = document.getElementById("backToStage");
 backToStage.onclick = function () {
     document.getElementById("afterGame").classList.add("hidden");
     document.getElementById("stageScreen").classList.remove("hidden");
-} 
+}
