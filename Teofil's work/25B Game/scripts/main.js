@@ -111,16 +111,20 @@ function getMarvelResponse() {
 getMarvelResponse();
 
 var img = document.createElement("img");
+var name = null;
+var paragraph = document.createElement("p");
 
 function retrieve(data) {
     character = data.data.results[0];
     img.src = character.thumbnail.path + '/landscape_xlarge' +'.'+ character.thumbnail.extension;
     console.log(character.name);
+    document.getElementById("villainName"+stage).innerHTML = data.data.results[0].name; 
+    description = document.createTextNode(data.data.results[0].description);
+    paragraph.appendChild(description);
 }
 
 var src = document.getElementById("villainImg"+stage);
 src.appendChild(img);
 
-
-
-
+var element = document.getElementById("villainDesc"+stage);
+element.appendChild(paragraph);
