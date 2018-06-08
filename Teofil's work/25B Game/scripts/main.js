@@ -78,7 +78,7 @@ var PUBLIC_KEY = "8b64a78b95f62f7e1495a58a64050468";
 
 
 var characterIdArray= ['1009338','1009220','1009351','1009368','1009664'];//hawk,cap'n,hulk,iron,thor
-var stage = 2; //hardcoded
+var stage = 3; //hardcoded
 var character = null;
 
 function getMarvelResponse() {                                                                           

@@ -143,6 +143,12 @@ html,body
     transition-duration: 0.5s;
     
 }
+#villainDesc3{
+    width: 30%;
+    background-color: rgba(24, 3, 3, 0.7);
+    -webkit-text-fill-color: powderblue;
+}
+
 
 #mainView {
     height: 45%;
