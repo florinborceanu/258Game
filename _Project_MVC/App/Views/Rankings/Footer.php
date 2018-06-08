@@ -1,10 +1,10 @@
 <html>
     <head>
         <style type="text/css">
-            <?php include 'css/Responsive.php'; ?>
+            <?php include 'css/Responsive.css'; ?>
         </style>
         <style type="text/css">
-            <?php include 'css/FooterRanks.php'; ?>
+            <?php include 'css/FooterRanks.css'; ?>
         </style>
         <script type="text/javascript">
             <?php include 'js/javascript.js'; ?>
