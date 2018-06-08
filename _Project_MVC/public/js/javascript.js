@@ -91,6 +91,7 @@ var modal = document.getElementById('id01');
                 document.getElementById('register').style.display = 'none';
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('userPhoto').style.display = 'block';
+                document.getElementById('playBT').style.display = 'block';
             }
         };
 
@@ -114,6 +115,7 @@ var modal = document.getElementById('id01');
             document.getElementById('id01').style.display = 'none';
             document.getElementById('userPhoto').style.display = 'block';
             localStorage.setItem("logged", 1);
+            document.getElementById('playBT').style.display = 'block';
         }
 
         function logOut() {
@@ -121,6 +123,7 @@ var modal = document.getElementById('id01');
             document.getElementById('login').style.display = 'inline';
             document.getElementById('userPhoto').style.display = 'none';
             localStorage.setItem("logged", 0);
+            document.getElementById('playBT').style.display = 'none';
         }
 
         function play(n) {

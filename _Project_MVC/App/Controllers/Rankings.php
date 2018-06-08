@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-
+use App\Models\Ranks;
 /**
  * Home controller
  *
@@ -40,11 +40,12 @@ class Rankings extends \Core\Controller
      */
     public function indexAction()
     {
-        //echo 'Hello from the index action in 
+        $ranks = Ranks::getAll();
+        //echo 'Hello from the index action in the Home controller!';
         View::render('Rankings/Header.php');
-        View::render('Rankings/Rankings.php');
+        View::render('Rankings/Rankings.php',['ranks' => $ranks]);
         View::render('Rankings/Footer.php');
         View::render('Home/Menu.php');
-        
     }
+   
 }

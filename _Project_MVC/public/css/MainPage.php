@@ -122,6 +122,7 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.9);
+display:none;
 }
 
 #playBT:hover {

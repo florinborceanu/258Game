@@ -7,7 +7,7 @@
             <?php include 'css/Modal.php'; ?>
         </style>
         <script type="text/javascript">
-            <?php include 'javascript.js'; ?>
+            <?php include 'js/javascript.js'; ?>
         </script>
     </head>
     <body>

@@ -17,8 +17,10 @@ class View
      *
      * @return void
      */
-    public static function render($view)
+    public static function render($view, $args = [])
     {
+        extract($args, EXTR_SKIP);
+
         $file = "../App/Views/$view";  // relative to Core directory
 
         if (is_readable($file)) {

@@ -24,7 +24,7 @@ spl_autoload_register(function ($class) {
 $router = new Core\Router();
 
 // Add the routes
-$router->add(['controller' => 'Home', 'action' => 'index']);
+$router->add('',['controller' => 'Home', 'action' => 'index']);
 $router->add(['controller' => 'Rankings', 'action' => 'index']);
 $router->add(['controller' => 'Team', 'action' => 'index']);
 $router->add('{controller}/{action}');

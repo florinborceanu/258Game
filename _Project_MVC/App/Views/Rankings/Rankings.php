@@ -7,7 +7,7 @@
             <?php include 'css/Rankings.php'; ?>
         </style>
         <script type="text/javascript">
-            <?php include 'javascript.js'; ?>
+            <?php include 'js/javascript.js'; ?>
         </script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
     </head>
@@ -28,7 +28,11 @@
                 <div class="column" id="name">
                     <div class="row" id="colNames">Name</div>
                     <div class="row">
-                        <div class="name">Onica Viorel</div>
+                        <div class="name">
+                            <?php 
+                                echo $ranks[0]['nickname'];
+                            ?>
+                        </div>
                         <div class="infoBox">
                             <div class="align">
                                 <div>
@@ -41,7 +45,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="name">Borceanu Florin</div>
+                        <div class="name">
+                            <?php 
+                                echo $ranks[1]['nickname'];
+                            ?>
+                        </div>
                         <div class="infoBox">
                             <div class="align">
                                 <div>
@@ -54,7 +62,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="name">Mititelu Teofil</div>
+                        <div class="name">
+                            <?php 
+                                echo $ranks[2]['nickname'];
+                            ?>
+                        </div>
                         <div class="infoBox">
                             <div class="align">
                                 <div>
@@ -67,7 +79,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="name">Dragus Teodora</div>
+                        <div class="name">
+                            <?php 
+                                echo $ranks[3]['nickname'];
+                            ?>
+                        </div>
                         <div class="infoBox">
                             <div class="align">
                                 <div>
@@ -80,7 +96,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="name">Marian Viorel</div>
+                        <div class="name">
+                            <?php 
+                                echo $ranks[4]['nickname'];
+                            ?>
+                        </div>
                         <div class="infoBox">
                             <div class="align">
                                 <div>
@@ -93,7 +113,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="name">Ronaldinho</div>
+                        <div class="name">
+                            <?php 
+                                echo $ranks[5]['nickname'];
+                            ?>
+                        </div>
                         <div class="infoBox">
                             <div class="align">
                                 <div>
@@ -108,21 +132,69 @@
                 </div>
                 <div class="column" id="class">
                     <div class="row" id="colNames">Class</div>
-                    <div class="row">Anime</div>
-                    <div class="row">Marvel</div>
-                    <div class="row">Anime</div>
-                    <div class="row">Anime</div>
-                    <div class="row">Marvel</div>
-                    <div class="row">Anime</div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[0]['class'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[1]['class'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[2]['class'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[3]['class'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[4]['class'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[5]['class'];
+                        ?>
+                    </div>
                 </div>
                 <div class="column" id="score">
                     <div class="row" id="colNames">Score</div>
-                    <div class="row">1234</div>
-                    <div class="row">1234</div>
-                    <div class="row">1234</div>
-                    <div class="row">1234</div>
-                    <div class="row">1234</div>
-                    <div class="row">1234</div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[0]['score'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[1]['score'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[2]['score'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[3]['score'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[4]['score'];
+                        ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                            echo $ranks[5]['score'];
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

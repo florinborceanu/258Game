@@ -1,7 +1,7 @@
 <?php
 
 namespace Core;
-
+use Core\Router;
 /**
  * Base controller
  *

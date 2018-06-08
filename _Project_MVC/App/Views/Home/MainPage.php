@@ -7,16 +7,16 @@
             <?php include 'css/MainPage.php'; ?>
         </style>
         <script type="text/javascript">
-            <?php include 'javascript.js'; ?>
+            <?php include 'js/javascript.js'; ?>
         </script>
     </head>
     <body>
         <div id="title">
         ScharaK
     </div>
-    <span id="playBT" onclick="play(0)">
+    <span id="playBT">
         <span id="playText">
-            PLAY
+            <a style="text-decoration:none;color:white;" href="../Game/index">PLAY</a>
         </span>
     </span>
 
