@@ -4,10 +4,10 @@
 <head>
     <title>Scharak Online</title>
     <style type="text/css">
-        <?php include 'css/fontStyle.php'; ?>
+        <?php include 'css/fontStyle.css'; ?>
     </style>
     <style type="text/css">
-        <?php include 'css/main.php'; ?>
+        <?php include 'css/main.css'; ?>
     </style>
     
 </head>
