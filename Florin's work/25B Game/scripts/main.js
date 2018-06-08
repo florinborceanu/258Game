@@ -29,11 +29,11 @@ class Player {
     }
 
     setStats(hp, ad, ap, armor, mr) {
-        this.hp = hp; 
+        this.hp = hp;
         this.maxHP = hp;
-        this.ad = ad; 
+        this.ad = ad;
         this.ap = ap;
-        this.armor = armor; 
+        this.armor = armor;
         this.mr = mr;
     }
 
@@ -91,47 +91,37 @@ class Player {
             this.stsPoints--;
             if (point == 1) {
                 this.hp += 500;
-            }
-            else if (point == 2) {
+            } else if (point == 2) {
                 this.ad += 4;
-            }
-            else if (point == 3) {
+            } else if (point == 3) {
                 this.ap += 2;
-            }
-            else if (point == 4) {
+            } else if (point == 4) {
                 this.armor += 5;
-            }
-            else if (point == 5) {
+            } else if (point == 5) {
                 this.mr += 3;
             }
-        }
-
-        else if (point > 5) {
+        } else if (point > 5) {
             this.pieces--;
             if (point == 6) {
                 this.helmet++;
                 this.hp += 75;
                 this.armor += 3;
                 this.mr += 1;
-            }
-            else if (point == 7) {
+            } else if (point == 7) {
                 this.chest++;
                 this.hp += 150;
                 this.armor += 7;
                 this.mr += 4;
-            }
-            else if (point == 8) {
+            } else if (point == 8) {
                 this.pants++;
                 this.hp += 90;
                 this.armor += 5;
                 this.mr += 3;
-            }
-            else if (point == 9) {
+            } else if (point == 9) {
                 this.mainWeap++;
                 this.ad += 15;
                 this.ap += 8;
-            }
-            else if (point == 10) {
+            } else if (point == 10) {
                 this.secWeap++;
                 this.ad += 6;
                 this.ap += 15;
@@ -170,6 +160,8 @@ var fourthStage;
 var fifthStage;
 var villainAttack;
 var playedStage;
+var currentStage;
+var isPaused;
 
 function loadResources() {
 
@@ -177,7 +169,7 @@ function loadResources() {
     currentPlayer = new Player("Player Name");
     currentPlayer.setItems(1, 1, 1, 1, 1);
     currentPlayer.setStats(15000, 25, 25, 50, 20);
-    currentPlayer.setStage(1);
+    currentPlayer.setStage(5);
     currentPlayer.setExpNeeded(400);
     currentPlayer.setLevel(1);
     currentPlayer.setSts(10000);
@@ -248,6 +240,7 @@ function showPage() {
 
 function launchGame(stage) {
     playedStage = stage;
+    isPaused = 0;
     if (stage == 1) {
         currentVilain = firstVilain;
         document.body.style.backgroundImage = "url(img/hawkeye.jpg)";
@@ -291,11 +284,12 @@ function launchGame(stage) {
     vilain.Rhealth.style.width = '100%';
 
     statsUpdate();
-
+    getMarvelResponse(stage);
     timedAttack();
 }
 
 function finishGame(win) {
+    isPaused = 0;
     document.getElementById("gameScreen").classList.add("hidden");
     document.getElementById("afterGame").classList.remove("hidden");
     if (win) {
@@ -335,8 +329,7 @@ function statsUpdate() {
         element.classList.add("locked");
         element = document.getElementById("mrUpgrade");
         element.classList.add("locked");
-    }
-    else {
+    } else {
         var element = document.getElementById("healthUpgrade");
         element.classList.remove("locked");
         element = document.getElementById("adUpgrade");
@@ -361,8 +354,7 @@ function statsUpdate() {
         element.classList.add("locked");
         element = document.getElementById("sweapUpgrade");
         element.classList.add("locked");
-    }
-    else {
+    } else {
         var element = document.getElementById("helmetUpgrade");
         element.classList.remove("locked");
         element = document.getElementById("chestUpgrade");
@@ -402,51 +394,50 @@ button.onclick = function () {
     // var audio = new Audio('sounds/'+number+'.mp3');
     // audio.play(); 
 
+    if (isPaused == 0) {
+        currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
+        currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
+        if (currentVilain.hp <= 0) {
+            currentVilain.hp = 0;
+            clearInterval(villainAttack);
 
-    currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
-    currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
-    if (currentVilain.hp <= 0) {
-        currentVilain.hp = 0;
-        clearInterval(villainAttack);
 
+            document.body.removeAttribute("style");
+            finishGame(1);
+        }
 
-        document.body.removeAttribute("style");
-        finishGame(1);
+        width = (100 * currentVilain.hp) / initialVHealth;
+        if (width > 100) {
+            width = 100;
+        }
+        vilain.Rhealth.style.width = width + '%';
+
+        width = (100 * currentPlayer.exp) / currentPlayer.expNeeded;
+        if (currentPlayer.exp >= currentPlayer.expNeeded) {
+            width = 0;
+            currentPlayer.exp = 0;
+            currentPlayer.expNeeded = (currentPlayer.expNeeded * 1.65);
+
+            var level = currentPlayer.getLevel();
+            level += 1;
+            currentPlayer.setLevel(level);
+
+            var sts = currentPlayer.getSts();
+            sts += 10;
+            currentPlayer.setSts(sts);
+            player = document.getElementById("playerDetails");
+
+            var pcs = currentPlayer.getPieces();
+            pcs += 5;
+            currentPlayer.setPieces(pcs);
+            player = document.getElementById("playerDetails");
+
+            player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
+
+            statsUpdate();
+        }
+        player.exp.style.width = width + '%';
     }
-
-    width = (100 * currentVilain.hp) / initialVHealth;
-    if (width > 100) {
-        width = 100;
-    }
-    vilain.Rhealth.style.width = width + '%';
-
-    width = (100 * currentPlayer.exp) / currentPlayer.expNeeded;
-    if (currentPlayer.exp >= currentPlayer.expNeeded) {
-        width = 0;
-        currentPlayer.exp = 0;
-        currentPlayer.expNeeded = (currentPlayer.expNeeded * 1.65);
-
-        var level = currentPlayer.getLevel();
-        level += 1;
-        currentPlayer.setLevel(level);
-
-        var sts = currentPlayer.getSts();
-        sts += 10;
-        currentPlayer.setSts(sts);
-        player = document.getElementById("playerDetails");
-
-        var pcs = currentPlayer.getPieces();
-        pcs += 5;
-        currentPlayer.setPieces(pcs);
-        player = document.getElementById("playerDetails");
-
-        player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
-
-        statsUpdate();
-    }
-    player.exp.style.width = width + '%';
-    console.log(currentPlayer.hp + " " + currentPlayer.ad + " " + currentPlayer.ap + " " + currentPlayer.armor + " " + currentPlayer.mr);
-    console.log(currentPlayer.helmet + " " + currentPlayer.chest + " " + currentPlayer.pants + " " + currentPlayer.mainWeap + " " + currentPlayer.secWeap);
 };
 
 function loadStage(stage) {
@@ -483,8 +474,7 @@ function upgrade(type) {
             currentPlayer.setSts(sts);
             statsUpdate();
         }
-    }
-    else {
+    } else {
         if (pieces > 0) {
             currentPlayer.upgradePoint(type);
             pieces--;
@@ -494,4 +484,74 @@ function upgrade(type) {
     }
     player = document.getElementById("playerDetails");
     player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
+}
+var PRIV_KEY = "5e77d4e14ede7a90f1b56fdf64d6ec33bf7dfe7a";
+var PUBLIC_KEY = "8b64a78b95f62f7e1495a58a64050468";
+
+
+var characterIdArray = ['1009338', '1009220', '1009351', '1009368', '1009664']; //hawk,cap'n,hulk,iron,thor
+var character = null;
+
+function getMarvelResponse(stage) {
+    var ts = new Date().getTime();
+    var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
+
+    // the api deals a lot in ids rather than just the strings you want to use
+    var url = 'http://gateway.marvel.com:80/v1/public/characters/' + characterIdArray[stage - 1];
+
+    console.log(url);
+    $.getJSON(url, {
+            ts: ts,
+            apikey: PUBLIC_KEY,
+            hash: hash,
+            characters: characterIdArray[0]
+        })
+        .done(function (data) {
+            retrieve(data);
+        })
+        .fail(function (err) {
+            character = 'sth went wrong';
+        });
+
+};
+
+var img = document.createElement("img");
+var name = null;
+var paragraph = document.createElement("p");
+
+function retrieve(data) {
+    character = data.data.results[0];
+    img.src = character.thumbnail.path + '/standard_fantastic' + '.' + character.thumbnail.extension;
+
+    var smth = document.getElementById("vilainDesc");
+    smth.textContent = data.data.results[0].description;
+}
+
+var src = document.getElementById("vilainImg");
+src.appendChild(img);
+
+var element = document.getElementById("vilainDesc");
+element.appendChild(paragraph);
+
+buttonSurrender = document.getElementById("surrenderButton");
+buttonSurrender.onclick = function () {
+    currentVilain.hp = 0;
+    clearInterval(villainAttack);
+
+
+    document.body.removeAttribute("style");
+    finishGame(0);
+}
+
+buttonPause = document.getElementById("pauseButton");
+buttonPause.onclick = function () {
+    if (isPaused == 0) {
+        clearInterval(villainAttack);
+        document.getElementById("attackButton").classList.add("locked");
+        isPaused = 1;
+    } else {
+        villainAttack = setInterval(vilainAtk, 500);
+        document.getElementById("attackButton").classList.remove("locked");
+        isPaused = 0;
+    }
 }
