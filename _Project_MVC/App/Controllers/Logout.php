@@ -1,14 +1,13 @@
 <?php
-
 namespace App\Controllers;
-use \Core\View;
+use \Core\Model;
 
 /**
  * Home controller
  *
  * PHP version 5.4
  */
-class Game extends \Core\Controller
+class Logout extends \Core\Controller
 {
 
     /**
@@ -39,8 +38,10 @@ class Game extends \Core\Controller
      */
     public function indexAction()
     {
-        //echo 'Hello from the index action in the Home controller!';
-       View::render('Game/index.php');
+        //echo 'Hello from the index action in the Home controller!'
+        
+        $file="../App/Models/Logout.php";
+        require $file;
     }
-    
+   
 }

@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <html>
     <head>
         <style type="text/css">
@@ -17,13 +15,16 @@ session_start();
         <div id="title">
         ScharaK
     </div>
+        
+    <?php
+        if(isset($_COOKIE['user_id'])) {
+    ?>
     <span id="playBT">
         <span id="playText">
             <a style="text-decoration:none;color:white;" href="../Game/index">PLAY</a>
         </span>
     </span>
-
-    <div id="playBTactive"></div>
+    <?php } ?>
 <div class="bgimg-1">
     </div>
 

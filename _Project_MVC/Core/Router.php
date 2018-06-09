@@ -1,7 +1,6 @@
 <?php
 
 namespace Core;
-
 /**
  * Router
  *
@@ -9,6 +8,7 @@ namespace Core;
  */
 class Router
 {
+    
 
     /**
      * Associative array of routes (the routing table)

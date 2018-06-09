@@ -1,14 +1,12 @@
 <?php
 namespace App\Controllers;
-session_start();
-
 use \Core\Model;
 
 /**
  * Home controller
  *
  * PHP version 5.4
- */
+ */echo $_SESSION['succes'];
 class Login extends \Core\Controller
 {
 
@@ -41,6 +39,7 @@ class Login extends \Core\Controller
     public function indexAction()
     {
         //echo 'Hello from the index action in the Home controller!'
+        
         $file="../App/Models/Login.php";
         require $file;
     }

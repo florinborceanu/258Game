@@ -1,6 +1,5 @@
 <?php
 namespace App\Controllers;
-session_start();
 
 use \Core\View;
 
@@ -19,8 +18,7 @@ class Home extends \Core\Controller
      */
     protected function before()
     {
-        //echo "(before) ";
-        //return false;
+        
     }
 
     /**

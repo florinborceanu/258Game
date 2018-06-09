@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <html>
     <head>
         <style type="text/css">

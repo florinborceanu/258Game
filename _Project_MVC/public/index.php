@@ -1,5 +1,5 @@
 <?php
-session_start();
+//echo $_SESSION['succes'];
 /**
  * Front controller
  *
