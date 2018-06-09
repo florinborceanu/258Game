@@ -3,6 +3,7 @@ class Player {
     constructor(name) {
         this.name = name;
         this.hp = 0;
+        this.maxHP = 0;
         this.ad = 0;
         this.ap = 0;
         this.armor = 0;
@@ -28,11 +29,12 @@ class Player {
     }
 
     setStats(hp, ad, ap, armor, mr) {
-        this.hp = hp + 100 * this.chest * this.chest + 25 * this.helmet * this.helmet + 50 * this.pants * this.pants;
-        this.ad = ad + 10 * this.mainWeap * this.mainWeap + 4 * this.secWeap * this.secWeap;
-        this.ap = ap + 6 * this.secWeap * this.secWeap;
-        this.armor = armor + 10 * this.chest * this.chest + 5 * this.helmet * this.helmet + 8 * this.pants * this.pants;
-        this.mr = mr + 5 * this.chest * this.chest + 2.5 * this.helmet * this.helmet + 4 * this.pants * this.pants;
+        this.hp = hp;
+        this.maxHP = hp;
+        this.ad = ad;
+        this.ap = ap;
+        this.armor = armor;
+        this.mr = mr;
     }
 
     setStage(stage) {
@@ -84,63 +86,51 @@ class Player {
     }
 
     upgradePoint(point) {
+        var number = 0;
         if (point <= 5) {
             this.stsPoints--;
-            switch (point) {
-                case 1:
-                    {
-                        this.setStats(this.hp + 1, this.ad, this.ap, this.armor, this.mr);
-                    }
-                case 2:
-                    {
-                        this.setStats(this.hp, this.ad + 1, this.ap, this.armor, this.mr);
-                    }
-                case 3:
-                    {
-                        this.setStats(this.hp, this.ad, this.ap + 1, this.armor, this.mr);
-                    }
-                case 4:
-                    {
-                        this.setStats(this.hp, this.ad, this.ap, this.armor + 1, this.mr);
-                    }
-                case 5:
-                    {
-                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr + 1);
-                    }
+            if (point == 1) {
+                this.hp += 500;
+            } else if (point == 2) {
+                this.ad += 4;
+            } else if (point == 3) {
+                this.ap += 2;
+            } else if (point == 4) {
+                this.armor += 5;
+            } else if (point == 5) {
+                this.mr += 3;
             }
-        }
-        else if (point > 5) {
+        } else if (point > 5) {
             this.pieces--;
-            switch (point) {
-                case 6:
-                    {
-                        this.setItems(this.helmet + 1, this.chest, this.pants, this.mainWeap, this.secWeap);
-                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
-                    }
-                case 7:
-                    {
-                        this.setItems(this.helmet, this.chest + 1, this.pants, this.mainWeap, this.secWeap);
-                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
-                    }
-                case 8:
-                    {
-                        this.setItems(this.helmet, this.chest, this.pants + 1, this.mainWeap, this.secWeap);
-                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
-                    }
-                case 9:
-                    {
-                        this.setItems(this.helmet, this.chest, this.pants, this.mainWeap + 1, this.secWeap);
-                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
-                    }
-                case 10:
-                    {
-                        this.setItems(this.helmet, this.chest, this.pants, this.mainWeap, this.secWeap + 1);
-                        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
-                    }
+            if (point == 6) {
+                this.helmet++;
+                this.hp += 75;
+                this.armor += 3;
+                this.mr += 1;
+            } else if (point == 7) {
+                this.chest++;
+                this.hp += 150;
+                this.armor += 7;
+                this.mr += 4;
+            } else if (point == 8) {
+                this.pants++;
+                this.hp += 90;
+                this.armor += 5;
+                this.mr += 3;
+            } else if (point == 9) {
+                this.mainWeap++;
+                this.ad += 15;
+                this.ap += 8;
+            } else if (point == 10) {
+                this.secWeap++;
+                this.ad += 6;
+                this.ap += 15;
             }
         }
+        this.setStats(this.hp, this.ad, this.ap, this.armor, this.mr);
     }
 }
+
 
 class Stage {
     constructor(name, vilain) {
@@ -170,17 +160,20 @@ var fourthStage;
 var fifthStage;
 var villainAttack;
 var playedStage;
+var currentStage;
+var isPaused;
 
 function loadResources() {
 
     //Init player
     currentPlayer = new Player("Player Name");
     currentPlayer.setItems(1, 1, 1, 1, 1);
-    currentPlayer.setStats(150000, 25, 25, 50, 20);
+    currentPlayer.setStats(15000, 25, 25, 50, 20);
     currentPlayer.setStage(5);
     currentPlayer.setExpNeeded(400);
     currentPlayer.setLevel(1);
-    currentPlayer.setSts(0);
+    currentPlayer.setSts(10000);
+    currentPlayer.setPieces(10000);
 
     //Load stages
     stage = currentPlayer.getStage();
@@ -195,10 +188,10 @@ function loadResources() {
 
     //Load vilains
     firstVilain = new Vilain("Hawk Eye", 1500, 25, 15, 90, 65);
-    secondVilain = new Vilain("Captain America", 70000, 1, 50, 120, 90);
-    thirdVilain = new Vilain("Hulk", 20000, 450, 300, 530, 240);
-    fourthVilain = new Vilain("Iron Man", 100000, 300, 0, 1200, 1200);
-    fifthVilain = new Vilain("Thor", 160000, 10000, 8500, 800, 800);
+    secondVilain = new Vilain("Captain America", 7000, 100, 70, 120, 90);
+    thirdVilain = new Vilain("Hulk", 40000, 45, 45, 530, 240);
+    fourthVilain = new Vilain("Iron Man", 100000, 120, 0, 120, 120);
+    fifthVilain = new Vilain("Thor", 160000, 10000, 400, 1000, 1000);
 
 
 }
@@ -247,6 +240,7 @@ function showPage() {
 
 function launchGame(stage) {
     playedStage = stage;
+    isPaused = 0;
     if (stage == 1) {
         currentVilain = firstVilain;
         document.body.style.backgroundImage = "url(img/hawkeye.jpg)";
@@ -290,11 +284,12 @@ function launchGame(stage) {
     vilain.Rhealth.style.width = '100%';
 
     statsUpdate();
-
+    getMarvelResponse(stage);
     timedAttack();
 }
 
 function finishGame(win) {
+    isPaused = 0;
     document.getElementById("gameScreen").classList.add("hidden");
     document.getElementById("afterGame").classList.remove("hidden");
     if (win) {
@@ -306,11 +301,18 @@ function finishGame(win) {
         }
         var text = document.getElementById("stateText");
         text.textContent = "Victory!";
+        // var number = 5;
+        // var audio = new Audio('sounds/'+number+' .mp3');
+        // audio.play(); 
     } else {
         var text = document.getElementById("stateText");
         text.textContent = "Defeat...";
+        // var number = 6;
+        // var audio = new Audio('sounds/'+number+'.mp3');
+        // audio.play();  
     }
     currentVilain.hp = initialVHealth;
+    currentPlayer.hp = currentPlayer.maxHP;
 
 }
 
@@ -327,8 +329,7 @@ function statsUpdate() {
         element.classList.add("locked");
         element = document.getElementById("mrUpgrade");
         element.classList.add("locked");
-    }
-    else {
+    } else {
         var element = document.getElementById("healthUpgrade");
         element.classList.remove("locked");
         element = document.getElementById("adUpgrade");
@@ -353,8 +354,7 @@ function statsUpdate() {
         element.classList.add("locked");
         element = document.getElementById("sweapUpgrade");
         element.classList.add("locked");
-    }
-    else {
+    } else {
         var element = document.getElementById("helmetUpgrade");
         element.classList.remove("locked");
         element = document.getElementById("chestUpgrade");
@@ -390,50 +390,54 @@ function vilainAtk() {
 
 button = document.getElementById("attackButton");
 button.onclick = function () {
-    currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
-    currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
-    if (currentVilain.hp <= 0) {
-        currentVilain.hp = 0;
-        clearInterval(villainAttack);
+    // var number = Math.floor(Math.random() * 4)+1;
+    // var audio = new Audio('sounds/'+number+'.mp3');
+    // audio.play(); 
+
+    if (isPaused == 0) {
+        currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
+        currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
+        if (currentVilain.hp <= 0) {
+            currentVilain.hp = 0;
+            clearInterval(villainAttack);
 
 
-        document.body.removeAttribute("style");
-        finishGame(1);
+            document.body.removeAttribute("style");
+            finishGame(1);
+        }
+
+        width = (100 * currentVilain.hp) / initialVHealth;
+        if (width > 100) {
+            width = 100;
+        }
+        vilain.Rhealth.style.width = width + '%';
+
+        width = (100 * currentPlayer.exp) / currentPlayer.expNeeded;
+        if (currentPlayer.exp >= currentPlayer.expNeeded) {
+            width = 0;
+            currentPlayer.exp = 0;
+            currentPlayer.expNeeded = (currentPlayer.expNeeded * 1.65);
+
+            var level = currentPlayer.getLevel();
+            level += 1;
+            currentPlayer.setLevel(level);
+
+            var sts = currentPlayer.getSts();
+            sts += 10;
+            currentPlayer.setSts(sts);
+            player = document.getElementById("playerDetails");
+
+            var pcs = currentPlayer.getPieces();
+            pcs += 5;
+            currentPlayer.setPieces(pcs);
+            player = document.getElementById("playerDetails");
+
+            player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
+
+            statsUpdate();
+        }
+        player.exp.style.width = width + '%';
     }
-
-    width = (100 * currentVilain.hp) / initialVHealth;
-    if (width > 100) {
-        width = 100;
-    }
-    vilain.Rhealth.style.width = width + '%';
-
-    width = (100 * currentPlayer.exp) / currentPlayer.expNeeded;
-    if (currentPlayer.exp >= currentPlayer.expNeeded) {
-        width = 0;
-        currentPlayer.exp = 0;
-        currentPlayer.expNeeded = (currentPlayer.expNeeded * 1.65);
-
-        var level = currentPlayer.getLevel();
-        level += 1;
-        currentPlayer.setLevel(level);
-
-        var sts = currentPlayer.getSts();
-        sts += 10;
-        currentPlayer.setSts(sts);
-        player = document.getElementById("playerDetails");
-
-        var pcs = currentPlayer.getPieces();
-        pcs += 5;
-        currentPlayer.setPieces(pcs);
-        player = document.getElementById("playerDetails");
-
-        player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
-
-        statsUpdate();
-    }
-    player.exp.style.width = width + '%';
-    console.log(currentPlayer.hp + " " +  currentPlayer.ad + " " + currentPlayer.ap + " " + currentPlayer.armor + " " + currentPlayer.mr);
-    console.log(currentPlayer.helmet + " " + currentPlayer.chest + " " + currentPlayer.pants + " " + currentPlayer.mainWeap + " " + currentPlayer.secWeap);
 };
 
 function loadStage(stage) {
@@ -470,8 +474,7 @@ function upgrade(type) {
             currentPlayer.setSts(sts);
             statsUpdate();
         }
-    }
-    else {
+    } else {
         if (pieces > 0) {
             currentPlayer.upgradePoint(type);
             pieces--;
@@ -481,4 +484,74 @@ function upgrade(type) {
     }
     player = document.getElementById("playerDetails");
     player.textContent = currentPlayer.name + " (level: " + currentPlayer.getLevel() + " / " + currentPlayer.getSts() + " points / " + currentPlayer.getPieces() + " pieces)";
+}
+var PRIV_KEY = "5e77d4e14ede7a90f1b56fdf64d6ec33bf7dfe7a";
+var PUBLIC_KEY = "8b64a78b95f62f7e1495a58a64050468";
+
+
+var characterIdArray = ['1009338', '1009220', '1009351', '1009368', '1009664']; //hawk,cap'n,hulk,iron,thor
+var character = null;
+
+function getMarvelResponse(stage) {
+    var ts = new Date().getTime();
+    var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
+
+    // the api deals a lot in ids rather than just the strings you want to use
+    var url = 'http://gateway.marvel.com:80/v1/public/characters/' + characterIdArray[stage - 1];
+
+    console.log(url);
+    $.getJSON(url, {
+            ts: ts,
+            apikey: PUBLIC_KEY,
+            hash: hash,
+            characters: characterIdArray[0]
+        })
+        .done(function (data) {
+            retrieve(data);
+        })
+        .fail(function (err) {
+            character = 'sth went wrong';
+        });
+
+};
+
+var img = document.createElement("img");
+var name = null;
+var paragraph = document.createElement("p");
+
+function retrieve(data) {
+    character = data.data.results[0];
+    img.src = character.thumbnail.path + '/standard_fantastic' + '.' + character.thumbnail.extension;
+
+    var smth = document.getElementById("vilainDesc");
+    smth.textContent = data.data.results[0].description;
+}
+
+var src = document.getElementById("vilainImg");
+src.appendChild(img);
+
+var element = document.getElementById("vilainDesc");
+element.appendChild(paragraph);
+
+buttonSurrender = document.getElementById("surrenderButton");
+buttonSurrender.onclick = function () {
+    currentVilain.hp = 0;
+    clearInterval(villainAttack);
+
+
+    document.body.removeAttribute("style");
+    finishGame(0);
+}
+
+buttonPause = document.getElementById("pauseButton");
+buttonPause.onclick = function () {
+    if (isPaused == 0) {
+        clearInterval(villainAttack);
+        document.getElementById("attackButton").classList.add("locked");
+        isPaused = 1;
+    } else {
+        villainAttack = setInterval(vilainAtk, 500);
+        document.getElementById("attackButton").classList.remove("locked");
+        isPaused = 0;
+    }
 }

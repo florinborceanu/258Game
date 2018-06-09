@@ -1,41 +1,107 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-html,body
-{
-	width:100%;
-    height:100%;
+html,
+body {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     background-color: black;
-    
+    font-family: 'Ubuntu', sans-serif;
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
 }
 
-
-
 #gameScreen {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -46,7 +112,7 @@ html,body
     height: 100%;
     display: inline-block;
     z-index: 10;
-    vertical-align:top;
+    vertical-align: top;
 }
 
 .game {
@@ -54,19 +120,19 @@ html,body
     height: 100%;
     display: inline-block;
     z-index: 10;
-    vertical-align:top;
+    vertical-align: top;
 }
 
-.items{
+.items {
     padding-top: 15px;
     width: 25%;
     height: 100%;
     display: inline-block;
     z-index: 10;
-    vertical-align:top;
+    vertical-align: top;
 }
 
-#battleField{
+#battleField {
     width: 100%;
     height: 35%;
     background-size: cover;
@@ -77,23 +143,20 @@ html,body
     z-index: 10;
 }
 
-#attackButton
-{
-	width:200px;
-    height:100px;
+#attackButton {
+    width: 200px;
+    height: 100px;
     background-image: url(../img/attackButton.png);
     background-size: contain;
     background-repeat: no-repeat;
-	cursor:pointer;
+    cursor: pointer;
     z-index: 11;
-    
     transition-duration: 0.5s;
     margin: auto;
 }
 
-#attackButton:hover{
+#attackButton:hover {
     opacity: 0.9;
-    
     transition-duration: 0.5s;
 }
 
@@ -107,22 +170,22 @@ html,body
     font-weight: bolder;
     font-size: 30px;
     color: white;
-    
 }
 
-#playerHealth{
+#playerHealth {
     display: inline-block;
-    background-color: rgb(167, 167, 167);
+    background-color: rgba(167, 167, 167, 0.329);
     width: 100%;
     height: 14px;
-    border: 1px solid black;
+    border-radius: 5px;
 }
 
-#playerRealHealth{
-    background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+#playerRealHealth {
+    background: linear-gradient(to right, rgb(90, 19, 19), rgba(255, 0, 0, 1));
     width: 100%;
     height: 14px;
     transition-duration: 0.5s;
+    border-radius: 5px;
 }
 
 #vilainDetails {
@@ -137,33 +200,31 @@ html,body
     color: white;
 }
 
-#vilainHealth{
+#vilainHealth {
     display: inline-block;
-    background-color: rgb(167, 167, 167);
+    background-color: rgba(167, 167, 167, 0.329);
     width: 100%;
     height: 14px;
-    border: 1px solid black;
-    
+    border-radius: 5px;
 }
 
-#vilainRealHealth{
-    background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+#vilainRealHealth {
+    background: linear-gradient(to right, rgb(90, 19, 19), rgba(255, 0, 0, 1));
     width: 100%;
     height: 14px;
     transition-duration: 0.5s;
-    
+    border-radius: 5px;
 }
 
-
-#playerExp{
+#playerExp {
     display: inline-block;
     width: 100%;
     height: 5px;
 }
 
-#playerRealExp{
+#playerRealExp {
     margin-top: -14px;
-    background: linear-gradient(to right, rgba(255,0,0,0), rgb(208, 255, 0));
+    background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(208, 255, 0));
     width: 0%;
     height: 2px;
     transition-duration: 0.5s;
@@ -192,6 +253,12 @@ html,body
     padding-left: 40px;
     margin-left: 15px;
     cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.statsPoint:hover {
+    opacity: 0.8;
+    transition-duration: 0.5s;
 }
 
 .itemUpgrade {
@@ -211,6 +278,12 @@ html,body
     padding-left: 40px;
     margin-left: 15px;
     cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.itemUpgrade:hover {
+    opacity: 0.8;
+    transition-duration: 0.5s;
 }
 
 .hidden {
@@ -224,6 +297,7 @@ html,body
     margin: -2px;
     width: 20%;
     height: 100vh;
+    cursor: pointer;
 }
 
 #firstStage {
@@ -247,7 +321,7 @@ html,body
     transition-duration: 0.5s;
 }
 
-#secondStage:hover{
+#secondStage:hover {
     opacity: 1;
     transition-duration: 0.5s;
 }
@@ -273,7 +347,7 @@ html,body
     transition-duration: 0.5s;
 }
 
-#fourthStage:hover{
+#fourthStage:hover {
     opacity: 1;
     transition-duration: 0.5s;
 }
@@ -291,10 +365,11 @@ html,body
     transition-duration: 0.5s;
 }
 
-
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -302,31 +377,87 @@ html,body
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .centered {
     margin: 0 auto;
     margin-top: 35vh;
-  }
+}
 
-  .locked {
+.locked {
     filter: grayscale(100%);
-  }
+    cursor: default;
+}
 
-  #afterGame {
-      background-color: black;
-  }
+#afterGame {
+    background-color: black;
+}
 
-  #stateText{
-      text-align: center;
-      color: white;
-      font-size: 120px;
-  }
+#stateText {
+    text-align: center;
+    color: white;
+    font-size: 120px;
+}
 
-  #backToStage {
-      color: white;
-      cursor: pointer;
-      text-align: center;
-  }
+#backToStage {
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+#vilainContainer {
+    height: auto;
+    min-height: 140px;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+
+#vilainImg {
+    margin-top: 100px;
+}
+
+#vilainImg img {
+    margin-top: -60px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+#vilainDesc {
+    padding: 20px;
+}
+
+#surrenderButton {
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 10px;
+    bottom: 0px;
+    cursor: pointer;
+}
+
+#pauseButton {
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 10px;
+    bottom: 0px;
+    cursor: pointer;
+}
