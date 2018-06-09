@@ -84,16 +84,6 @@
 
 
 var modal = document.getElementById('id01');
-        var logged = localStorage.getItem("logged");
-
-        window.onload = function () {
-            if (logged == 1) {
-                document.getElementById('register').style.display = 'none';
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('userPhoto').style.display = 'block';
-                document.getElementById('playBT').style.display = 'block';
-            }
-        };
 
         window.onclick = function (event) {
             if (event.target == modal) {
@@ -107,36 +97,4 @@ var modal = document.getElementById('id01');
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
-        }
-
-        function logIn() {
-            document.getElementById('register').style.display = 'none';
-            document.getElementById('login').style.display = 'none';
-            document.getElementById('id01').style.display = 'none';
-            document.getElementById('userPhoto').style.display = 'block';
-            localStorage.setItem("logged", 1);
-            document.getElementById('playBT').style.display = 'block';
-        }
-
-        function logOut() {
-            document.getElementById('register').style.display = 'inline';
-            document.getElementById('login').style.display = 'inline';
-            document.getElementById('userPhoto').style.display = 'none';
-            localStorage.setItem("logged", 0);
-            document.getElementById('playBT').style.display = 'none';
-        }
-
-        function play(n) {
-            if(n == 0){
-                document.getElementById('playBT').style.display = 'none';
-                document.getElementById('playText').style.display = 'none';
-                document.getElementById('playBTactive').style.display = 'block';
-                document.getElementById('closure').style.display = 'block';
-            }
-            if(n==1){
-                document.getElementById('playBT').style.display = 'block';
-                document.getElementById('playText').style.display = 'block';
-                document.getElementById('playBTactive').style.display = 'none';
-                document.getElementById('closure').style.display = 'none';
-            }
         }

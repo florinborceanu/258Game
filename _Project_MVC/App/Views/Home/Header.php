@@ -1,3 +1,17 @@
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
+
 <html>
     <head>
         <style type="text/css">
@@ -14,12 +28,16 @@
         <div id="nav">
             <p style="cursor:pointer" onclick="openNav()" id="menu">&#9776;</p>
         </div>
-        <div id="buttons">
-            <button id="login" onclick="document.getElementById('id01').style.display='block'">LOGIN</button>
+        <?php
+        echo "Your session is running " . $_SESSION['succes'];
+        if(!isset($_SESSION['succes'])) { ?>
+            <div id="buttons">
+                <button id="login" onclick="document.getElementById('id01').style.display='block'">LOGIN</button>
             
-            <button id="register" onclick="document.getElementById('id02').style.display='block'">REGISTER</button>
-        </div>
-        <div id="userPhoto">
+                <button id="register" onclick="document.getElementById('id02').style.display='block'">REGISTER</button>
+            </div>
+        <?php } ?>
+            <div id="userPhoto">
             <div class="dropdown-content">
                 <a href="#" onclick="document.getElementById('id03').style.display='block'">Change Email</a>
                 

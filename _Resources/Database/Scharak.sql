@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 08, 2018 at 07:40 AM
+-- Generation Time: Jun 09, 2018 at 08:51 AM
 -- Server version: 5.6.37
 -- PHP Version: 7.1.8
 
@@ -29,21 +29,27 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `Accounts` (
   `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `nickname` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Accounts`
 --
 
 INSERT INTO `Accounts` (`id`, `username`, `password`, `email`, `nickname`) VALUES
-(1, 'viorel', 'r22825462', 'viorel.omv@gmail.com', 'viorelstk'),
-(2, 'florin', 'r22825462', 'florin@gmail.com', 'florinelu'),
-(3, 'mitica', 'r22825462', 'mitica@mail.com', 'mtk'),
-(4, 'codrut', 'r22825462', 'codrut@gmail.com', 'nasu'),
-(5, 'teo', 'r22825462', 'teo@gmail.com', 'teo');
+(1, 'viorel', '12c8e64e158e1112ed34', 'viorel@gmail.com', 'viorel'),
+(2, 'florin', '098f6bcd4621d373cade', 'florin@gmail.com', 'florin'),
+(3, 'mitica', '098f6bcd4621d373cade', 'mitica@gmail.com', 'mitica'),
+(4, 'teo', '098f6bcd4621d373cade', 'teo@gmail.com', 'teo'),
+(5, 'codrut', '098f6bcd4621d373cade', 'codrut@gmail.com', 'codrut'),
+(6, 'marian', '12c8e64e158e1112ed34', 'marian@gmail.com', 'marian'),
+(7, 'gabriel', '098f6bcd4621d373cade', 'gabriel@gmail.com', 'gabriel'),
+(8, 'ionut', '098f6bcd4621d373cade', 'ionut@gmail.com', 'ionut'),
+(9, 'test', '098f6bcd4621d373cade', 'test@gmail.com', 'test'),
+(10, 'onica', '12c8e64e158e1112ed34d470f37af644', 'onica@gmail.com', 'onica'),
+(11, 'teodora', '7e8b07800ef8b0511ddaa3a632be87da', 'Teodora@gmail.com', 'teodora');
 
 -- --------------------------------------------------------
 
@@ -59,18 +65,21 @@ CREATE TABLE IF NOT EXISTS `Characters` (
   `class` varchar(20) NOT NULL,
   `money` int(11) NOT NULL,
   `st_points` int(11) NOT NULL,
-  `experience` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `experience` int(11) NOT NULL,
+  `Score` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Characters`
 --
 
-INSERT INTO `Characters` (`id`, `uid`, `level`, `stage`, `class`, `money`, `st_points`, `experience`) VALUES
-(5, 1, 1, 1, 'Anime', 1234, 12, 1234),
-(6, 2, 2, 1, 'Anime', 1234, 12, 1234),
-(8, 3, 3, 2, 'Marvel', 1231, 12312, 12),
-(9, 4, 12, 4, 'Archer', 123, 12, 123);
+INSERT INTO `Characters` (`id`, `uid`, `level`, `stage`, `class`, `money`, `st_points`, `experience`, `Score`) VALUES
+(1, 1, 1, 1, 'Anime', 1000, 10, 100, 325),
+(2, 2, 2, 2, 'Marvel', 1234, 12, 1234, 100),
+(3, 3, 2, 3, 'Anime', 1234, 12, 1234, 390),
+(4, 4, 3, 4, 'Marvel', 1231, 12312, 12, 850),
+(5, 5, 12, 5, 'Archer', 123, 12, 123, 50),
+(6, 6, 2, 5, 'Mage', 214, 41, 1424, 1025);
 
 -- --------------------------------------------------------
 
@@ -88,16 +97,7 @@ CREATE TABLE IF NOT EXISTS `Items` (
   `ap` int(11) NOT NULL,
   `ar` int(11) NOT NULL,
   `mr` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Items`
---
-
-INSERT INTO `Items` (`id`, `uid`, `type`, `level`, `health`, `ad`, `ap`, `ar`, `mr`) VALUES
-(1, 5, 1, 1, 10, 10, 10, 10, 10),
-(2, 5, 0, 0, 0, 0, 0, 0, 0),
-(3, 5, 1, 1, 10, 10, 10, 10, 10);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -115,11 +115,11 @@ CREATE TABLE IF NOT EXISTS `Stage` (
 --
 
 INSERT INTO `Stage` (`id`, `name`) VALUES
-(1, 'Stage 1'),
-(2, 'Stage 2'),
-(3, 'Stage 3'),
-(4, 'Stage 4'),
-(5, 'Stage 5');
+(1, 'Hawk_Eye'),
+(2, 'Capt_America'),
+(3, 'Hulk'),
+(4, 'Iron_Man'),
+(5, 'Thor');
 
 -- --------------------------------------------------------
 
@@ -209,17 +209,17 @@ ALTER TABLE `Villains`
 -- AUTO_INCREMENT for table `Accounts`
 --
 ALTER TABLE `Accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `Characters`
 --
 ALTER TABLE `Characters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `Items`
 --
 ALTER TABLE `Items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `Stage`
 --
@@ -243,26 +243,26 @@ ALTER TABLE `Villains`
 -- Constraints for table `Characters`
 --
 ALTER TABLE `Characters`
-  ADD CONSTRAINT `Accounts_Charaters` FOREIGN KEY (`uid`) REFERENCES `Accounts` (`id`),
-  ADD CONSTRAINT `Charaters_Stage` FOREIGN KEY (`stage`) REFERENCES `Stage` (`id`);
+  ADD CONSTRAINT `Accounts_Charaters` FOREIGN KEY (`uid`) REFERENCES `Accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Charaters_Stage` FOREIGN KEY (`stage`) REFERENCES `Stage` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Items`
 --
 ALTER TABLE `Items`
-  ADD CONSTRAINT `Items_Charaters` FOREIGN KEY (`uid`) REFERENCES `Characters` (`id`);
+  ADD CONSTRAINT `Items_Charaters` FOREIGN KEY (`uid`) REFERENCES `Characters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Stats`
 --
 ALTER TABLE `Stats`
-  ADD CONSTRAINT `Charaters_Stats` FOREIGN KEY (`uid`) REFERENCES `Characters` (`id`);
+  ADD CONSTRAINT `Charaters_Stats` FOREIGN KEY (`uid`) REFERENCES `Characters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Villains`
 --
 ALTER TABLE `Villains`
-  ADD CONSTRAINT `Villains_Stage` FOREIGN KEY (`stage`) REFERENCES `Stage` (`id`);
+  ADD CONSTRAINT `Villains_Stage` FOREIGN KEY (`stage`) REFERENCES `Stage` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

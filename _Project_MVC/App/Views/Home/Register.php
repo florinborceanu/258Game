@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <head>
         <style type="text/css">
@@ -10,9 +13,10 @@
             <?php include 'js/javascript.js'; ?>
         </script>
     </head>
+    
     <body>
         <div id="id02" class="modal">
-                <form class="modal-content animate" action="/action_page.php">
+                <form class="modal-content animate" action="../register/index" method="post">
                 <div class="container">
                     <label>
                         <b>Email</b>
@@ -21,18 +25,23 @@
                     <label>
                         <b>Username</b>
                     </label>
-                    <input type="text" placeholder="Enter Username" name="uname" required autocomplete="off">
+                    <input type="text" placeholder="Enter Username" name="username" required autocomplete="off">
+                    
+                     <label>
+                        <b>Nickname</b>
+                    </label>
+                    <input type="text" placeholder="Enter Nickname" name="nickname" required autocomplete="off">
 
                     <label>
                         <b>Password</b>
                     </label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="password_1" required>
                     <label>
                         <b>Repeat Password</b>
                     </label>
-                    <input type="password" placeholder="Repeat Password" name="rpsw" required>
+                    <input type="password" placeholder="Repeat Password" name="password_2" required>
 
-                    <button type="submit">Register</button>
+                    <button type="submit" name="reg_user">Register</button>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
