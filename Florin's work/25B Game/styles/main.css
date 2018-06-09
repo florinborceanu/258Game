@@ -87,6 +87,14 @@ video {
     vertical-align: baseline;
 }
 
+::-moz-selection { /* Code for Firefox */
+    background: transparent;
+}
+
+::selection {
+    background: transparent;
+}
+
 html,
 body {
     width: 100%;
