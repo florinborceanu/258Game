@@ -1,4 +1,4 @@
-  //Team - - images buttons and close pop-up on closure (another click anywhere)
+ //Team - - images buttons and close pop-up on closure (another click anywhere)
   var index = 0;
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -78,23 +78,37 @@
       
   }
 
-
+  function noscroll() {
+    window.scrollTo( 0, 0 );
+  }
+  
 
 
 
 
 var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
+var modal3 = document.getElementById('id03');
+var modal4 = document.getElementById('id04');
+var modal5 = document.getElementById('id05');
 
         window.onclick = function (event) {
+          window.addEventListener('scroll', noscroll);
+
             if (event.target == modal) {
                 modal.style.display = "none";
-            }
-        }
-
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
+                window.removeEventListener('scroll', noscroll);
+            }else if (event.target == modal2) {
+               modal2.style.display = "none";
+               window.removeEventListener('scroll', noscroll);
+            }else if (event.target == modal3) {
+               modal3.style.display = "none";
+               window.removeEventListener('scroll', noscroll);
+            }else if (event.target == modal4) {
+               modal4.style.display = "none";
+               window.removeEventListener('scroll', noscroll);
+            }else if (event.target == modal5) {
+                modal5.style.display = "none";
+                window.removeEventListener('scroll', noscroll);
+       }
+      }
