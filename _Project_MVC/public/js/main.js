@@ -21,6 +21,7 @@ class Player {
         this.pieces = 0;
         this.class = 0;
         this.score = 0;
+        this.stage=0;
     }
 
 
@@ -46,6 +47,7 @@ class Player {
     }
 
     setStage(stage) {
+        console.log(stage);
         this.stage = stage;
     }
 
@@ -170,6 +172,7 @@ var villainAttack;
 var playedStage;
 var currentStage;
 var isPaused;
+var cookieMasterTimer;
 
 
 function loadPlayerStats() {
@@ -203,6 +206,7 @@ function loadResources() {
         currentPlayer.setSts(Number(data.st_points));
         currentPlayer.setPieces(Number(data.money));
         stage = Number(data.stage);
+        console.log(stage);
         updateStage(stage);
         currentPlayer.setExpNeeded(Number(400 * (data.level * 1.65)));
 
@@ -329,7 +333,7 @@ function launchGame(stage) {
 }
 
 function finishGame(win) {
-    cookieMaster();
+    cookieMasterTimer = setInterval(cookieMaster,500);
     isPaused = 0;
     document.getElementById("gameScreen").classList.add("hidden");
     document.getElementById("afterGame").classList.remove("hidden");
@@ -626,10 +630,12 @@ function loadClass(pickedClass) {
 
 
 function cookieMaster() {
+    clearInterval(cookieMasterTimer);
     var data = JSON.stringify(currentPlayer);
+    console.log(data);
     document.cookie = "test =" + data + "; path=/";
 
-    var url2 = '../../api/stats/update';
+    var url2 = '../../api/player/update';
     $.getJSON(url2, function () {
         console.log("succes");
     });

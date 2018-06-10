@@ -3,7 +3,7 @@ include_once '../Api/config/database.php';
 
 
 $host = 'localhost';
-$dbname = 'Scharak';
+$dbname = 'scharak';
 $username = 'root';
 $password = 'r22825462';
 
@@ -20,7 +20,7 @@ print_r($manage);
  $score=$manage['score'];
  $id=$manage['id'];
 
- $query = "UPDATE Characters SET `level`='$level',`stage`='$stage',`class`='$class',`money`='$pieces',`st_points`='$stsPoints',`experience`='$exp'
+ $query = "UPDATE Characters SET `level`='$level',`stage`=$stage,`class`='$class',`money`='$pieces',`st_points`='$stsPoints',`experience`='$exp'
  ,`score`='$score' WHERE uid = '$id';";
 mysqli_query($conn, $query);
 
