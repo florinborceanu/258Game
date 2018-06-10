@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="id04" class="modal">
-            <form class="modal-content animate">
+            <form class="modal-content animate" method="post" action="../changeUsername/index">
                 <div class="container">
                     <label>
                         <b>Old Username</b>

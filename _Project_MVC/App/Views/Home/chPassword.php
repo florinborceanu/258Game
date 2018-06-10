@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="id05" class="modal">
-            <form class="modal-content animate">
+            <form class="modal-content animate" method="post" action="../changePassword/index">
                 <div class="container">
                     <label>
                         <b>Old Password</b>

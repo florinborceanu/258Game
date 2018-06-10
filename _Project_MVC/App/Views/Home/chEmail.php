@@ -13,26 +13,26 @@
     </head>
     <body>
         <div id="id03" class="modal">
-            <form class="modal-content animate">
+            <form class="modal-content animate" method="post" action="../changeEmail/index">
                 <div class="container">
                     <label>
                         <b>Old Email</b>
                     </label>
                     
-                    <input type="text" placeholder="Enter Old Email" name="oemail" required autocomplete="off">
+                    <input type="text" placeholder="Enter Old Email" name="oldEmail" required autocomplete="off">
                     <label>
                         <b>New Email</b>
                     </label>
                     
-                    <input type="text" placeholder="Enter New Email" name="nemail" required autocomplete="off">
+                    <input type="text" placeholder="Enter New Email" name="newEmail" required autocomplete="off">
 
                     <label>
                         <b>Password</b>
                     </label>
                     
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="password" required>
 
-                    <button type="button" class="">Submit</button>
+                    <button type="submit" name="change_email" class="">Submit</button>
                 </div>
 
                 <div class="container" style="background-color:#f1f1f1">

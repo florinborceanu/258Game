@@ -16,7 +16,7 @@ if (isset($_POST['change_email'])) {
     $new_email = mysqli_real_escape_string($conn, $_POST['oldEmail']);
     $password = mysqli_real_escape_string($conn, $_POST['newEmail']);
 }
-print_r($_COOKIE['user_id']);
+var_dump($_COOKIE['user_id']);
     
 
 ?>
