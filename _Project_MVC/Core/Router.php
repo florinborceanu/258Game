@@ -45,6 +45,7 @@ class Router
         $route = '/^' . $route . '$/i';
 
         $this->routes[$route] = $params;
+        
     }
 
     /**
@@ -67,6 +68,7 @@ class Router
      */
     public function match($url)
     {
+        
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 // Get named capture group values
@@ -105,7 +107,7 @@ class Router
     public function dispatch($url)
     {
         $url = $this->removeQueryStringVariables($url);
-
+        
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
@@ -117,9 +119,14 @@ class Router
 
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action);
+                
+                $name = $this->params['fname'];
+                $name = $this->convertToCamelCase($name);
+                
+                $id = $this->params['id'];
 
                 if (is_callable([$controller_object, $action])) {
-                    $controller_object->$action();
+                    $controller_object->$action($name, $id);
 
                 } else {
                     echo "Method $action (in controller $controller) not found";
@@ -130,6 +137,7 @@ class Router
         } else {
             echo 'No route matched.';
         }
+        
     }
 
     /**

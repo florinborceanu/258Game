@@ -1,7 +1,6 @@
 <?php
 
 namespace Core;
-session_start();
 use PDO;
 
 /**
