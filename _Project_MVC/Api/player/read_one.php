@@ -37,5 +37,4 @@ $product_arr = array(
  
 // make it json format
 print_r(json_encode($product_arr));
-exit();
 ?>

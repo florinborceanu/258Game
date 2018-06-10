@@ -6,8 +6,8 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
  
 // include database and object files
-include_once '../config/database.php';
-include_once '../objects/villain.php';
+include_once '../Api/config/database.php';
+include_once '../Api/objects/villain.php';
  
 // get database connection
 $database = new Database();
@@ -17,7 +17,7 @@ $db = $database->getConnection();
 $product = new Villain($db);
  
 // set ID property of product to be edited
-$product->id = isset($_GET['id']) ? $_GET['id'] : die();
+$product->id = $args[0];
  
 // read the details of product to be edited
 $product->readOne();
@@ -29,10 +29,10 @@ $product_arr = array(
     "name" =>  $product->name,
     "class" => $product->class,
     "health" =>  $product->health,
-    "ad" => $product->ad,
-    "ap" =>  $product->ap,
-    "ar" => $product->ar,
-    "mr" => $product->mr
+    "attack damage" => $product->ad,
+    "ability power" =>  $product->ap,
+    "armor" => $product->ar,
+    "magic resist" => $product->mr
 );
  
 // make it json format

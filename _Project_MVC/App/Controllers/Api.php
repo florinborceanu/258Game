@@ -40,13 +40,15 @@ class Api extends \Core\Controller
         $file ="../Api/player/$name" . ".php";
         include_once $file;
     }
-    public function villainsAction($name)
+    public function villainsAction($name, $args = [])
     {
-        
+        $file ="../Api/villains/$name" . ".php";
+        include_once $file;
     }
-    public function charactersAction($name)
+    public function statsAction($name, $args = [])
     {
-        
+        $file ="../Api/stats/$name" . ".php";
+        include_once $file;
     }
    
 }

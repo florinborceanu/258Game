@@ -58,5 +58,4 @@ else{
         array("message" => "No players found.")
     );
 }
-exit();
 ?>

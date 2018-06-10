@@ -4,8 +4,8 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
-include_once '../config/database.php';
-include_once '../objects/villain.php';
+include_once '../Api/config/database.php';
+include_once '../Api/objects/villain.php';
  
 // instantiate database and player object
 $database = new Database();
@@ -36,14 +36,14 @@ if($num>0){
  
         $player_item=array(
             "id" => $id,
-            "uid" => $stage,
-            "level" => $name,
-            "stage" => $class,
-            "class" => $health,
-            "money" => $ad,
-            "st_points" => $ap,
-            "experience" => $ar,
-            "Score" => $mr
+            "stage" => $stage,
+            "name" => $name,
+            "class" => $class,
+            "health" => $health,
+            "attack damage" => $ad,
+            "ability power" => $ap,
+            "armor" => $ar,
+            "magic resist" => $mr
             
         );
  

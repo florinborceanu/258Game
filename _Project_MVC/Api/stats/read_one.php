@@ -6,8 +6,8 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
  
 // include database and object files
-include_once '../config/database.php';
-include_once '../objects/stats.php';
+include_once '../Api/config/database.php';
+include_once '../Api/objects/stats.php';
  
 // get database connection
 $database = new Database();
@@ -17,7 +17,7 @@ $db = $database->getConnection();
 $product = new Stats($db);
  
 // set ID property of product to be edited
-$product->id = isset($_GET['id']) ? $_GET['id'] : die();
+$product->id = $args[0];
  
 // read the details of product to be edited
 $product->readOne();
