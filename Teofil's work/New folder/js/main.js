@@ -1,8 +1,7 @@
 class Player {
 
-    constructor() {
-        this.id = 0;
-        this.name = '';
+    constructor(name) {
+        this.name = name;
         this.hp = 0;
         this.maxHP = 0;
         this.ad = 0;
@@ -19,14 +18,6 @@ class Player {
         this.level = 0;
         this.stsPoints = 0;
         this.pieces = 0;
-        this.class = 0;
-        this.score = 0;
-        this.stage=0;
-    }
-
-
-    setName(name) {
-        this.name = name;
     }
 
     setItems(helmet, chest, pants, mainWeap, secWeap) {
@@ -47,7 +38,6 @@ class Player {
     }
 
     setStage(stage) {
-        console.log(stage);
         this.stage = stage;
     }
 
@@ -169,81 +159,43 @@ var thirdStage;
 var fourthStage;
 var fifthStage;
 var villainAttack;
+//mtk jobs
+var villainAnimation;
 var playedStage;
 var currentStage;
 var isPaused;
-var cookieMasterTimer;
-var villainAnimation;
-
-function loadPlayerStats() {
-    var username = document.cookie;
-    var userid = username.split("%26");
-    var url1 = '../../api/stats/read_one/' + userid[1];
-
-    currentPlayer = new Player();
-    $.getJSON(url1, function (data) {
-        currentPlayer.setStats(data.health, data.ad, data.ap, data.ar, data.mr);
-    });
-
-    var url2 = '../../api/stats/read_two/' + userid[1];
-    currentPlayer = new Player();
-    $.getJSON(url2, function (data) {
-        currentPlayer.setItems(data.health, data.ad, data.ap, data.ar, data.mr);
-    });
-}
-
 
 function loadResources() {
-    var dataloaded;
-    var username = document.cookie;
-    var userid = username.split("%26");
-    var url = '../../api/player/read_one/' + userid[1];
-    currentPlayer = new Player();
-    currentPlayer.id = userid[1];
-    $.getJSON(url, function (data) {
-        currentPlayer.class = Number(data.class);
-        currentPlayer.setName(data.nickname);
-        currentPlayer.setStage(Number(data.stage));
-        currentPlayer.setLevel(Number(data.level));
-        currentPlayer.setSts(Number(data.st_points));
-        currentPlayer.setPieces(Number(data.money));
-        stage = Number(data.stage);
-        console.log(stage);
-        updateStage(stage);
-        currentPlayer.setExpNeeded(Number(400 * (data.level * 1.65)));
 
-    });
-    var url1 = '../../api/stats/read_one/' + userid[1];
-    $.getJSON(url1, function (data) {
-        currentPlayer.setStats(Number(data.health),Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
-    });
+    //Init player
+    currentPlayer = new Player("Player Name");
+    currentPlayer.setItems(1, 1, 1, 1, 1);
+    currentPlayer.setStats(15000, 25, 25, 50, 20);
+    currentPlayer.setStage(5);
+    currentPlayer.setExpNeeded(400);
+    currentPlayer.setLevel(1);
+    currentPlayer.setSts(10000);
+    currentPlayer.setPieces(10000);
 
-    var url2 = '../../api/stats/read_two/' + userid[1];
-    $.getJSON(url2, function (data) {
-        currentPlayer.setItems(Number(data.health),Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
-    });
+    //Load stages
+    stage = currentPlayer.getStage();
+    updateStage(stage);
+
+    firstStage = new Stage("First Stage", 1);
+    secondStage = new Stage("Second Stage", 2);
+    thirdStage = new Stage("Third Stage", 3);
+    fourthStage = new Stage("Fourth Stage", 4);
+    fifthStage = new Stage("Fifth Stage", 5);
 
 
     //Load vilains
-    firstVilain = new Vilain("Hawk Eye", 3500, 25, 15, 90, 65);
+    firstVilain = new Vilain("Hawk Eye", 1500, 25, 15, 90, 65);
     secondVilain = new Vilain("Captain America", 7000, 100, 70, 120, 90);
     thirdVilain = new Vilain("Hulk", 40000, 45, 45, 530, 240);
     fourthVilain = new Vilain("Iron Man", 100000, 120, 0, 120, 120);
     fifthVilain = new Vilain("Thor", 160000, 10000, 400, 1000, 1000);
 
 
-    myVar = setTimeout(checkClass, 1000);
-    
-}
-
-function checkClass(){
-    console.log(currentPlayer);
-    if (currentPlayer.class != 0) {
-        myVar = setTimeout(showPage, 500);
-    }
-    else {        
-        myVar = setTimeout(showClass, 500);
-    }
 }
 
 function updateStage(stage) {
@@ -251,61 +203,36 @@ function updateStage(stage) {
     document.getElementById("thirdStage").classList.remove("locked");
     document.getElementById("fourthStage").classList.remove("locked");
     document.getElementById("fifthStage").classList.remove("locked");
-    if (stage == 1) {
-        document.getElementById("secondStage").classList.add("locked");
-        document.getElementById("thirdStage").classList.add("locked");
-        document.getElementById("fourthStage").classList.add("locked");
-        document.getElementById("fifthStage").classList.add("locked");
-    } else if (stage == 2) {
-        document.getElementById("thirdStage").classList.add("locked");
-        document.getElementById("fourthStage").classList.add("locked");
-        document.getElementById("fifthStage").classList.add("locked");
-    } else if (stage == 3) {
-        document.getElementById("fourthStage").classList.add("locked");
-        document.getElementById("fifthStage").classList.add("locked");
+    switch (stage) {
+        case 1:
+            {
+                document.getElementById("secondStage").classList.add("locked");
+                document.getElementById("thirdStage").classList.add("locked");
+                document.getElementById("fourthStage").classList.add("locked");
+                document.getElementById("fifthStage").classList.add("locked");
+            }
+        case 2:
+            {
+                document.getElementById("thirdStage").classList.add("locked");
+                document.getElementById("fourthStage").classList.add("locked");
+                document.getElementById("fifthStage").classList.add("locked");
+            }
+        case 3:
+            {
+                document.getElementById("fourthStage").classList.add("locked");
+                document.getElementById("fifthStage").classList.add("locked");
 
-    } else if (stage == 4) {
-        document.getElementById("fifthStage").classList.add("locked");
+            }
+        case 4:
+            {
+                document.getElementById("fifthStage").classList.add("locked");
+            }
     }
 }
-//mtk
-function myMove() {
-    var elem = document.getElementById("animate");   
-    elem.style.display = "block";
-    var pos = 0;
-    var id = setInterval(frame, 5);
-    function frame() {
-      if (pos >= 450) {
-        clearInterval(id);
-        elem.style.display = "none";
-      } else {
-        pos = pos+ 15; 
-        elem.style.left = pos + 'px'; 
-  
-      }
-    }
-    
-  }
-  function enemyMove() {
-    var elem = document.getElementById("animateEnemyAttack");   
-    elem.style.display = "block";
-    var pos = 450;
-    var id = setInterval(frame, 5);
-    function frame() {
-      if (pos <= 0) {
-        clearInterval(id);
-        elem.style.display = "none";
-      } else {
-        pos = pos - 15; 
-        elem.style.left = pos + 'px'; 
-  
-      }
-    }
-    
-  }
 
 function mainLoading() {
     loadResources();
+    myVar = setTimeout(showPage, 500);
 }
 
 function showPage() {
@@ -313,17 +240,14 @@ function showPage() {
     document.getElementById("stageScreen").classList.remove("hidden");
 }
 
-function showClass() {
-    document.getElementById("loadingScreen").classList.add("hidden");
-    document.getElementById("classScreen").classList.remove("hidden");
-}
-
 function launchGame(stage) {
+    getServerResponse();
     playedStage = stage;
     isPaused = 0;
     if (stage == 1) {
         currentVilain = firstVilain;
         document.body.style.backgroundImage = "url(/imgs/hawkeye.jpg)";
+        //mtk jobs TO DO Change for every stage the attackEnemy.png
     } else if (stage == 2) {
         currentVilain = secondVilain;
         document.body.style.backgroundImage = "url(/imgs/captain.jpg)";
@@ -369,7 +293,6 @@ function launchGame(stage) {
 }
 
 function finishGame(win) {
-    cookieMasterTimer = setInterval(cookieMaster,500);
     isPaused = 0;
     document.getElementById("gameScreen").classList.add("hidden");
     document.getElementById("afterGame").classList.remove("hidden");
@@ -448,10 +371,45 @@ function statsUpdate() {
         element.classList.remove("locked");
     }
 }
-
+//mtk jobs
+function myMove() {
+    var elem = document.getElementById("animate");   
+    elem.style.display = "block";
+    var pos = 0;
+    var id = setInterval(frame, 5);
+    function frame() {
+      if (pos >= 450) {
+        clearInterval(id);
+        elem.style.display = "none";
+      } else {
+        pos = pos+ 15; 
+        elem.style.left = pos + 'px'; 
+  
+      }
+    }
+    
+  }
+  function enemyMove() {
+    var elem = document.getElementById("animateEnemyAttack");   
+    elem.style.display = "block";
+    var pos = 450;
+    var id = setInterval(frame, 5);
+    function frame() {
+      if (pos <= 0) {
+        clearInterval(id);
+        elem.style.display = "none";
+      } else {
+        pos = pos - 15; 
+        elem.style.left = pos + 'px'; 
+  
+      }
+    }
+    
+  }
 function timedAttack() {
     villainAttack = setInterval(vilainAtk, 500);
-    villainAnimation = setInterval(enemyMove, 1250);
+    villainAnimation = setInterval(enemyMove, 2500);
+
 }
 
 function vilainAtk() {
@@ -459,8 +417,7 @@ function vilainAtk() {
     if (currentPlayer.hp <= 0) {
         currentPlayer.hp = 0;
         clearInterval(villainAttack);
-        clearInterval(villainAnimation);
-
+        clearInterval(enemyMove);
         document.body.removeAttribute("style");
         finishGame(0);
     }
@@ -473,20 +430,19 @@ function vilainAtk() {
 
 button = document.getElementById("attackButton");
 button.onclick = function () {
+    //MTK jobs
+    myMove();
     // var number = Math.floor(Math.random() * 4)+1;
     // var audio = new Audio('sounds/'+number+'.mp3');
     // audio.play(); 
-    
 
     if (isPaused == 0) {
-        myMove();
         currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
         currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
-        console.log(currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr);
         if (currentVilain.hp <= 0) {
             currentVilain.hp = 0;
             clearInterval(villainAttack);
-            clearInterval(villainAnimation);
+
 
             document.body.removeAttribute("style");
             finishGame(1);
@@ -523,9 +479,6 @@ button.onclick = function () {
             statsUpdate();
         }
         player.exp.style.width = width + '%';
-    }
-    else{
-        disruptPause();
     }
 };
 
@@ -584,13 +537,17 @@ var character = null;
 function getMarvelResponse(stage) {
     var ts = new Date().getTime();
     var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
+
+    // the api deals a lot in ids rather than just the strings you want to use
     var url = 'http://gateway.marvel.com:80/v1/public/characters/' + characterIdArray[stage - 1];
+
+    console.log(url);
     $.getJSON(url, {
-        ts: ts,
-        apikey: PUBLIC_KEY,
-        hash: hash,
-        characters: characterIdArray[0]
-    })
+            ts: ts,
+            apikey: PUBLIC_KEY,
+            hash: hash,
+            characters: characterIdArray[0]
+        })
         .done(function (data) {
             retrieve(data);
         })
@@ -598,6 +555,20 @@ function getMarvelResponse(stage) {
             character = 'sth went wrong';
         });
 
+};
+
+function getServerResponse() {
+
+    var data;
+    var username = document.cookie;
+    var userid = username.split("=");
+    console.log(userid[2]);
+    var url = '../../api/player/read_one/' + userid[2];
+
+    
+   $.getJSON(url, function(data) {
+    console.log(data);
+});
 };
 
 var img = document.createElement("img");
@@ -622,68 +593,23 @@ buttonSurrender = document.getElementById("surrenderButton");
 buttonSurrender.onclick = function () {
     currentVilain.hp = 0;
     clearInterval(villainAttack);
-    clearInterval(villainAnimation);
+    clearInterval(enemyMove);
 
     document.body.removeAttribute("style");
     finishGame(0);
 }
-function disruptPause() {
-    villainAttack = setInterval(vilainAtk, 500);
-    villainAnimation = setInterval(enemyMove, 1250);
-    document.getElementById("attackButton").classList.remove("locked");
-    isPaused = 0;
-}
+
 buttonPause = document.getElementById("pauseButton");
 buttonPause.onclick = function () {
     if (isPaused == 0) {
         clearInterval(villainAttack);
-        clearInterval(villainAnimation);
+        clearInterval(enemyMove);
         document.getElementById("attackButton").classList.add("locked");
         isPaused = 1;
     } else {
-        disruptPause();
+        villainAttack = setInterval(vilainAtk, 500);
+        villainAnimation= setInterval(enemyMove, 3500);
+        document.getElementById("attackButton").classList.remove("locked");
+        isPaused = 0;
     }
-}
-
-
-function loadClass(pickedClass) {
-    if (pickedClass == 1) {
-        currentPlayer.setStats(1500, 25, 25, 20, 20);
-
-    }
-    else if (pickedClass == 2) {
-        currentPlayer.setStats(1000, 45, 35, 10, 15);
-
-    }
-    else if (pickedClass == 3) {
-        currentPlayer.setStats(1250, 35, 5, 30, 10);
-
-    }
-    else if (pickedClass == 4) {
-        currentPlayer.setStats(1900, 45, 15, 10, 20);
-
-    }
-    else if (pickedClass == 5) {
-        currentPlayer.setStats(3500, 15, 15, 40, 40);
-
-    }
-
-
-    currentPlayer.class = pickedClass;
-    document.getElementById("loadingScreen").classList.remove("hidden");
-    document.getElementById("classScreen").classList.add("hidden");
-    myVar = setTimeout(showPage, 500);
-}
-
-
-function cookieMaster() {
-    clearInterval(cookieMasterTimer);
-    var data = JSON.stringify(currentPlayer);
-    console.log(data);
-    document.cookie = "test =" + data + "; path=/";
-
-    var url2 = '../../api/player/update';
-    $.getJSON(url2, function () {
-        console.log("succes");
-    });
 }
