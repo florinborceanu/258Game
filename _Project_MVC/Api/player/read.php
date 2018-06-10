@@ -43,7 +43,8 @@ if($num>0){
             "money" => $money,
             "st_points" => $st_points,
             "experience" => $experience,
-            "Score" => $score
+            "Score" => $score,
+            "nickname" => $nickname
             
         );
  

@@ -73,5 +73,6 @@ function readOne(){
     $this->st_points = $row['st_points'];
     $this->experience = $row['experience'];
     $this->score = $row['Score'];
+    $this->nickname = $row['nickname'];
 }
 }

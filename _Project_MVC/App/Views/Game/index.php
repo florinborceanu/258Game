@@ -19,6 +19,18 @@
     <div id="loadingScreen">
         <div class="loader centered"></div>
     </div>
+    <div id="classScreen" class="hidden" style="color: white;">
+        <div id="firstClass" class="stage" onclick="loadClass(1)">
+        </div>
+        <div id="secondClass" class="stage" onclick="loadClass(2)">
+        </div>
+        <div id="thirdClass" class="stage" onclick="loadClass(3)">
+        </div>
+        <div id="fourthClass" class="stage" onclick="loadClass(4)">
+        </div>
+        <div id="fifthClass" class="stage" onclick="loadClass(5)">
+        </div>
+    </div>
     <div id="stageScreen" class="hidden">
         <div id="firstStage" class="stage" onclick="loadStage(1)">
         </div>

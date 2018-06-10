@@ -1,7 +1,7 @@
 class Player {
 
-    constructor(name) {
-        this.name = name;
+    constructor() {
+        this.name = '';
         this.hp = 0;
         this.maxHP = 0;
         this.ad = 0;
@@ -18,6 +18,12 @@ class Player {
         this.level = 0;
         this.stsPoints = 0;
         this.pieces = 0;
+        this.class = 0;
+    }
+
+
+    setName(name) {
+        this.name = name;
     }
 
     setItems(helmet, chest, pants, mainWeap, secWeap) {
@@ -163,28 +169,55 @@ var playedStage;
 var currentStage;
 var isPaused;
 
+
+function loadPlayerStats() {
+    var username = document.cookie;
+    var userid = username.split("=");
+    var url1 = '../../api/stats/read_one/' + userid[1];
+    currentPlayer = new Player();
+    $.getJSON(url1, function (data) {
+        currentPlayer.setStats(data.health * 10000000, data.ad, data.ap, data.ar, data.mr);
+    });
+
+    var url2 = '../../api/stats/read_two/' + userid[1];
+    currentPlayer = new Player();
+    $.getJSON(url2, function (data) {
+        currentPlayer.setItems(data.health, data.ad, data.ap, data.ar, data.mr);
+    });
+}
 function loadResources() {
+    var dataloaded;
+    var username = document.cookie;
+    var userid = username.split("=");
+    var url = '../../api/player/read_one/' + userid[1];
 
-    //Init player
-    currentPlayer = new Player("Player Name");
-    currentPlayer.setItems(1, 1, 1, 1, 1);
-    currentPlayer.setStats(15000, 25, 25, 50, 20);
-    currentPlayer.setStage(5);
-    currentPlayer.setExpNeeded(400);
-    currentPlayer.setLevel(1);
-    currentPlayer.setSts(10000);
-    currentPlayer.setPieces(10000);
+    currentPlayer = new Player();
+    $.getJSON(url, function (data) {
+        currentPlayer.class = data.class;
 
-    //Load stages
-    stage = currentPlayer.getStage();
-    updateStage(stage);
+        currentPlayer.setName(data.nickname);
+        currentPlayer.setStage(data.stage);
+        currentPlayer.setLevel(data.level);
+        currentPlayer.setSts(data.st_points);
+        currentPlayer.setPieces(data.money);
+        stage = data.stage;
+        updateStage(stage);
+        currentPlayer.setExpNeeded(400 * (data.level * 1.65));
 
-    firstStage = new Stage("First Stage", 1);
-    secondStage = new Stage("Second Stage", 2);
-    thirdStage = new Stage("Third Stage", 3);
-    fourthStage = new Stage("Fourth Stage", 4);
-    fifthStage = new Stage("Fifth Stage", 5);
+    });
+    if (currentPlayer.class != 0) {
+        var url1 = '../../api/stats/read_one/' + userid[2];
+        currentPlayer = new Player();
+        $.getJSON(url1, function (data) {
+            currentPlayer.setStats(data.health, data.ad, data.ap, data.ar, data.mr);
+        });
 
+        var url2 = '../../api/stats/read_two/' + userid[2];
+        currentPlayer = new Player();
+        $.getJSON(url2, function (data) {
+            currentPlayer.setItems(data.health, data.ad, data.ap, data.ar, data.mr);
+        });
+    }
 
     //Load vilains
     firstVilain = new Vilain("Hawk Eye", 1500, 25, 15, 90, 65);
@@ -201,36 +234,33 @@ function updateStage(stage) {
     document.getElementById("thirdStage").classList.remove("locked");
     document.getElementById("fourthStage").classList.remove("locked");
     document.getElementById("fifthStage").classList.remove("locked");
-    switch (stage) {
-        case 1:
-            {
-                document.getElementById("secondStage").classList.add("locked");
-                document.getElementById("thirdStage").classList.add("locked");
-                document.getElementById("fourthStage").classList.add("locked");
-                document.getElementById("fifthStage").classList.add("locked");
-            }
-        case 2:
-            {
-                document.getElementById("thirdStage").classList.add("locked");
-                document.getElementById("fourthStage").classList.add("locked");
-                document.getElementById("fifthStage").classList.add("locked");
-            }
-        case 3:
-            {
-                document.getElementById("fourthStage").classList.add("locked");
-                document.getElementById("fifthStage").classList.add("locked");
+    if (stage == 1) {
+        document.getElementById("secondStage").classList.add("locked");
+        document.getElementById("thirdStage").classList.add("locked");
+        document.getElementById("fourthStage").classList.add("locked");
+        document.getElementById("fifthStage").classList.add("locked");
+    } else if (stage == 2) {
+        document.getElementById("thirdStage").classList.add("locked");
+        document.getElementById("fourthStage").classList.add("locked");
+        document.getElementById("fifthStage").classList.add("locked");
+    } else if (stage == 3) {
+        document.getElementById("fourthStage").classList.add("locked");
+        document.getElementById("fifthStage").classList.add("locked");
 
-            }
-        case 4:
-            {
-                document.getElementById("fifthStage").classList.add("locked");
-            }
+    } else if (stage == 4) {
+        document.getElementById("fifthStage").classList.add("locked");
     }
 }
 
+
 function mainLoading() {
     loadResources();
-    myVar = setTimeout(showPage, 500);
+    if (currentPlayer.class != 0) {
+        myVar = setTimeout(showPage, 500);
+    }
+    else {
+        myVar = setTimeout(showClass, 500);
+    }
 }
 
 function showPage() {
@@ -238,8 +268,12 @@ function showPage() {
     document.getElementById("stageScreen").classList.remove("hidden");
 }
 
+function showClass() {
+    document.getElementById("loadingScreen").classList.add("hidden");
+    document.getElementById("classScreen").classList.remove("hidden");
+}
+
 function launchGame(stage) {
-    getServerResponse();
     playedStage = stage;
     isPaused = 0;
     if (stage == 1) {
@@ -290,6 +324,7 @@ function launchGame(stage) {
 }
 
 function finishGame(win) {
+    cookieMaster();
     isPaused = 0;
     document.getElementById("gameScreen").classList.add("hidden");
     document.getElementById("afterGame").classList.remove("hidden");
@@ -496,17 +531,13 @@ var character = null;
 function getMarvelResponse(stage) {
     var ts = new Date().getTime();
     var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
-
-    // the api deals a lot in ids rather than just the strings you want to use
     var url = 'http://gateway.marvel.com:80/v1/public/characters/' + characterIdArray[stage - 1];
-
-    console.log(url);
     $.getJSON(url, {
-            ts: ts,
-            apikey: PUBLIC_KEY,
-            hash: hash,
-            characters: characterIdArray[0]
-        })
+        ts: ts,
+        apikey: PUBLIC_KEY,
+        hash: hash,
+        characters: characterIdArray[0]
+    })
         .done(function (data) {
             retrieve(data);
         })
@@ -514,20 +545,6 @@ function getMarvelResponse(stage) {
             character = 'sth went wrong';
         });
 
-};
-
-function getServerResponse() {
-
-    var data;
-    var username = document.cookie;
-    var userid = username.split("=");
-    console.log(userid[2]);
-    var url = '../../api/player/read_one/' + userid[2];
-
-    
-   $.getJSON(url, function(data) {
-    console.log(data);
-});
 };
 
 var img = document.createElement("img");
@@ -569,4 +586,54 @@ buttonPause.onclick = function () {
         document.getElementById("attackButton").classList.remove("locked");
         isPaused = 0;
     }
+}
+
+
+function loadClass(pickedClass) {
+    if (pickedClass == 1) {
+        currentPlayer.setStats(1500, 25, 25, 20, 20);
+
+    }
+    else if (pickedClass == 2) {
+        currentPlayer.setStats(1000, 45, 35, 10, 15);
+
+    }
+    else if (pickedClass == 3) {
+        currentPlayer.setStats(1250, 35, 5, 30, 10);
+
+    }
+    else if (pickedClass == 4) {
+        currentPlayer.setStats(1900, 455, 15, 10, 20);
+
+    }
+    else if (pickedClass == 5) {
+        currentPlayer.setStats(3500, 15, 15, 40, 40);
+
+    }
+
+
+    currentPlayer.class = pickedClass;
+    document.getElementById("loadingScreen").classList.remove("hidden");
+    document.getElementById("classScreen").classList.add("hidden");
+    myVar = setTimeout(showPage, 500);
+}
+
+
+function cookieMaster() {
+    var data = {
+        test: $( "#test" ).val()
+      };
+      var options = {
+        url: "../../api/update",
+        dataType: "text",
+        type: "POST",
+        data: { test: JSON.stringify( data ) }, // Our valid JSON string
+        success: function( data, status, xhr ) {
+           console.log("succes");
+        },
+        error: function( xhr, status, error ) {
+            console.log("fail");
+        }
+      };
+      $.ajax( options );
 }

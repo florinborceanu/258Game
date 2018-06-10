@@ -7,14 +7,14 @@ header('Content-Type: application/json');
  
 // include database and object files
 include_once '../Api/config/database.php';
-include_once '../Api/objects/player.php';
+include_once '../Api/objects/stats.php';
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
 // prepare product object
-$product = new Player($db);
+$product = new Stats($db);
  
 // set ID property of product to be edited
 $product->id = $args[0];
@@ -26,14 +26,11 @@ $product->readOne();
 $product_arr = array(
     "id" =>  $product->id,
     "uid" => $product->uid,
-    "level" =>  $product->level,
-    "stage" => $product->stage,
-    "class" =>  $product->class,
-    "money" => $product->money,
-    "st_points" =>  $product->st_points,
-    "experience" => $product->experience,
-    "Score" => $product->score,
-    "nickname" => $product->nickname
+    "health" =>  $product->health,
+    "ad" => $product->ad,
+    "ap" =>  $product->ap,
+    "ar" => $product->ar,
+    "mr" =>  $product->mr
 );
  
 // make it json format
