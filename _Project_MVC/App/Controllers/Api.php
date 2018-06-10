@@ -50,10 +50,5 @@ class Api extends \Core\Controller
         $file ="../Api/stats/$name" . ".php";
         include_once $file;
     }
-    public function updateAction($name, $args = [])
-    {
-        $file ="../Api/update.php";
-        include_once $file;
-    }
    
 }

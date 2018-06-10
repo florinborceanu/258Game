@@ -20,7 +20,7 @@ $product = new Stats($db);
 $product->id = $args[0];
  
 // read the details of product to be edited
-$product->readOne();
+$product->readTwo();
  
 // create array
 $product_arr = array(

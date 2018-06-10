@@ -1,6 +1,7 @@
 class Player {
 
     constructor() {
+        this.id = 0;
         this.name = '';
         this.hp = 0;
         this.maxHP = 0;
@@ -19,6 +20,7 @@ class Player {
         this.stsPoints = 0;
         this.pieces = 0;
         this.class = 0;
+        this.score = 0;
     }
 
 
@@ -172,11 +174,12 @@ var isPaused;
 
 function loadPlayerStats() {
     var username = document.cookie;
-    var userid = username.split("=");
+    var userid = username.split("%26");
     var url1 = '../../api/stats/read_one/' + userid[1];
+
     currentPlayer = new Player();
     $.getJSON(url1, function (data) {
-        currentPlayer.setStats(data.health * 10000000, data.ad, data.ap, data.ar, data.mr);
+        currentPlayer.setStats(data.health, data.ad, data.ap, data.ar, data.mr);
     });
 
     var url2 = '../../api/stats/read_two/' + userid[1];
@@ -188,45 +191,53 @@ function loadPlayerStats() {
 function loadResources() {
     var dataloaded;
     var username = document.cookie;
-    var userid = username.split("=");
+    var userid = username.split("%26");
     var url = '../../api/player/read_one/' + userid[1];
-
     currentPlayer = new Player();
+    currentPlayer.id = userid[1];
     $.getJSON(url, function (data) {
-        currentPlayer.class = data.class;
-
+        currentPlayer.class = Number(data.class);
         currentPlayer.setName(data.nickname);
-        currentPlayer.setStage(data.stage);
-        currentPlayer.setLevel(data.level);
-        currentPlayer.setSts(data.st_points);
-        currentPlayer.setPieces(data.money);
-        stage = data.stage;
+        currentPlayer.setStage(Number(data.stage));
+        currentPlayer.setLevel(Number(data.level));
+        currentPlayer.setSts(Number(data.st_points));
+        currentPlayer.setPieces(Number(data.money));
+        stage = Number(data.stage);
         updateStage(stage);
-        currentPlayer.setExpNeeded(400 * (data.level * 1.65));
+        currentPlayer.setExpNeeded(Number(400 * (data.level * 1.65)));
 
     });
-    if (currentPlayer.class != 0) {
-        var url1 = '../../api/stats/read_one/' + userid[2];
-        currentPlayer = new Player();
-        $.getJSON(url1, function (data) {
-            currentPlayer.setStats(data.health, data.ad, data.ap, data.ar, data.mr);
-        });
+    var url1 = '../../api/stats/read_one/' + userid[1];
+    $.getJSON(url1, function (data) {
+        currentPlayer.setStats(Number(data.health),Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
+    });
 
-        var url2 = '../../api/stats/read_two/' + userid[2];
-        currentPlayer = new Player();
-        $.getJSON(url2, function (data) {
-            currentPlayer.setItems(data.health, data.ad, data.ap, data.ar, data.mr);
-        });
-    }
+    var url2 = '../../api/stats/read_two/' + userid[1];
+    $.getJSON(url2, function (data) {
+        currentPlayer.setItems(Number(data.health),Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
+    });
+
 
     //Load vilains
-    firstVilain = new Vilain("Hawk Eye", 1500, 25, 15, 90, 65);
+    firstVilain = new Vilain("Hawk Eye", 3500, 25, 15, 90, 65);
     secondVilain = new Vilain("Captain America", 7000, 100, 70, 120, 90);
     thirdVilain = new Vilain("Hulk", 40000, 45, 45, 530, 240);
     fourthVilain = new Vilain("Iron Man", 100000, 120, 0, 120, 120);
     fifthVilain = new Vilain("Thor", 160000, 10000, 400, 1000, 1000);
 
 
+    myVar = setTimeout(checkClass, 1000);
+    
+}
+
+function checkClass(){
+    console.log(currentPlayer);
+    if (currentPlayer.class != 0) {
+        myVar = setTimeout(showPage, 500);
+    }
+    else {        
+        myVar = setTimeout(showClass, 500);
+    }
 }
 
 function updateStage(stage) {
@@ -255,12 +266,6 @@ function updateStage(stage) {
 
 function mainLoading() {
     loadResources();
-    if (currentPlayer.class != 0) {
-        myVar = setTimeout(showPage, 500);
-    }
-    else {
-        myVar = setTimeout(showClass, 500);
-    }
 }
 
 function showPage() {
@@ -433,6 +438,7 @@ button.onclick = function () {
     if (isPaused == 0) {
         currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
         currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
+        console.log(currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr);
         if (currentVilain.hp <= 0) {
             currentVilain.hp = 0;
             clearInterval(villainAttack);
@@ -603,7 +609,7 @@ function loadClass(pickedClass) {
 
     }
     else if (pickedClass == 4) {
-        currentPlayer.setStats(1900, 455, 15, 10, 20);
+        currentPlayer.setStats(1900, 45, 15, 10, 20);
 
     }
     else if (pickedClass == 5) {
@@ -620,20 +626,11 @@ function loadClass(pickedClass) {
 
 
 function cookieMaster() {
-    var data = {
-        test: $( "#test" ).val()
-      };
-      var options = {
-        url: "../../api/update",
-        dataType: "text",
-        type: "POST",
-        data: { test: JSON.stringify( data ) }, // Our valid JSON string
-        success: function( data, status, xhr ) {
-           console.log("succes");
-        },
-        error: function( xhr, status, error ) {
-            console.log("fail");
-        }
-      };
-      $.ajax( options );
+    var data = JSON.stringify(currentPlayer);
+    document.cookie = "test =" + data + "; path=/";
+
+    var url2 = '../../api/stats/update';
+    $.getJSON(url2, function () {
+        console.log("succes");
+    });
 }
