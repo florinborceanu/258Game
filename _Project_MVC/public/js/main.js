@@ -173,7 +173,7 @@ var playedStage;
 var currentStage;
 var isPaused;
 var cookieMasterTimer;
-
+var villainAnimation;
 
 function loadPlayerStats() {
     var username = document.cookie;
@@ -191,6 +191,8 @@ function loadPlayerStats() {
         currentPlayer.setItems(data.health, data.ad, data.ap, data.ar, data.mr);
     });
 }
+
+
 function loadResources() {
     var dataloaded;
     var username = document.cookie;
@@ -266,7 +268,41 @@ function updateStage(stage) {
         document.getElementById("fifthStage").classList.add("locked");
     }
 }
-
+//mtk
+function myMove() {
+    var elem = document.getElementById("animate");   
+    elem.style.display = "block";
+    var pos = 0;
+    var id = setInterval(frame, 5);
+    function frame() {
+      if (pos >= 450) {
+        clearInterval(id);
+        elem.style.display = "none";
+      } else {
+        pos = pos+ 15; 
+        elem.style.left = pos + 'px'; 
+  
+      }
+    }
+    
+  }
+  function enemyMove() {
+    var elem = document.getElementById("animateEnemyAttack");   
+    elem.style.display = "block";
+    var pos = 450;
+    var id = setInterval(frame, 5);
+    function frame() {
+      if (pos <= 0) {
+        clearInterval(id);
+        elem.style.display = "none";
+      } else {
+        pos = pos - 15; 
+        elem.style.left = pos + 'px'; 
+  
+      }
+    }
+    
+  }
 
 function mainLoading() {
     loadResources();
@@ -415,6 +451,7 @@ function statsUpdate() {
 
 function timedAttack() {
     villainAttack = setInterval(vilainAtk, 500);
+    villainAnimation = setInterval(enemyMove, 1250);
 }
 
 function vilainAtk() {
@@ -422,6 +459,7 @@ function vilainAtk() {
     if (currentPlayer.hp <= 0) {
         currentPlayer.hp = 0;
         clearInterval(villainAttack);
+        clearInterval(villainAnimation);
 
         document.body.removeAttribute("style");
         finishGame(0);
@@ -438,15 +476,17 @@ button.onclick = function () {
     // var number = Math.floor(Math.random() * 4)+1;
     // var audio = new Audio('sounds/'+number+'.mp3');
     // audio.play(); 
+    
 
     if (isPaused == 0) {
+        myMove();
         currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
         currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
         console.log(currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr);
         if (currentVilain.hp <= 0) {
             currentVilain.hp = 0;
             clearInterval(villainAttack);
-
+            clearInterval(villainAnimation);
 
             document.body.removeAttribute("style");
             finishGame(1);
@@ -483,6 +523,9 @@ button.onclick = function () {
             statsUpdate();
         }
         player.exp.style.width = width + '%';
+    }
+    else{
+        disruptPause();
     }
 };
 
@@ -579,22 +622,26 @@ buttonSurrender = document.getElementById("surrenderButton");
 buttonSurrender.onclick = function () {
     currentVilain.hp = 0;
     clearInterval(villainAttack);
-
+    clearInterval(villainAnimation);
 
     document.body.removeAttribute("style");
     finishGame(0);
 }
-
+function disruptPause() {
+    villainAttack = setInterval(vilainAtk, 500);
+    villainAnimation = setInterval(enemyMove, 1250);
+    document.getElementById("attackButton").classList.remove("locked");
+    isPaused = 0;
+}
 buttonPause = document.getElementById("pauseButton");
 buttonPause.onclick = function () {
     if (isPaused == 0) {
         clearInterval(villainAttack);
+        clearInterval(villainAnimation);
         document.getElementById("attackButton").classList.add("locked");
         isPaused = 1;
     } else {
-        villainAttack = setInterval(vilainAtk, 500);
-        document.getElementById("attackButton").classList.remove("locked");
-        isPaused = 0;
+        disruptPause();
     }
 }
 

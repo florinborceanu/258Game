@@ -90,6 +90,10 @@
                 <div id="playerRealExp"></div>
             </div>
             <div id="mainView">
+                <div id ="container">
+                        <div id ="animate"></div>
+                        <div id ="animateEnemyAttack"></div>
+                </div>
             </div>
             <div id="battleField">
                 <div id="attackButton"></div>

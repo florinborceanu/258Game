@@ -535,3 +535,27 @@ body {
     opacity: 1;
     transition-duration: 0.5s;
 }
+
+/* MTK jobs */
+#container {
+    width: 500;
+    height:200px;
+    position: relative;
+  }
+#animate {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(/imgs/attack.png);
+    background-repeat: no-repeat;
+  }
+  #animateEnemyAttack {
+    display: none;
+    left:450px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(/imgs/attackEnemy.png);
+    background-repeat: no-repeat;
+  }
