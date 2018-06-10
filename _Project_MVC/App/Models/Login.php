@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $username = "";
 $email    = "";
@@ -24,14 +23,16 @@ if (isset($_POST['login_user'])) {
 
   if (count($errors) == 0) {
   	$password = md5($password);
-  	$query = "SELECT * FROM Accounts WHERE username='$username' AND password='$password'";
+  	$query = "SELECT id FROM Accounts WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($conn, $query);
   	if (mysqli_num_rows($results) == 1) {
-  	  $_SESSION['username'] = $username;
-  	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: ../home/index');
-  	}else {
+      $user_id = implode(" ",mysqli_fetch_assoc($results));
+  	  setcookie("user_id", $user_id, time()+3600,"/");
+        header('location: ../home/index');
+      exit();
+  	} else {
   		array_push($errors, "Wrong username/password combination");
+        header('location: ../home/index');
   	}
   }
 }

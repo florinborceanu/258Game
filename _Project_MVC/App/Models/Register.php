@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $username = "";
 $email    = "";
 $errors = array(); 
@@ -42,8 +40,7 @@ if (isset($_POST['reg_user'])) {
 
   	     $query = "INSERT INTO `Accounts`(`username`, `password`, `email`, `nickname`) VALUES ('$username','$password','$email','$nickname')";
   	     mysqli_query($conn, $query);
-  	     $_SESSION['username'] = $username;
-  	     $_SESSION['success'] = "You are now logged in";
+         setcookie("user_id", $username, time()+3600,"/");
          header('location: ../home/index');
     }
     

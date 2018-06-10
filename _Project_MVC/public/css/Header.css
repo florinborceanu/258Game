@@ -39,10 +39,10 @@
 #userName {
     display: none;
 }
-#userPhoto {
-    position: relative;
-    display: inline-block;
-    display: none;
+#userPhoto {position: relative;
+    float:right;
+    display: inline;
+    z-index: 8;
 }
 
 .dropdown-content {
