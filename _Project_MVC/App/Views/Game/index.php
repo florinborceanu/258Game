@@ -10,9 +10,11 @@
     <style type="text/css">
         <?php include 'css/main.css'; ?>
     </style>
+    <style type="text/css">
+        <?php include 'https://fonts.googleapis.com/css?family=Ubuntu'; ?>
+    </style>
     
 </head>
-
 <body>
     <div id="loadingScreen">
         <div class="loader centered"></div>
@@ -81,36 +83,16 @@
                 <div id="attackButton"></div>
             </div>
         </div><div class="stats">
-            <!-- <div class="statsPoint">
-                ++ HP
+            <div id="vilainContainer">
+                <div id="vilainImg">
+
+                </div>
+                <div id="vilainDesc">
+
+                </div>
+                <center><div id="surrenderButton">Surrender</div>
+                <div id="pauseButton">Pause</div></center>
             </div>
-            <div class="statsPoint">
-                ++ Attack
-            </div>
-            <div class="statsPoint">
-                ++ Ability
-            </div>
-            <div class="statsPoint">
-                ++ Armor
-            </div>
-            <div class="statsPoint">
-                ++ Magic Resist
-            </div>
-            <div class="itemUpgrade">
-                Helmet
-            </div>
-            <div class="itemUpgrade">
-                Chest
-            </div>
-            <div class="itemUpgrade">
-                Pants
-            </div>
-            <div class="itemUpgrade">
-                Main Weapon
-            </div>
-            <div class="itemUpgrade">
-                Secondary Weapon
-            </div> -->
         </div>
     </div>
     <div id="afterGame" class="hidden">
@@ -119,10 +101,18 @@
         <div id="backToStage">Back to stages</div>
     </div>
 </body>
-
-
-<script type="text/javascript">
+    
+    <script type="text/javascript">
+        <?php include 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'; ?>
+    </script>
+    <script type="text/javascript">
+        <?php include 'js/crypto-md5.js'; ?>
+    </script>
+    <script type="text/javascript">
         <?php include 'js/main.js'; ?>
     </script>
+    
+    
+    
 
 </html>
