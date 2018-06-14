@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html  lang="ro-RO" vocab="http://schema.org/" typeof="schema:ScholarlyArticle" property="https://github.com/florinborceanu/258Game/">
+<head>
+    <meta charset="utf-8">
+    <title>Raport al aplicatiei</title>
+    <style>
+        ol { 
+            list-style-type: none; 
+        } 
+        body {
+            margin-right:7%;
+            margin-left: 7%;
+            font-size:120%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 property="http://purl.org/dc/terms/title">AnCoWe: Raportul de dezvoltare a aplicatiei</h1>
+    </header>
+    <div role="contentinfo">
+        <hr>
+        <link property="itemListOrder" href="http://schema.org/ItemListOrderAscending"/>
+        <ol role="directory">
+            <li property="itemListElement" typeof="ListItem"><a href="#about">
+                <span>1.</span> Despre</a>
+            </li>
+            <li property="itemListElement" typeof="ListItem"><a href="#intro">
+                <span>2.</span> Introducere</a>
+            </li>
+            <li property="itemListElement" typeof="ListItem"><a href="#obiective">
+                <span>3.</span> Obiective</a>
+            </li>
+            <li property="itemListElement" typeof="ListItem"><a href="#etape">
+                <span>4.</span> Etape de dezvoltare</a>
+            </li>
+            <li property="itemListElement" typeof="ListItem"><a href="#codsursa">
+                    <span>5.</span> Sistem de gestionare al codului sursa</a>
+            </li>
+            <li property="itemListElement" typeof="ListItem"><a href="#concluzie">
+                <span>5.</span> Concluzie</a>
+            </li>
+        </ol>
+      <dl>
+        <dt>Autori</dt>
+        <dd property="http://purl.org/dc/terms/creator">
+          <a property="url" href="https://github.com/florinborceanu"><span property="familyName">Borceanu</span><span property="givenName"> Valentin-Florin </span></a> 
+          <br><a property="url" href="https://github.com/viorelmarian"><span property="familyName">Onica</span> <span property="givenName"> Viorel-Marian </span></a> 
+          <br><a property="url" href="https://github.com/mititeluteofil"><span property="familyName">Mititelu</span><span property="givenName"> Gabriel-Teofil </span></a> 
+        </dd>
+        <dt>Site proiect</dt>
+        <dd>
+            <a property="url" href="https://github.com/florinborceanu/258Game/">Github Repository</a><br>
+            <a property="url" href="https://mititeluteofil.github.io/test/">Ghid de utilizare a aplicatiei</a>
+        </dd>
+         <dt>Tags</dt>
+        <dd>
+         <span>info, infoiasi, web </span>
+        </dd>
+      </dl>
+
+    </div>
+
+
+</ol>
+<section id="about" role="doc-introduction" property="about">
+<h3><span>1.</span> Despre:</h3>
+<p>
+        Raportul de fata curprinde detaliile care au vizat progresul proiectului 'AnCoWe', denumit ulterior si 'ScharaK Online' propus in cadrul laboratorului de Tehnologii Web. 
+        Sunt surprinse in prezentul raport detalii legate de obiectivele proiectului si etapele realizarii acestor obictive, cat si date legate de folosirea sistemului de administrare.
+
+</p>
+</section>
+<section id="intro" role="doc-introduction" property="intro">
+    <h3><span>2.</span> Introducere:</h3>
+    <p>
+        ScharaK Online sau AnCoWe este o aplicatie web ce contine un joc de tip Clicker RPG ce recurge la API-ul oferit de MARVEL pentru a primi imaginile caracterelor inamice, numele si o scurta descriere a fiecaruia.
+        Aplicatia noastra se adreseaza jucatorilor „casual”, cu varste cuprinse intre 12 si 18 ani. Odata conectat pe site-ul aplicatiei, userul are o varietate de alegeri. De la crearea contului la lupta propriuzisa, toata interactiunea acestuia este ghidata si sugestiva. 
+    </p>
+</section>
+
+<section id="ansamblu">
+    <h3><span>3.</span> Obiective:</h3>
+    <ul property="steps">
+            <li property="itemListElement" typeof="ListItem">
+                <p>
+                    Sa se realizeze un joc Web de tip RPG (Role-Playing Game) care va recurge la date publice privitoare la anime (e.g., MyAnimeList) si la cele despre eroi de benzi desenate (precum Marvel API) pentru a reconstitui, la alegere, scenariul unui joc disponibil pe platforme clasice.
+                </p>
+            <li property="itemListElement" typeof="ListItem">
+                    Realizarea unui clasament, decizia luata a fost de a arata in acesta doar primii 6 jucatori.
+            </li>
+            <li property="itemListElement" typeof="ListItem">
+                    Implementarea unui API de tip REST, descris via OpenAPI Specification utilizat in aplicatie pentru a primi date despre fiecare jucator si ofera date legate de acestia - utilizate in clasamentul din Rankings.          
+            </li>
+        </ul>
+</section>
+
+<section id="etape">
+    <h3><span>4.</span> Etape de dezvoltare:</h3>
+    <link property="itemListOrder" href="http://schema.org/ItemListOrderAscending"/>
+    <ul property="steps">
+        <li property="itemListElement" typeof="ListItem">
+            Definitivarea unor elemente legate de interfata - etapa ce a continuat si pe parcurs
+        <li property="itemListElement" typeof="ListItem">
+            Modificarea bazei de date pentru a indeplinii noile necesitati
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Implementarea MVC web a site-ului in PHP
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Dezvoltarea mecanicii jocului in JavaScript
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Integrarea API-ului oferit de Marvel in joc
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Crearea de animatii de atac
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Implementarea API-ului 
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Integrarea API-ului creat in joc 
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Integrarea API-ului creat pentru generarea tabelei Rankings 
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Implementarea Login si Register
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            Implementarea Change Email, Username, Password
+        </li>            
+    </ul>
+</section>
+
+<section id="codsursa">
+    <h3><span>5.</span> Sistemul de management al codului-sursă:</h3>
+    <link property="itemListOrder" href="http://schema.org/ItemListOrderAscending"/>
+    <p>
+            Pentru a administra codul-sursă am ales sistemul celor de la Github. Am folosit Github Desktop pentru o utilizare usoara.
+            Modificarile facute in directorul proiectului sunt vizibile si pot si pot fi adaugate proiectului prin succesiunea de comenzi 'commit' si 'push origin'
+            care pot fi realizate prin simpla apasare a unor butoane din aplicatia Github Desktop.
+            Pentru a prelua local schimbarile facute de ceilalti contribuitori se aplica, la fel de simplu, comenzile 'fetch origin' si apoi 'pull origin'.
+            Commit-urile au fost adaugate ('merge') branch-ului master.
+    </p>
+</section>
+
+<section id="concluzie">
+    <h3><span>6.</span>Concluzie</h3>
+    <p>
+        Proiectul a fost finalizat cu succes in ciuda dificultatilor intampinate si am reusit sa atingem toate obiectivele propuse.
+    </p>
+</section>
+
+</body>
+</html>
