@@ -41,7 +41,7 @@ class changeUsername extends \Core\Controller
         //echo 'Hello from the index action in the Home controller!'
         
         $file="../App/Models/chUsername.php";
-        require $file;
+        require_once $file;
     }
    
 }

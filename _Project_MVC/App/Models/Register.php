@@ -52,12 +52,15 @@ if (isset($_POST['reg_user'])) {
         mysqli_query($conn, $query);
         $query = "INSERT INTO Stats (uid, health, ad, ap, ar, mr) values ($uid, 1, 1, 1, 1, 1)";
         mysqli_query($conn, $query);
-        setcookie("user_id", $uid, time()+3600,"/");
+        $user_id = "&" . $user_id ."&";
+  	    setcookie("user_id", $user_id, time()+(3600*80),"/");
+        header('location: ../home/index');
+        exit();
+    } else {
         header('location: ../home/index');
     }
     
 }
-
 ?>
     
     

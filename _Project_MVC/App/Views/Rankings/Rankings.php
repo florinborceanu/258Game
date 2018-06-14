@@ -135,32 +135,92 @@
                     <div class="row" id="colNames">Class</div>
                     <div class="row">
                         <?php 
-                            echo $ranks[0]['class'];
+                            if($ranks[0]['class'] == 0) {
+                                echo "None";
+                            } else if($ranks[0]['class'] == 1) {
+                                echo "Archer";
+                            } else if($ranks[0]['class'] == 2) {
+                                echo "Mage";
+                            } else if($ranks[0]['class'] == 3) {
+                                echo "Assasin";
+                            } else if($ranks[0]['class'] == 4) {
+                                echo "Warrior";
+                            } 
                         ?>
                     </div>
                     <div class="row">
                         <?php 
-                            echo $ranks[1]['class'];
+                            if($ranks[0]['class'] == 0) {
+                                echo "None";
+                            } else if($ranks[1]['class'] == 1) {
+                                echo "Archer";
+                            } else if($ranks[1]['class'] == 2) {
+                                echo "Mage";
+                            } else if($ranks[1]['class'] == 3) {
+                                echo "Assasin";
+                            } else if($ranks[1]['class'] == 4) {
+                                echo "Warrior";
+                            } 
                         ?>
                     </div>
                     <div class="row">
                         <?php 
-                            echo $ranks[2]['class'];
+                            if($ranks[2]['class'] == 0) {
+                                echo "None";
+                            } else if($ranks[2]['class'] == 1) {
+                                echo "Archer";
+                            } else if($ranks[2]['class'] == 2) {
+                                echo "Mage";
+                            } else if($ranks[2]['class'] == 3) {
+                                echo "Assasin";
+                            } else if($ranks[2]['class'] == 4) {
+                                echo "Warrior";
+                            } 
                         ?>
                     </div>
                     <div class="row">
                         <?php 
-                            echo $ranks[3]['class'];
+                            if($ranks[3]['class'] == 0) {
+                                echo "None";
+                            } else if($ranks[3]['class'] == 1) {
+                                echo "Archer";
+                            } else if($ranks[3]['class'] == 2) {
+                                echo "Mage";
+                            } else if($ranks[3]['class'] == 3) {
+                                echo "Assasin";
+                            } else if($ranks[3]['class'] == 4) {
+                                echo "Warrior";
+                            } 
                         ?>
                     </div>
                     <div class="row">
                         <?php 
-                            echo $ranks[4]['class'];
+                            if($ranks[4]['class'] == 0) {
+                                echo "None";
+                            } else if($ranks[4]['class'] == '1') {
+                                echo "Archer";
+                            } else if($ranks[4]['class'] == '2') {
+                                echo "Mage";
+                            } else if($ranks[4]['class'] == '3') {
+                                echo "Assasin";
+                            } else if($ranks[4]['class'] == '4') {
+                                echo "Warrior";
+                            } 
                         ?>
                     </div>
                     <div class="row">
                         <?php 
-                            echo $ranks[5]['class'];
+                            if($ranks[5]['class'] == 0) {
+                                echo "None";
+                            } else if($ranks[5]['class'] == 1) {
+                                echo "Archer";
+                            } else if($ranks[5]['class'] == 2) {
+                                echo "Mage";
+                            } else if($ranks[5]['class'] == 3) {
+                                echo "Assasin";
+                            } else if($ranks[5]['class'] == 4) {
+                                echo "Warrior";
+                            } 
                         ?>
                     </div>
                 </div>

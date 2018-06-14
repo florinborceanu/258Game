@@ -20,6 +20,7 @@
         <div class="loader centered"></div>
     </div>
     <div id="classScreen" class="hidden" style="color: white;">
+        <div id="classText">Choose Your Class</div>
         <div id="firstClass" class="stage" onclick="loadClass(1)">
         </div>
         <div id="secondClass" class="stage" onclick="loadClass(2)">
@@ -32,6 +33,7 @@
         </div>
     </div>
     <div id="stageScreen" class="hidden">
+        <div id="stageText">Choose a Stage</div>
         <div id="firstStage" class="stage" onclick="loadStage(1)">
         </div>
         <div id="secondStage" class="stage" onclick="loadStage(2)">
@@ -96,7 +98,7 @@
                 </div>
             </div>
             <div id="battleField">
-                <div id="attackButton"></div>
+                <div id="attackButton">Fight!</div>
             </div>
         </div><div class="stats">
             <div id="vilainContainer">

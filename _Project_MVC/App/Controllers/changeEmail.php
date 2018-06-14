@@ -41,7 +41,7 @@ class changeEmail extends \Core\Controller
         //echo 'Hello from the index action in the Home controller!'
         
         $file="../App/Models/chEmail.php";
-        require $file;
+        require_once $file;
     }
    
 }

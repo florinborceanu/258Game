@@ -23,7 +23,7 @@ class Ranks extends \Core\Model
             
             $db = static::getDB();
 
-            $stmt = $db->query('select Accounts.nickname, Characters.class, Characters.score from Accounts , Characters WHERE Accounts.id=Characters.uid order by Characters.score desc');
+            $stmt = $db->query('select Characters.nickname, Characters.class, Characters.score from Characters order by Characters.score desc');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             return $results;

@@ -229,7 +229,7 @@ function loadResources() {
     secondVilain = new Vilain("Captain America", 7000, 100, 70, 120, 90);
     thirdVilain = new Vilain("Hulk", 40000, 45, 45, 530, 240);
     fourthVilain = new Vilain("Iron Man", 100000, 120, 0, 120, 120);
-    fifthVilain = new Vilain("Thor", 160000, 10000, 400, 1000, 1000);
+    fifthVilain = new Vilain("Thor", 160000, 100, 400, 500, 500);
 
 
     myVar = setTimeout(checkClass, 1000);

@@ -41,7 +41,7 @@ class changePassword extends \Core\Controller
         //echo 'Hello from the index action in the Home controller!'
         
         $file="../App/Models/chPassword.php";
-        require $file;
+        require_once $file;
     }
    
 }

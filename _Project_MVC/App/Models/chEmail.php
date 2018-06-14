@@ -12,13 +12,19 @@ $conn = mysqli_connect($host, $username, $password, $dbname);
 
 if (isset($_POST['change_email'])) {
   // receive all input values from the form
-    $old_email = mysqli_real_escape_string($conn, $_POST['username']);
-    $new_email = mysqli_real_escape_string($conn, $_POST['oldEmail']);
-    $password = mysqli_real_escape_string($conn, $_POST['newEmail']);
+    $new_email = mysqli_real_escape_string($conn, $_POST['newEmail']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 }
-var_dump($_COOKIE['user_id']);
-    
+    $var = explode("&", $_COOKIE['user_id']);
+    $id= $var[1];
 
-?>
-    
-    
+    $password = md5($password);
+    $query = "select password from Accounts where id=$id";
+    $result = mysqli_query($conn, $query);
+    $result = mysqli_fetch_assoc($result);
+    if($password==$result['password']) {
+        $query = "UPDATE `Accounts` SET `email`= '$new_email' where id=$id ";
+        mysqli_query($conn, $query);
+    }
+    header('Location: ../home/index');
+    exit();
