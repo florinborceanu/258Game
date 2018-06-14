@@ -19,18 +19,18 @@
                 if(!isset($_COOKIE['user_id'])) { 
             ?>
             <div id="buttons">
-                <button id="login" onclick="document.getElementById('id01').style.display='block'">LOGIN</button>
+                <button id="login" onclick="document.getElementById('id01').style.display='block';window.addEventListener('scroll', noscroll);">LOGIN</button>
             
-                <button id="register" onclick="document.getElementById('id02').style.display='block'">REGISTER</button>
+                <button id="register" onclick="document.getElementById('id02').style.display='block';window.addEventListener('scroll', noscroll);">REGISTER</button>
             </div>
             <?php } else { ?>
             <div id="userPhoto">
                 <div class="dropdown-content">
-                    <a href="#" onclick="document.getElementById('id03').style.display='block'">Change Email</a>
+                    <a href="#" onclick="document.getElementById('id03').style.display='block';window.addEventListener('scroll', noscroll);">Change Email</a>
                 
-                    <a href="#" onclick="document.getElementById('id04').style.display='block'">Change Username</a>
+                    <a href="#" onclick="document.getElementById('id04').style.display='block';window.addEventListener('scroll', noscroll);">Change Username</a>
                 
-                    <a href="#" onclick="document.getElementById('id05').style.display='block'">Change Password</a>
+                    <a href="#" onclick="document.getElementById('id05').style.display='block';window.addEventListener('scroll', noscroll);">Change Password</a>
                 
                     <a href="../logout/index">Log-Out</a>
                 </div>
