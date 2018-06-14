@@ -704,3 +704,25 @@ body {
     text-align: center;
     color: white;
 }
+
+#backButton {
+    color: white;
+    height: 30px;
+    width: 120px;
+    padding-top: 7px;
+    padding-left: 10px;
+    margin-top: 0;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 15px;
+    z-index: 20;
+    opacity: 0.6;
+    margin: 20px;
+    transition-duration: 0.5s;
+}
+
+#backButton:hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}

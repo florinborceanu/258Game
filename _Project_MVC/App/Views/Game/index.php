@@ -16,6 +16,7 @@
     
 </head>
 <body>
+<div id="backButton"><a href="../home/index" style="text-decoration: none; color: black;"><< Main page</a></div>
     <div id="loadingScreen">
         <div class="loader centered"></div>
     </div>
@@ -134,6 +135,7 @@
         <div id="totalScore"></div>
         <div id="backToStage">Back to stages</div>
     </div>
+
 </body>
     
     <script type="text/javascript">
