@@ -21,7 +21,7 @@ class Player {
         this.pieces = 0;
         this.class = 0;
         this.score = 0;
-        this.stage=0;
+        this.stage = 0;
     }
 
 
@@ -47,7 +47,7 @@ class Player {
     }
 
     setStage(stage) {
-        
+
         this.stage = stage;
     }
 
@@ -198,7 +198,7 @@ function loadResources() {
     var dataloaded;
     var username = document.cookie;
     var userid = username.split("-");
-    console.log(username);console.log(userid);
+    console.log(username); console.log(userid);
     console.log(userid[1]);
     var url = '../../api/player/read_one/' + userid[1];
     currentPlayer = new Player();
@@ -212,19 +212,18 @@ function loadResources() {
         currentPlayer.setPieces(Number(data.money));
         currentPlayer.score = Number(data.score);
         stage = Number(data.stage);
-        console.log(stage);
         updateStage(stage);
         currentPlayer.setExpNeeded(Number(400 * (data.level * 1.65)));
 
     });
     var url1 = '../../api/stats/read_one/' + userid[1];
     $.getJSON(url1, function (data) {
-        currentPlayer.setStats(Number(data.health),Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
+        currentPlayer.setStats(Number(data.health), Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
     });
 
     var url2 = '../../api/stats/read_two/' + userid[1];
     $.getJSON(url2, function (data) {
-        currentPlayer.setItems(Number(data.health),Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
+        currentPlayer.setItems(Number(data.health), Number(data.ad), Number(data.ap), Number(data.ar), Number(data.mr));
     });
 
 
@@ -237,15 +236,15 @@ function loadResources() {
 
 
     myVar = setTimeout(checkClass, 1000);
-    
+
 }
 
-function checkClass(){
-    
+function checkClass() {
+
     if (currentPlayer.class != 0) {
         myVar = setTimeout(showPage, 500);
     }
-    else {        
+    else {
         myVar = setTimeout(showClass, 500);
     }
 }
@@ -274,39 +273,39 @@ function updateStage(stage) {
 }
 //mtk
 function myMove() {
-    var elem = document.getElementById("animate");   
+    var elem = document.getElementById("animate");
     elem.style.display = "block";
     var pos = 0;
     var id = setInterval(frame, 5);
     function frame() {
-      if (pos >= 450) {
-        clearInterval(id);
-        elem.style.display = "none";
-      } else {
-        pos = pos+ 15; 
-        elem.style.left = pos + 'px'; 
-  
-      }
+        if (pos >= 450) {
+            clearInterval(id);
+            elem.style.display = "none";
+        } else {
+            pos = pos + 15;
+            elem.style.left = pos + 'px';
+
+        }
     }
-    
-  }
-  function enemyMove() {
-    var elem = document.getElementById("animateEnemyAttack");   
+
+}
+function enemyMove() {
+    var elem = document.getElementById("animateEnemyAttack");
     elem.style.display = "block";
     var pos = 450;
     var id = setInterval(frame, 5);
     function frame() {
-      if (pos <= 0) {
-        clearInterval(id);
-        elem.style.display = "none";
-      } else {
-        pos = pos - 15; 
-        elem.style.left = pos + 'px'; 
-  
-      }
+        if (pos <= 0) {
+            clearInterval(id);
+            elem.style.display = "none";
+        } else {
+            pos = pos - 15;
+            elem.style.left = pos + 'px';
+
+        }
     }
-    
-  }
+
+}
 
 function mainLoading() {
     loadResources();
@@ -373,7 +372,7 @@ function launchGame(stage) {
 }
 
 function finishGame(win) {
-    cookieMasterTimer = setInterval(cookieMaster,500);
+    cookieMasterTimer = setInterval(cookieMaster, 500);
     isPaused = 0;
     document.getElementById("gameScreen").classList.add("hidden");
     document.getElementById("afterGame").classList.remove("hidden");
@@ -386,23 +385,29 @@ function finishGame(win) {
         }
         var text = document.getElementById("stateText");
         text.textContent = "Victory!";
-        var testScore = (initialVHealth - currentPlayer.hp)/3;
-        if(testScore >= 0){
-            currentPlayer.score = currentPlayer.score + ((initialVHealth - currentPlayer.hp)/3);
+        var testScore = (initialVHealth - currentPlayer.hp) / 3;
+        if (testScore >= 0) {
+            var textScore = document.getElementById("stageScore").classList.remove("hidden");
+            var textTScore = document.getElementById("totalScore").classList.remove("hidden");
+            currentPlayer.score = currentPlayer.score + ((initialVHealth - currentPlayer.hp) / 3);
+            var textScore = document.getElementById("stageScore");
+            textScore.textContent = "Stage score: " + Math.round(testScore);
+            var textTScore = document.getElementById("totalScore");
+            textTScore.textContent = "Total score: " + Math.round(currentPlayer.score);
         }
-        var textScore = document.getElementById("stageScore");
-        textScore.textContent = "Stage score: " + Math.round(testScore);
-        var textTScore = document.getElementById("totalScore");
-        textTScore.textContent = "Total score: " + Math.round(currentPlayer.score);
-        // var number = 5;
-        // var audio = new Audio('sounds/'+number+' .mp3');
-        // audio.play(); 
+        else {
+            var textScore = document.getElementById("stageScore").classList.remove("hidden");
+            var textTScore = document.getElementById("totalScore").classList.remove("hidden");
+            var textScore = document.getElementById("stageScore");
+            textScore.textContent = "Stage score: 0";
+            var textTScore = document.getElementById("totalScore");
+            textTScore.textContent = "Total score: " + Math.round(currentPlayer.score);
+        }
     } else {
+        var textScore = document.getElementById("stageScore").classList.add("hidden");
+        var textTScore = document.getElementById("totalScore").classList.add("hidden");
         var text = document.getElementById("stateText");
         text.textContent = "Defeat...";
-        // var number = 6;
-        // var audio = new Audio('sounds/'+number+'.mp3');
-        // audio.play();  
     }
     currentVilain.hp = initialVHealth;
     currentPlayer.hp = currentPlayer.maxHP;
@@ -488,7 +493,7 @@ button.onclick = function () {
     // var number = Math.floor(Math.random() * 4)+1;
     // var audio = new Audio('sounds/'+number+'.mp3');
     // audio.play(); 
-    
+
 
     if (isPaused == 0) {
         myMove();
@@ -536,7 +541,7 @@ button.onclick = function () {
         }
         player.exp.style.width = width + '%';
     }
-    else{
+    else {
         disruptPause();
     }
 };
@@ -691,7 +696,7 @@ function loadClass(pickedClass) {
 function cookieMaster() {
     clearInterval(cookieMasterTimer);
     var data = JSON.stringify(currentPlayer);
-   
+
     document.cookie = "test =" + data + "; path=/";
 
     var url2 = '../../api/player/update';
