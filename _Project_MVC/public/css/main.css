@@ -2,6 +2,7 @@
     font-family: titleFont;
     src: url(/fonts/Muskaters.ttf);
 }
+
 html,
 body,
 div,
@@ -91,7 +92,8 @@ video {
     vertical-align: baseline;
 }
 
-::-moz-selection { /* Code for Firefox */
+::-moz-selection {
+    /* Code for Firefox */
     background: transparent;
 }
 
@@ -119,7 +121,6 @@ body {
 }
 
 .stats {
-    
     width: 25%;
     height: 100%;
     display: inline-block;
@@ -141,13 +142,16 @@ body {
     display: inline-block;
     z-index: 10;
 }
+
 .statsCol {
     display: inline-block;
     margin-left: 5%;
 }
+
 .itemsCol {
     display: inline-block;
 }
+
 .textInfo {
     display: inline-block;
     height: 100%;
@@ -166,12 +170,12 @@ body {
 
 #attackButton {
     background-image: url("/imgs/mainBTglow.png");
-	background-color: #d4764d;
-	background-size: 185px 185px;
+    background-color: #d4764d;
+    background-size: 185px 185px;
     background-position: center;
     position: absolute;
     border-radius: 50%;
-	width: 170px;
+    width: 170px;
     height: 170px;
     cursor: pointer;
     transition: 0.3s;
@@ -180,7 +184,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 1);
     text-align: center;
     vertical-align: middle;
     line-height: 170px;
@@ -212,12 +216,12 @@ body {
     width: 100%;
     height: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 1);
     margin-top: 5px;
 }
 
 #playerRealHealth {
-    background: linear-gradient(45deg, #001212 0%,#720011 24%,#c00023 37%,#c00023 41%,#c00023 46%,#c00023 58%,#ce0022 67%,#dc0028 76%,#dc0028 89%,#ff275d 99%);
+    background: linear-gradient(45deg, #001212 0%, #720011 24%, #c00023 37%, #c00023 41%, #c00023 46%, #c00023 58%, #ce0022 67%, #dc0028 76%, #dc0028 89%, #ff275d 99%);
     width: 100%;
     height: 20px;
     transition-duration: 0.5s;
@@ -242,12 +246,12 @@ body {
     width: 100%;
     height: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 1);
     margin-top: 5px;
 }
 
 #vilainRealHealth {
-    background: linear-gradient(45deg, #001212 0%,#720011 24%,#c00023 37%,#c00023 41%,#c00023 46%,#c00023 58%,#ce0022 67%,#dc0028 76%,#dc0028 89%,#ff275d 99%);
+    background: linear-gradient(45deg, #001212 0%, #720011 24%, #c00023 37%, #c00023 41%, #c00023 46%, #c00023 58%, #ce0022 67%, #dc0028 76%, #dc0028 89%, #ff275d 99%);
     width: 100%;
     height: 20px;
     transition-duration: 0.5s;
@@ -280,7 +284,7 @@ body {
     color: white;
     height: 50px;
     width: 80px;
-    margin:20px; 
+    margin: 20px;
     text-align: center;
     vertical-align: middle;
     line-height: 50px;
@@ -301,7 +305,8 @@ body {
     color: white;
     height: 50px;
     width: 80px;
-    margin:20px;text-align: center;
+    margin: 20px;
+    text-align: center;
     vertical-align: middle;
     line-height: 50px;
     border-radius: 10px;
@@ -438,11 +443,11 @@ body {
     color: white;
     font-size: 200px;
     font-family: titleFont;
-    text-shadow: 0px 0px 40px rgba(75, 79, 86,1);
+    text-shadow: 0px 0px 40px rgba(75, 79, 86, 1);
 }
 
 #backToStage {
-    background: linear-gradient(to bottom, rgba(167,207,223,0.8) 0%,rgba(35,83,138,1) 100%);
+    background: linear-gradient(to bottom, rgba(167, 207, 223, 0.8) 0%, rgba(35, 83, 138, 1) 100%);
     width: 20%;
     height: 15%;
     color: white;
@@ -456,10 +461,10 @@ body {
     margin-right: auto;
     margin-top: 5%;
     border: inset 5px solid #1b1b1c;
-    
-    box-shadow:inset 0px 0px 30px 10px rgba(0,0,0,1);
+    box-shadow: inset 0px 0px 30px 10px rgba(0, 0, 0, 1);
     border-radius: 20px;
 }
+
 #backToStage:hover {
     opacity: 0.85;
 }
@@ -472,8 +477,8 @@ body {
     border-radius: 15px;
     margin-left: 5%;
     padding-bottom: 10px;
-    box-shadow: inset 0px 0px 10px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 1);
     text-align: justify;
     margin-top: 150px;
 }
@@ -481,7 +486,6 @@ body {
 #vilainImg {
     position: relative;
     margin-left: 25%;
-    
 }
 
 #vilainImg img {
@@ -489,14 +493,14 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
 }
 
 #vilainDesc {
-    margin:20px;
+    margin: 20px;
     padding: 20px;
     background-color: beige;
-    box-shadow: inset 0px 0px 15px 1px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 15px 1px rgba(0, 0, 0, 0.75);
     border-radius: 15px;
 }
 
@@ -513,7 +517,8 @@ body {
     cursor: pointer;
     box-shadow: inset 0px 0px 8px 1px grey;
 }
-#surrenderButton:hover{
+
+#surrenderButton:hover {
     opacity: 0.85;
 }
 
@@ -530,6 +535,7 @@ body {
     cursor: pointer;
     box-shadow: inset 0px 0px 8px 1px grey;
 }
+
 #pauseButton:hover {
     opacity: 0.85;
 }
@@ -538,12 +544,12 @@ body {
     user-select: none;
     width: 30%;
     height: 15%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
     z-index: 100;
     font-family: titleFont;
     font-size: 70px;
-    color:white;
+    color: white;
     margin-left: 35%;
     margin-top: 2%;
     text-align: center;
@@ -551,16 +557,17 @@ body {
     line-height: 90px;
     border-radius: 30px;
 }
+
 #classText {
     user-select: none;
     width: 35%;
     height: 15%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
     z-index: 100;
     font-family: titleFont;
     font-size: 70px;
-    color:white;
+    color: white;
     margin-left: 35%;
     margin-top: 2%;
     text-align: center;
@@ -568,6 +575,7 @@ body {
     line-height: 90px;
     border-radius: 30px;
 }
+
 #firstClass {
     background-image: url(/imgs/firstClass.png);
     background-size: cover;
@@ -634,11 +642,13 @@ body {
 }
 
 /* MTK jobs */
+
 #container {
     width: 500;
-    height:200px;
+    height: 200px;
     position: relative;
-  }
+}
+
 #animate {
     display: none;
     width: 100%;
@@ -646,16 +656,17 @@ body {
     position: absolute;
     background-image: url(/imgs/attack.png);
     background-repeat: no-repeat;
-  }
-  #animateEnemyAttack {
+}
+
+#animateEnemyAttack {
     display: none;
-    left:450px;
+    left: 450px;
     width: 100%;
     height: 100%;
     position: relative;
     background-image: url(/imgs/attackEnemy.png);
     background-repeat: no-repeat;
-  }
+}
 
 .itemContainer {
     width: 80%;
@@ -665,12 +676,12 @@ body {
     background-color: #fff;
     border-radius: 15px;
     margin-left: 5%;
-    box-shadow: inset 0px 0px 10px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 1);
     text-align: justify;
     margin-top: 150px;
-    
 }
+
 #classImg {
     margin-left: 22.5%;
     margin-top: -75px;
@@ -678,16 +689,18 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
     background-image: url(/imgs/avatar.png);
     background-size: 175px;
     background-position: center;
 }
 
 #stageScore {
-      color: white;
-  }
+    color: white;
+    text-align: center;
+}
 
-  #totalScore {
-      color: white;
-
+#totalScore {
+    text-align: center;
+    color: white;
+}
