@@ -27,7 +27,7 @@ if (isset($_POST['login_user'])) {
   	$results = mysqli_query($conn, $query);
   	if (mysqli_num_rows($results) == 1) {
       $user_id = implode(" ",mysqli_fetch_assoc($results));
-      $user_id = "&" . $user_id ."&";
+      $user_id = '-' . $user_id .'-';
   	  setcookie("user_id", $user_id, time()+(3600*80),"/");
         header('location: ../home/index');
       exit();

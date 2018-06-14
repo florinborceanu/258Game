@@ -119,7 +119,7 @@ body {
 }
 
 .stats {
-    padding-top: 15px;
+    
     width: 25%;
     height: 100%;
     display: inline-block;
@@ -136,12 +136,21 @@ body {
 }
 
 .items {
-    padding-top: 15px;
     width: 25%;
     height: 100%;
     display: inline-block;
     z-index: 10;
-    vertical-align: top;
+}
+.statsCol {
+    display: inline-block;
+    margin-left: 5%;
+}
+.itemsCol {
+    display: inline-block;
+}
+.textInfo {
+    display: inline-block;
+    height: 100%;
 }
 
 #battleField {
@@ -204,6 +213,7 @@ body {
     height: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    margin-top: 5px;
 }
 
 #playerRealHealth {
@@ -233,6 +243,7 @@ body {
     height: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    margin-top: 5px;
 }
 
 #vilainRealHealth {
@@ -267,18 +278,16 @@ body {
 
 .statsPoint {
     color: white;
-    height: 40px;
-    width: 250px;
-    border-radius: 5px;
+    height: 50px;
+    width: 80px;
+    margin:20px; 
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    border-radius: 10px;
     background-image: url(/imgs/statusBG.JPG);
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
-    margin-bottom: 10px;
-    text-align: justify;
-    padding-top: 15px;
-    padding-left: 40px;
-    margin-left: 15px;
     cursor: pointer;
     transition-duration: 0.5s;
 }
@@ -290,20 +299,15 @@ body {
 
 .itemUpgrade {
     color: white;
-    height: 10%;
-    color: white;
-    height: 40px;
-    width: 250px;
-    border-radius: 5px;
-    background-image: url(/imgs/upgradeBG.jpg);
+    height: 50px;
+    width: 80px;
+    margin:20px;text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    border-radius: 10px;
+    background-image: url(/imgs/statusBG.JPG);
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
-    margin-bottom: 10px;
-    text-align: justify;
-    padding-top: 15px;
-    padding-left: 40px;
-    margin-left: 15px;
     cursor: pointer;
     transition-duration: 0.5s;
 }
@@ -466,15 +470,15 @@ body {
     width: 90%;
     background-color: #fff;
     border-radius: 15px;
-    margin-left: 20px;
+    margin-left: 5%;
     padding-bottom: 10px;
     box-shadow: inset 0px 0px 10px 2px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
     text-align: justify;
+    margin-top: 150px;
 }
 
 #vilainImg {
-    margin-top: 100px;
     position: relative;
     margin-left: 25%;
     
@@ -653,10 +657,37 @@ body {
     background-repeat: no-repeat;
   }
 
-  #stageScore {
+.itemContainer {
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-left: 5%;
+    box-shadow: inset 0px 0px 10px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 30px 10px rgba(0,0,0,1);
+    text-align: justify;
+    margin-top: 150px;
+    
+}
+#classImg {
+    margin-left: 22.5%;
+    margin-top: -75px;
+    z-index: 10;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
+    background-image: url(/imgs/avatar.png);
+    background-size: 175px;
+    background-position: center;
+}
+
+#stageScore {
       color: white;
   }
 
   #totalScore {
       color: white;
-  }
+

@@ -17,7 +17,7 @@ $db = $database->getConnection();
 $product = new Stats($db);
  
 // set ID property of product to be edited
-$product->id = $args[0];
+$product->id = $id;
  
 // read the details of product to be edited
 $product->readTwo();

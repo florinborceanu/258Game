@@ -35,17 +35,17 @@ class Api extends \Core\Controller
      *
      * @return void
      */
-    public function playerAction($name, $args = [])
+    public function playerAction($name, $id)
     {   
         $file ="../Api/player/$name" . ".php";
         include_once $file;
     }
-    public function villainsAction($name, $args = [])
+    public function villainsAction($name, $id)
     {
         $file ="../Api/villains/$name" . ".php";
         include_once $file;
     }
-    public function statsAction($name, $args = [])
+    public function statsAction($name, $id)
     {
         $file ="../Api/stats/$name" . ".php";
         include_once $file;

@@ -15,25 +15,20 @@
         <div id="id04" class="modal">
             <form class="modal-content animate" method="post" action="../changeUsername/index">
                 <div class="container">
-                    <label>
-                        <b>Old Username</b>
-                    </label>
-                    
-                    <input type="text" placeholder="Enter Old Username" name="ouname" required autocomplete="off">
                     
                     <label>
                         <b>New Username</b>
                     </label>
                     
-                    <input type="text" placeholder="Enter New Username" name="nuname" required autocomplete="off">
+                    <input type="text" placeholder="Enter New Username" name="newUsername" required autocomplete="off">
 
                     <label>
                         <b>Password</b>
                     </label>
                     
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="password" required>
 
-                    <button type="button" class="">Submit</button>
+                    <button type="submit" name="change_username" class="">Submit</button>
 
                 </div>
 

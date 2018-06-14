@@ -19,21 +19,21 @@
                         <b>Old Password</b>
                     </label>
                     
-                    <input type="password" placeholder="Enter Old Password" name="opsw" required>
+                    <input type="password" placeholder="Enter Old Password" name="old_password" required>
                     
                     <label>
                         <b>New Password</b>
                     </label>
                     
-                    <input type="password" placeholder="Enter New Password" name="npsw" required>
+                    <input type="password" placeholder="Enter New Password" name="new_password" required>
                     
                     <label>
                         <b>Repeat New Password</b>
                     </label>
                     
-                    <input type="password" placeholder="Repeat New Password" name="rnpsw" required>
+                    <input type="password" placeholder="Repeat New Password" name="r_new_password" required>
 
-                    <button type="button" class="">Submit</button>
+                    <button type="submit" name="change_password" class="">Submit</button>
 
                 </div>
 

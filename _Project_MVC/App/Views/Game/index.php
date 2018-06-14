@@ -47,36 +47,49 @@
     </div>
     <div id="gameScreen" class="hidden">
         <div class="items">
-            <div id="healthUpgrade" class="statsPoint" onclick="upgrade(1)">
-                <span class="icon" data-icon="&#xe0cb;"></span> HP
+            <div class="itemContainer">
+                
+                <div id="classImg">
+                </div>
+                <div class="statsCol">
+                <div id="healthUpgrade" class="statsPoint" onclick="upgrade(1)">
+                    <span class="icon" data-icon="&#xe0cb;"></span>
+                </div>
+                <div id="adUpgrade" class="statsPoint" onclick="upgrade(2)">
+                    <span class="icon" data-icon="&#xe0e8;"></span>
+                </div>
+                <div id="apUpgrade" class="statsPoint" onclick="upgrade(3)">
+                    <span class="icon" data-icon="&#xe176;">
+                    </span>
+                    
+                </div>
+                <div id="armorUpgrade" class="statsPoint" onclick="upgrade(4)">
+                    <span class="icon" data-icon="&#xe006;"></span>
+                </div>
+                <div id="mrUpgrade" class="statsPoint" onclick="upgrade(5)">
+                    <span class="icon" data-icon="&#xe04f;"></span>
+                </div>
             </div>
-            <div id="adUpgrade" class="statsPoint" onclick="upgrade(2)">
-                <span class="icon" data-icon="&#xe0e8;"></span> Attack Damage
+            <div class="itemsCol">
+                <div id="helmetUpgrade" class="itemUpgrade" onclick="upgrade(6)">
+                    <span class="icon" data-icon="&#xe18f;"></span>
+                </div>
+                <div id="chestUpgrade" class="itemUpgrade" onclick="upgrade(7)">
+                    <span class="icon" data-icon="&#xe1a9;"></span>
+                </div>
+                <div id="pantsUpgrade" class="itemUpgrade" onclick="upgrade(8)">
+                    <span class="icon" data-icon="&#xe2b1;"></span>
+                </div>
+                <div id="mweapUpgrade" class="itemUpgrade" onclick="upgrade(9)">
+                    <span class="icon" data-icon="&#xe107;"></span>
+                </div>
+                <div id="sweapUpgrade" class="itemUpgrade" onclick="upgrade(10)">
+                    <span class="icon" data-icon=" &#xe179;"></span>
+                </div>
             </div>
-            <div id="apUpgrade" class="statsPoint" onclick="upgrade(3)">
-                <span class="icon" data-icon="&#xe176;"></span> Ability Power
             </div>
-            <div id="armorUpgrade" class="statsPoint" onclick="upgrade(4)">
-                <span class="icon" data-icon="&#xe006;"></span> Armor
-            </div>
-            <div id="mrUpgrade" class="statsPoint" onclick="upgrade(5)">
-                <span class="icon" data-icon="&#xe04f;"></span> Magic Resist
-            </div>
-            <div id="helmetUpgrade" class="itemUpgrade" onclick="upgrade(6)">
-                <span class="icon" data-icon="&#xe18f;"></span> Helmet
-            </div>
-            <div id="chestUpgrade" class="itemUpgrade" onclick="upgrade(7)">
-                <span class="icon" data-icon="&#xe1a9;"></span> Chest
-            </div>
-            <div id="pantsUpgrade" class="itemUpgrade" onclick="upgrade(8)">
-                <span class="icon" data-icon="&#xe2b1;"></span> Pants
-            </div>
-            <div id="mweapUpgrade" class="itemUpgrade" onclick="upgrade(9)">
-                <span class="icon" data-icon="&#xe107;"></span> Main Weapon
-            </div>
-            <div id="sweapUpgrade" class="itemUpgrade" onclick="upgrade(10)">
-                <span class="icon" data-icon=" &#xe179;"></span> Secondary Weapon
-            </div>
+            
+            
         </div><div class="game">
             <div id="vilainDetails">
             </div>
@@ -103,6 +116,7 @@
         </div><div class="stats">
             <div id="vilainContainer">
                 <div id="vilainImg">
+                    
 
                 </div>
                 <div id="vilainDesc">

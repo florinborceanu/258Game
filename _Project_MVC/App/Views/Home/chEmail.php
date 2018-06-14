@@ -16,11 +16,6 @@
             <form class="modal-content animate" method="post" action="../changeEmail/index">
                 <div class="container">
                     <label>
-                        <b>Old Email</b>
-                    </label>
-                    
-                    <input type="text" placeholder="Enter Old Email" name="oldEmail" required autocomplete="off">
-                    <label>
                         <b>New Email</b>
                     </label>
                     

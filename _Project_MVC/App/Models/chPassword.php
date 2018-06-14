@@ -16,7 +16,7 @@ if (isset($_POST['change_password'])) {
     $new_password = mysqli_real_escape_string($conn, $_POST['new_password']);
     $r_new_password = mysqli_real_escape_string($conn, $_POST['r_new_password']);
 }
-    $var = explode("&", $_COOKIE['user_id']);
+    $var = explode("-", $_COOKIE['user_id']);
     $id= $var[1];
     
     if($new_password==$r_new_password) {
