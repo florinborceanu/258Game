@@ -652,3 +652,11 @@ body {
     background-image: url(/imgs/attackEnemy.png);
     background-repeat: no-repeat;
   }
+
+  #stageScore {
+      color: white;
+  }
+
+  #totalScore {
+      color: white;
+  }

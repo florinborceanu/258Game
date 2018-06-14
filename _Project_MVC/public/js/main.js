@@ -47,7 +47,6 @@ class Player {
     }
 
     setStage(stage) {
-        console.log(stage);
         this.stage = stage;
     }
 
@@ -207,8 +206,8 @@ function loadResources() {
         currentPlayer.setLevel(Number(data.level));
         currentPlayer.setSts(Number(data.st_points));
         currentPlayer.setPieces(Number(data.money));
+        currentPlayer.score = Number(data.score);
         stage = Number(data.stage);
-        console.log(stage);
         updateStage(stage);
         currentPlayer.setExpNeeded(Number(400 * (data.level * 1.65)));
 
@@ -237,7 +236,6 @@ function loadResources() {
 }
 
 function checkClass(){
-    console.log(currentPlayer);
     if (currentPlayer.class != 0) {
         myVar = setTimeout(showPage, 500);
     }
@@ -382,6 +380,15 @@ function finishGame(win) {
         }
         var text = document.getElementById("stateText");
         text.textContent = "Victory!";
+        var testScore = (initialVHealth - currentPlayer.hp)/3;
+        if(testScore >= 0){
+            currentPlayer.score = currentPlayer.score + ((initialVHealth - currentPlayer.hp)/3);
+        }
+        var textScore = document.getElementById("stageScore");
+        textScore.textContent = "Stage score: " + Math.round(testScore);
+        var textTScore = document.getElementById("totalScore");
+        textTScore.textContent = "Total score: " + Math.round(currentPlayer.score);
+
         // var number = 5;
         // var audio = new Audio('sounds/'+number+' .mp3');
         // audio.play(); 
@@ -482,7 +489,6 @@ button.onclick = function () {
         myMove();
         currentVilain.hp -= currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr;
         currentPlayer.exp += (currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr) / 3;
-        console.log(currentPlayer.ad - 0.1 * currentVilain.armor + currentPlayer.ap - 0.3 * currentVilain.mr);
         if (currentVilain.hp <= 0) {
             currentVilain.hp = 0;
             clearInterval(villainAttack);
@@ -679,11 +685,9 @@ function loadClass(pickedClass) {
 function cookieMaster() {
     clearInterval(cookieMasterTimer);
     var data = JSON.stringify(currentPlayer);
-    console.log(data);
     document.cookie = "test =" + data + "; path=/";
 
     var url2 = '../../api/player/update';
     $.getJSON(url2, function () {
-        console.log("succes");
     });
 }

@@ -116,6 +116,8 @@
     <div id="afterGame" class="hidden">
         <div id="stateText"></div>
         <div id="scoreBoard"></div>
+        <div id="stageScore"></div>
+        <div id="totalScore"></div>
         <div id="backToStage">Back to stages</div>
     </div>
 </body>

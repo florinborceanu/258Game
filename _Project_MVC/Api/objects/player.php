@@ -72,7 +72,7 @@ function readOne(){
     $this->money = $row['money'];
     $this->st_points = $row['st_points'];
     $this->experience = $row['experience'];
-    $this->score = $row['Score'];
+    $this->score = $row['score'];
     $this->nickname = $row['nickname'];
 }
 }

@@ -32,7 +32,7 @@ $product_arr = array(
     "money" => $product->money,
     "st_points" =>  $product->st_points,
     "experience" => $product->experience,
-    "Score" => $product->score,
+    "score" => $product->score,
     "nickname" => $product->nickname
 );
  
